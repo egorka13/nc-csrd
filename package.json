@@ -1,0 +1,28 @@
+{
+  "name": "state-manager-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel client/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "express": "^4.17.1",
+    "firebase": "^8.0.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "parsel": "^0.3.0",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "less": "^3.12.2"
+  }
+}

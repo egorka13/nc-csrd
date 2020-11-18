@@ -1,0 +1,40 @@
+.cpm-table{
+  font-family: @font-roboto;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  overflow-y: scroll;
+  padding: 10px;
+  &__list{
+    .flex(column-reverse)
+  }
+  &__ticket{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    width: calc(100% - 40px);
+    height: 50px;
+    background: white;
+    .flex(row, space-between, center);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.36);
+    &_header{
+      font-weight: 600;
+      font-size: 16px;
+    }
+    &-col{
+      width: 15%;
+      max-height: 40px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      &:nth-child(1){
+        width: 30%;
+      }
+      &:nth-child(3), &:nth-child(4){
+        width: 10%;
+      }
+      &:nth-child(2), &:nth-child(5){
+        width: 15%;
+      }
+    }
+  }
+}
