@@ -7,6 +7,7 @@ import NotFound from "./components/notFound/notFound.component.js";
 import Main from "./components/main/main.component.js";
 import store from "./store/index.js";
 import firebase from "firebase/app";
+import Counter from "./components/counter/counter.component.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -29,6 +30,7 @@ router
     .use('/', Main, { page: 'cpm'})
     .use('/example', Example)
     .use('/todo', Todo)
+    .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
     .start();

@@ -7,6 +7,7 @@ export default class CpmForm extends Component {
         super({
             store
         });
+        //some changes
         this.props.store.events.subscribe('addCpmTicket', this.reload.bind(this));
         this.methods = {
             addCpmTicket: function(){
