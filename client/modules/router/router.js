@@ -32,7 +32,6 @@ export default class Router {
             this.redirect('/404');
         }
         else if(this.currentRoute.path.indexOf(':') !== -1){
-            let data = {};
             let value = path.split('/')[path.split('/').length - 1];
             let key = this.currentRoute.path
                 .split('/')[this.currentRoute.path.split('/').length - 1]
@@ -40,7 +39,8 @@ export default class Router {
                     .splice(1)
                     .join('');
             data[key] = value;
-            this.currentRoute.render(data);
+            this.currentRoute.data[key] = value;
+            this.currentRoute.render();
         }
         else
             this.currentRoute.render();

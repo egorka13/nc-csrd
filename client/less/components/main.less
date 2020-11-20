@@ -1,28 +1,61 @@
-.navbar{
+.sidebar{
   position: fixed;
   z-index: 10;
   font-family: @font-roboto;
-  width: 100%;
-  height: 60px;
-  background: @nc-dark-blue;
+  width: 200px;
+  height: 100vh;
+  background: @csrd-violet;
   color: white;
-  .flex(row, space-between, center);
+  .flex(column, flex-start);
   &__title{
+    margin-left: 20px;
+    margin-top: 30px;
     .flex(row, flex-start, center);
   }
   &__title-name{
-    font-size: 36px;
+    font-size: 20px;
   }
   &__logo{
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 20px;
-    width: 20px;
+    margin-right: 10px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
-    border: 10px solid white;
+    border: 8px solid white;
+  }
+  &__menu{
+    margin-top: 32px;
+    width: 100%;
+  }
+  &__menu-item{
+    width: 100%;
+    .flex(row, flex-start, center);
+    font-size: 15px;
+    height: 55px;
+    cursor: pointer;
+    &:hover{
+      background: #4052de;
+    }
+    &._active{
+      background: @csrd-dark-blue;
+    }
+  }
+  &__menu-icon{
+    margin-left: 23px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  &__menu-title{
+    margin-left: 10px;
   }
 }
-
-.sidebar{
-
+.main{
+  &__page{
+    width: calc(100% - 200px);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: @csrd-background;
+  }
 }
