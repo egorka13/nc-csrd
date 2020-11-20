@@ -6,7 +6,13 @@ import {counterStore} from "./counter.js";
 const state = {
     todo: todoStore.state,
     cpm: cpmStore.state,
-    counter: counterStore.state
+    counter: counterStore.state,
+    pages: {
+        cim: 'Customer Info',
+        cpm: 'Customer Problem',
+        roe: 'Order Entry',
+        bim: 'Billing Accounts'
+    }
 };
 
 export default new Store({

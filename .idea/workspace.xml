@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="818535e9-6432-4b12-bd8b-964c02167069" name="Default Changelist" comment="" />
+    <list default="true" id="818535e9-6432-4b12-bd8b-964c02167069" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.cache/3f/8b7f971dff458f7b0cb1d14b4ce1ea.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/3f/8b7f971dff458f7b0cb1d14b4ce1ea.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/5a/e973796de0d4408e9855dae2c589ab.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/5a/e973796de0d4408e9855dae2c589ab.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/68/2d545928e5624c4d720f54abec4954.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/68/2d545928e5624c4d720f54abec4954.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/c0/c2686b48fb06b92964dcf4d5488844.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/c0/c2686b48fb06b92964dcf4d5488844.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/d5/ef89072bdb65a685e966ee6e3143c9.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/d5/ef89072bdb65a685e966ee6e3143c9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/e3/2c452cd988b88ead842357f2a1d4e4.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/e3/2c452cd988b88ead842357f2a1d4e4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/less/common/color.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/common/color.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/less/components/cpm/page.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/cpm/page.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/less/components/main.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/main.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/router/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/router/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +36,9 @@
         <option value="store" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kPtMn5qaAeV6ClBB0m1UUXoDTq" />
   <component name="ProjectViewState">
@@ -71,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605614008576</updated>
       <workItem from="1605614009639" duration="38074000" />
+      <workItem from="1605878306081" duration="3547000" />
     </task>
     <servers />
   </component>

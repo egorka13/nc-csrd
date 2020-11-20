@@ -3,9 +3,10 @@ import store from '../../store/index.js';
 import {template} from './main.template.js';
 
 export default class App extends Component {
-    constructor() {
+    constructor(data) {
         super({
-            store
+            store,
+            ...data
         });
     }
 

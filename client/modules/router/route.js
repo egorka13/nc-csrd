@@ -5,12 +5,9 @@ export default class Route{
         this.rootQuery = rootQuery;
         this.data = data;
     }
-    render(data){
+    render(){
         let root = document.querySelector(this.rootQuery);
         root.innerHTML = '';
-        if(data)
-            root.append(new this.component(data).render());
-        else
-            root.append(new this.component().render());
+        root.append(new this.component(this.data).render());
     }
 }

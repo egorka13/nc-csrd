@@ -28,6 +28,7 @@ window.store = store;
 
 router
     .use('/', Main, { page: 'cpm'})
+    .use('/cpm', Main, { page: 'cpm'})
     .use('/example', Example)
     .use('/todo', Todo)
     .use('/counter', Counter)
