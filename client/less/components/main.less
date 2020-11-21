@@ -1,10 +1,10 @@
 .sidebar{
   position: fixed;
   z-index: 10;
-  font-family: @font-roboto;
-  width: 200px;
+  font-family: @font-noto-sans;
+  width: 255px;
   height: 100vh;
-  background: @csrd-violet;
+  background: linear-gradient(360deg, #5768F3 37.87%, #1C45EF 100%);
   color: white;
   .flex(column, flex-start);
   &__title{
@@ -27,13 +27,21 @@
     width: 100%;
   }
   &__menu-item{
+    transition: .3s;
     width: 100%;
     .flex(row, flex-start, center);
     font-size: 15px;
     height: 55px;
     cursor: pointer;
+    & *{
+      transition: .3s;
+    }
     &:hover{
-      background: #4052de;
+      background: #1c32e9;
+      //font-weight: 600;
+      & *{
+        transform: translateX(10px);
+      }
     }
     &._active{
       background: @csrd-dark-blue;
@@ -52,7 +60,7 @@
 }
 .main{
   &__page{
-    width: calc(100% - 200px);
+    width: calc(100% - 255px);
     height: 100%;
     position: absolute;
     right: 0;
