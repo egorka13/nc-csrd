@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="818535e9-6432-4b12-bd8b-964c02167069" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/main/sidebar/sidebar.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/main/sidebar/sidebar.template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/3f/8b7f971dff458f7b0cb1d14b4ce1ea.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/3f/8b7f971dff458f7b0cb1d14b4ce1ea.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/68/2d545928e5624c4d720f54abec4954.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/68/2d545928e5624c4d720f54abec4954.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/c0/c2686b48fb06b92964dcf4d5488844.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/c0/c2686b48fb06b92964dcf4d5488844.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/color.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/common/color.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/font-vars.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/common/font-vars.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/font.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/common/font.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/main.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/main.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +52,9 @@
       <list>
         <option value="Less File" />
         <option value="JavaScript File" />
-        <option value="component" />
-        <option value="template" />
         <option value="store" />
+        <option value="template" />
+        <option value="component" />
       </list>
     </option>
   </component>
@@ -90,33 +122,42 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="352" y="45" width="736" height="631" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1605711068781">
+    <state x="352" y="45" width="736" height="631" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1605961922936">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="352" y="45" width="736" height="631" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605711068781" />
+    <state x="352" y="45" width="736" height="631" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605961922936" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605710327730">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605710327730" />
-    <state width="1419" height="205" key="GridCell.Tab.0.bottom" timestamp="1605961054397">
+    <state width="1419" height="205" key="GridCell.Tab.0.bottom" timestamp="1605962307212">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605961054397" />
-    <state width="1419" height="205" key="GridCell.Tab.0.center" timestamp="1605961054396">
+    <state width="1419" height="205" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605962307212" />
+    <state width="1419" height="205" key="GridCell.Tab.0.center" timestamp="1605962307209">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605961054396" />
-    <state width="1419" height="205" key="GridCell.Tab.0.left" timestamp="1605961054395">
+    <state width="1419" height="205" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605962307209" />
+    <state width="1419" height="205" key="GridCell.Tab.0.left" timestamp="1605962307208">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605961054395" />
-    <state width="1419" height="205" key="GridCell.Tab.0.right" timestamp="1605961054396">
+    <state width="1419" height="205" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605962307208" />
+    <state width="1419" height="205" key="GridCell.Tab.0.right" timestamp="1605962307210">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605961054396" />
+    <state width="1419" height="205" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605962307210" />
     <state x="222" y="103" key="SettingsEditor" timestamp="1605710872854">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
