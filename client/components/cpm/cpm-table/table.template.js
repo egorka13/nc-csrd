@@ -2,10 +2,10 @@ import store from "../../../store";
 
 export const template = function(){
     let tickets = this.props.store.getter('getCpmTickets');
-    let params = this.props.store.state.cpm.ticketTypes.example.availableParameters;
+    let params = this.props.store.state.cpm.ticketTableParams;
     return {
         tagName: 'div',
-        classList: ['cpm-table'],
+        classList: ['cpm-table',  'card'],
         children: [
             {
                 tagName: 'h2',
@@ -29,17 +29,31 @@ export const template = function(){
                                 return {
                                 tagName: 'div',
                                 classList: ['cpm-table__ticket-col'],
-                                textContent: ticket[param]
+                                children: [
+                                    {
+                                        tagName: 'div',
+                                        classList:
+                                            param === 'status' ?
+                                            ['cpm-table__ticket-text', '_status'] :
+                                            param === 'type' ?
+                                            ['cpm-table__ticket-text', '_type']:
+                                            ['cpm-table__ticket-text'],
+                                        textContent: ticket[param],
+                                        children: [
+
+                                        ]
+                                    }
+                                ]
                             }})
                         ]
                     }}),
                     {
                         tagName: 'div',
-                        classList: ['cpm-table__ticket', 'cpm-table__ticket_header'],
+                        classList: ['cpm-table__ticket_header'],
                         children: [
                             ...Object.values(params).map(value => { return {
                                 tagName: 'div',
-                                classList: ['cpm-table__ticket-col'],
+                                classList: ['cpm-table__ticket-col', 'cpm-table__ticket-col_header'],
                                 textContent: value
                             }})
                         ]

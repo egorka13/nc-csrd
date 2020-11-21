@@ -1,16 +1,14 @@
 export const cpmStore = {
     state: {
         tickets: [],
+        ticketTableParams: {
+            comment: 'Comment',
+            type: 'Type',
+            dateOfCreation: 'Creation date',
+            closingDate: 'Closing date',
+            status: 'Status',
+        },
         ticketTypes: {
-            example: {
-                availableParameters: {
-                    comment: 'Comment',
-                    dateOfCreation: 'Date of creation',
-                    type: 'Type',
-                    status: 'Status',
-                    closingDate: 'Closing date'
-                }
-            },
             support: {
                 availableParameters: {
                     id: 'Ticket id',
