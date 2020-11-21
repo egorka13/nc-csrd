@@ -57,9 +57,18 @@ export default new Store({
         ...cpmStore.mutations,
         ...counterStore.mutations,
         goToOtherPage(state, payload){
-            state.pages.find(page => page.active).active = false;
-            state.pages.find(page => page.minName === payload).active = true;
-            console.log(state);
+            let activePage = state.pages.find(page => page.active);
+            if(activePage)
+                activePage.active = false;
+            else
+                console.log('Attention: Incorrect payload');
+
+            let newPage = state.pages.find(page => page.minName === payload);
+            if(newPage)
+                newPage.active = true;
+            else
+                console.log('Attention x2: Incorrect payload')
+
             return state;
         }
     },
