@@ -1,0 +1,42 @@
+.info{
+  width: 100%;
+  font-family: @font-roboto;
+  padding: 15px 0;
+  &._problem{
+  }
+  &._customer{
+    height: calc(40% - 17px);
+    margin-top: 15px;
+  }
+  &__title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    margin-left: 15px;
+  }
+  &__list{
+    margin-top: 15px;
+  }
+  &__point{
+    height: 40px;
+    width: calc(100% - 30px);
+    border-top: 1px solid @csrd-divider-gray;
+    margin: 0 15px;
+    .flex(row, space-between, center);
+  }
+  &__key{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  &__value{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    color: @csrd-text-gray
+  }
+}

@@ -1,6 +1,9 @@
 export const cpmStore = {
     state: {
         tickets: [],
+        currentTicket: {
+
+        },
         ticketTableParams: {
             comment: 'Comment',
             type: 'Type',
@@ -10,6 +13,9 @@ export const cpmStore = {
         },
         ticketTypes: {
             support: {
+                name: 'Support',
+                color: '#47DDCC',
+                fullName: 'Customer support',
                 availableParameters: {
                     id: 'Ticket id',
                     accountId: 'Customer account id',
@@ -18,6 +24,9 @@ export const cpmStore = {
                 }
             },
             security: {
+                name: 'Security',
+                fullName: 'Security',
+                color: '#964FFF',
                 availableParameters: {
                     id: 'Ticket id',
                     accountId: 'Customer account id',
@@ -27,6 +36,9 @@ export const cpmStore = {
                 }
             },
             billing: {
+                name: 'Billing',
+                fullName: 'Billing',
+                color: '#0F5BFF',
                 availableParameters: {
                     id: 'Ticket id',
                     accountId: 'Customer account id',
@@ -35,7 +47,10 @@ export const cpmStore = {
                     currentDate: 'Current date',
                 }
             },
-            sale: {
+            order: {
+                name: 'Sales order',
+                fullName: 'Order',
+                color: '#FA394E',
                 availableParameters: {
                     id: 'Ticket id',
                     accountId: 'Customer account id',
@@ -45,6 +60,9 @@ export const cpmStore = {
                 }
             },
             generic: {
+                name: 'Generic',
+                fullName: 'Generic',
+                color: '#EA87FF',
                 availableParameters: {
                     id: 'Ticket id',
                     accountId: 'Customer account id',
@@ -54,13 +72,28 @@ export const cpmStore = {
                 }
             }
         },
-        ticketStatuses: [
-            'active',
-            'canceled',
-            'executing',
-            'done',
-            'notDone',
-        ],
+        ticketStatuses: {
+            active: {
+                name: 'Active',
+                color: '#5EAAF8'
+            },
+            canceled: {
+                name: 'Canceled',
+                color: '#999999'
+            },
+            executing: {
+                name: 'Executing',
+                color: '#FFC102'
+            },
+            done: {
+                name: 'Done',
+                color: '#47DDCC'
+            },
+            notDone: {
+                name: 'Not done',
+                color: '#FA394E'
+            },
+        },
         ticketsByCustomers: {
             dateOfCreation: 'Date of creation',
             type: 'Ticket type',
@@ -79,6 +112,9 @@ export const cpmStore = {
         },
     },
     getters: {
+        getCurrentTicket(context, payload){
+
+        },
         getCpmTickets(context, payload){
             if(!context.state.cpm.tickets.length)
                 context.dispatch('loadCpmTickets');

@@ -1,4 +1,4 @@
-import store from "../../../store";
+import Ticket from "../ticket/ticket.component";
 
 export const template = function(){
     let tickets = this.props.store.getter('getCpmTickets');
@@ -21,32 +21,7 @@ export const template = function(){
                 tagName: 'div',
                 classList: ['cpm-table__list'],
                 children: [
-                    ...tickets.map(ticket => { return {
-                        tagName: 'div',
-                        classList: ['cpm-table__ticket'],
-                        children: [
-                            ...Object.keys(params).map(param => {
-                                return {
-                                tagName: 'div',
-                                classList: ['cpm-table__ticket-col'],
-                                children: [
-                                    {
-                                        tagName: 'div',
-                                        classList:
-                                            param === 'status' ?
-                                            ['cpm-table__ticket-text', '_status'] :
-                                            param === 'type' ?
-                                            ['cpm-table__ticket-text', '_type']:
-                                            ['cpm-table__ticket-text'],
-                                        textContent: ticket[param],
-                                        children: [
-
-                                        ]
-                                    }
-                                ]
-                            }})
-                        ]
-                    }}),
+                    ...tickets.map(ticket => { return new Ticket(ticket).render()}),
                     {
                         tagName: 'div',
                         classList: ['cpm-table__ticket_header'],

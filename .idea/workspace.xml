@@ -31,16 +31,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="818535e9-6432-4b12-bd8b-964c02167069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/less/components/cpm/card.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/customerInfo/customerInfo.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/customerInfo/customerInfo.template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/problemInfo/problemInfo.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/problemInfo/problemInfo.template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/ticket/ticket.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/cpm/ticket/ticket.template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/less/components/cpm/info.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/5b/3f3815ce1faf50c3ee852b5e935042.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/75/46620989456c8223cb54918e62f540.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/75/46620989456c8223cb54918e62f540.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/7d/e3229cf2fbaf254db64a24814aa96e.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/7d/e3229cf2fbaf254db64a24814aa96e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/b7/c892d33d0d874646f95d16b6e2ebf9.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/cd/c49fb9754d19e85038a6e5d49cbc59.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/cd/c49fb9754d19e85038a6e5d49cbc59.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cache/d0/40b7e238e9798cbb59f52a6f1f1374.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/d0/40b7e238e9798cbb59f52a6f1f1374.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.cache/f5/82f0d8e62c0b895a5f5d88b651b689.json" beforeDir="false" afterPath="$PROJECT_DIR$/.cache/f5/82f0d8e62c0b895a5f5d88b651b689.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.template.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-table/table.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/cpm/cpm-table/table.template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/cpm/cpm.template.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/less/common/color.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/common/color.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/less/components/cpm/cpm.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/cpm/cpm.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/less/components/cpm/form.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/cpm/form.less" afterDir="false" />
@@ -137,6 +146,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="352" y="45" width="736" height="631" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1605711068781">
@@ -147,25 +157,25 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605710327730" />
-    <state width="1419" height="205" key="GridCell.Tab.0.bottom" timestamp="1605910573836">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1419" height="205" key="GridCell.Tab.0.bottom" timestamp="1605979758170">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605884892713" />
+    <state width="1419" height="205" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605979758170" />
     <state width="1419" height="205" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1605910573836" />
-    <state width="1419" height="205" key="GridCell.Tab.0.center" timestamp="1605910573835">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1419" height="205" key="GridCell.Tab.0.center" timestamp="1605979758169">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605884892712" />
+    <state width="1419" height="205" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605979758169" />
     <state width="1419" height="205" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1605910573835" />
-    <state width="1419" height="205" key="GridCell.Tab.0.left" timestamp="1605910573834">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1419" height="205" key="GridCell.Tab.0.left" timestamp="1605979758169">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605884892711" />
+    <state width="1419" height="205" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605979758169" />
     <state width="1419" height="205" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1605910573834" />
-    <state width="1419" height="205" key="GridCell.Tab.0.right" timestamp="1605910573835">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state width="1419" height="205" key="GridCell.Tab.0.right" timestamp="1605979758170">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="205" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605884892713" />
+    <state width="1419" height="205" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605979758170" />
     <state width="1419" height="205" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1605910573835" />
     <state x="222" y="103" key="SettingsEditor" timestamp="1605710872854">
       <screen x="0" y="0" width="1440" height="900" />
