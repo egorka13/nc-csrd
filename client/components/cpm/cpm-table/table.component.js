@@ -24,11 +24,6 @@ export default class CpmTable extends Component {
 
         this.compile(template.call(this));
 
-        this.element.addEventListener('generate', function(){
-            let table = document.querySelector('.cpm-table');
-            table.classList.remove('_hidden');
-        })
-
         return this.element;
     }
 }

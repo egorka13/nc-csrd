@@ -16,7 +16,18 @@ export const template = function(){
                     {
                         tagName: 'div',
                         classList: ['cpm__title'],
-                        textContent: 'Customer problem management'
+                        children: [
+                            {
+                                tagName: 'div',
+                                classList: ['cpm__title-name'],
+                                textContent: 'Customer problem management',
+                            },
+                            {
+                                tagName: 'div',
+                                classList: ['cpm__title-new'],
+                                textContent: 'New session',
+                            },
+                        ]
                     },
                 ]
             },

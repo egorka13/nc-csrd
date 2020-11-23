@@ -25,11 +25,30 @@
     margin: 0 15px;
   }
   &__title{
+    .flex(row, center);
+  }
+  &__title-name{
     font-family: @font-roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 22px;
     margin-bottom: 8px;
+  }
+  &__title-new{
+    font-family: @font-roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #001737;
+    margin-left: 25px;
+
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover{
+      color: @csrd-text-gray
+    }
   }
 }

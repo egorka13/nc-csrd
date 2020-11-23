@@ -5,24 +5,13 @@ export const template = function(){
     let params = this.props.store.state.cpm.ticketTableParams;
     return {
         tagName: 'div',
-        classList: ['cpm-table',  'card', '_hidden'],
-        events: {
-            // onload: function(){ alert('KEKEKEKEK')}
-        },
-        attributes: {
-            ongenerate: 'ongenerate'
-        },
+        classList: ['cpm-table',  'card'],
         children: [
             {
                 tagName: 'h2',
                 classList: ['cpm-table__title'],
                 textContent: 'List of tickets'
             },
-            // {
-            //     tagName: 'h3',
-            //     classList: ['cpm-table__title'],
-            //     textContent: JSON.stringify(tickets)
-            // },
             {
                 tagName: 'div',
                 classList: ['cpm-table__list'],
