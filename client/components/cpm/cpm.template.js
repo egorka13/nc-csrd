@@ -28,6 +28,7 @@ export const template = function(){
                         tagName: 'div',
                         classList: ['cpm__info'],
                         children: [
+                            // new CpmForm().render
                             new ProblemInfo().render(),
                             new CustomerInfo().render(),
                         ]

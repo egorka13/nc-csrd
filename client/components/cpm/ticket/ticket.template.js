@@ -5,6 +5,9 @@ export const template = function () {
     return {
         tagName: 'div',
         classList: ['cpm-table__ticket'],
+        attributes: {
+            'data-ticket': ticket.id
+        },
         children: [
             {
                 tagName: 'div',

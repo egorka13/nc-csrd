@@ -10,6 +10,8 @@ export default class ProblemInfo extends Component {
         super({
             store
         });
+        store.events.subscribe('changeCpmTicket', this.reload.bind(this));
+        store.events.subscribe('setCurrentTicket', this.reload.bind(this));
     }
 
     render() {

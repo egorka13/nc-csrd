@@ -5,7 +5,13 @@ export const template = function(){
     let params = this.props.store.state.cpm.ticketTableParams;
     return {
         tagName: 'div',
-        classList: ['cpm-table',  'card'],
+        classList: ['cpm-table',  'card', '_hidden'],
+        events: {
+            // onload: function(){ alert('KEKEKEKEK')}
+        },
+        attributes: {
+            ongenerate: 'ongenerate'
+        },
         children: [
             {
                 tagName: 'h2',
@@ -20,6 +26,9 @@ export const template = function(){
             {
                 tagName: 'div',
                 classList: ['cpm-table__list'],
+                events: {
+                    onclick: this.methods.changeCpmTicket
+                },
                 children: [
                     ...tickets.map(ticket => { return new Ticket(ticket).render()}),
                     {

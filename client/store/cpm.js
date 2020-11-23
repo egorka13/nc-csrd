@@ -1,9 +1,6 @@
 export const cpmStore = {
     state: {
         tickets: [],
-        currentTicket: {
-
-        },
         ticketTableParams: {
             comment: 'Comment',
             type: 'Type',
@@ -113,7 +110,7 @@ export const cpmStore = {
     },
     getters: {
         getCurrentTicket(context, payload){
-
+            return context.state.cpm.currentTicket;
         },
         getCpmTickets(context, payload){
             if(!context.state.cpm.tickets.length)
@@ -131,6 +128,7 @@ export const cpmStore = {
             console.log(tickets);
             console.groupEnd();
             context.commit('loadCpmTickets', tickets);
+            context.commit('setCurrentTicket');
         },
         async addCpmTicket(context, payload) {
             console.groupCollapsed('FETCH POST /problems.json');
@@ -150,8 +148,17 @@ export const cpmStore = {
         clearCpmTicket(context, payload) {
             context.commit('clearCpmTicket', payload);
         },
+        changeCpmTicket(context, payload){
+            context.commit('changeCpmTicket', payload);
+        }
     },
     mutations: {
+        setCurrentTicket(state, payload){
+            console.log(state.cpm.tickets[state.cpm.tickets.length - 1]);
+            state.cpm.currentTicket = state.cpm.tickets[state.cpm.tickets.length - 1];
+
+            return state;
+        },
         loadCpmTickets(state, payload){
             state.cpm.tickets = payload;
 
@@ -168,6 +175,10 @@ export const cpmStore = {
 
             return state;
         },
+        changeCpmTicket(state, payload){
+            state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
+            return state;
+        }
     },
 }
 

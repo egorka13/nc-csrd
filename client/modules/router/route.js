@@ -8,6 +8,7 @@ export default class Route{
     render(){
         let root = document.querySelector(this.rootQuery);
         root.innerHTML = '';
-        root.append(new this.component(this.data).render());
+        let element = new this.component(this.data).render()
+        root.append(element);
     }
 }

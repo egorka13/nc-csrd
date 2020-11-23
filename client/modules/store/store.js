@@ -31,7 +31,7 @@ export default class Store {
                 state[key] = value;
 
                 console.groupCollapsed(`STATE was changed`);
-                console.log(`${key}: ${JSON.stringify(value)}`);
+                console.log(value);
                 console.groupEnd();
                 this.status = 'resting';
 

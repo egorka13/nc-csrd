@@ -10,6 +10,11 @@ export default class CPM extends Component {
     }
 
     render() {
-        return this.compile(template.call(this));
+        this.compile(template.call(this));
+
+        let table = this.element.querySelector('.cpm-table');
+        table.dispatchEvent(new CustomEvent('generate'));
+
+        return this.element;
     }
 }
