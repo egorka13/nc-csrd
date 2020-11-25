@@ -11,6 +11,27 @@ export default class Ticket extends Component {
             store,
             ticket
         });
+
+        this.isFilter = false;
+
+        this.methods = {
+            filterByStatus(event){
+                event.stopPropagation();
+                let value = event.target.textContent;
+                store.dispatch('filterCpmTickets', {
+                    key: 'status',
+                    value: value
+                });
+            },
+            filterByType(event){
+                event.stopPropagation();
+                let value = event.target.textContent;
+                store.dispatch('filterCpmTickets', {
+                    key: 'type',
+                    value: value
+                });
+            }
+        };
     }
 
     render() {

@@ -18,8 +18,27 @@
   }
   &__title{
     font-weight: bold;
+    margin-left: 15px;
+    .flex(row, flex-start, center);
+  }
+  &__title-name{
     font-size: 15px;
-    margin-left: 30px;
+  }
+  &__title-all{
+    font-family: @font-roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #001737;
+    margin-left: 25px;
+
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover{
+      color: @csrd-text-gray
+    }
   }
   &__ticket{
     border-top: 2px solid #D3E3F7;

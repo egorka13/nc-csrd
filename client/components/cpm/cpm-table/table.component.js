@@ -7,14 +7,21 @@ export default class CpmTable extends Component {
         super({
             store
         });
+        this.isSort = false;
         this.methods = {
             changeCpmTicket(event){
                 let ticket = event.target.closest('.cpm-table__ticket');
                 store.dispatch('changeCpmTicket', ticket.dataset.ticket);
+            },
+            clearFilters(event){
+                store.dispatch('clearCpmFilters');
             }
+
         };
         store.events.subscribe('addCpmTicket', this.reload.bind(this));
         store.events.subscribe('loadCpmTickets', this.reload.bind(this));
+        store.events.subscribe('filterCpmTickets', this.reload.bind(this));
+        store.events.subscribe('clearCpmFilters', this.reload.bind(this));
     }
 
     render() {

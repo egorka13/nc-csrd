@@ -30,6 +30,9 @@ export const template = function () {
                         attributes: {
                             style: `background: ${types[ticket.type].color}`
                         },
+                        events: {
+                            onclick: this.methods.filterByType.bind(this)
+                        },
                         textContent: ticket.type,
                     }
                 ]
@@ -65,6 +68,9 @@ export const template = function () {
                         classList: ['cpm-table__ticket-text', '_status'],
                         attributes: {
                             style: `background: ${statuses[ticket.status].color}`
+                        },
+                        events: {
+                            onclick: this.methods.filterByStatus.bind(this)
                         },
                         textContent: ticket.status,
                     }

@@ -1,16 +1,37 @@
 import Ticket from "../ticket/ticket.component";
 
 export const template = function(){
-    let tickets = this.props.store.getter('getCpmTickets');
+    let tickets = [];
+    if(this.props.store.state.cpm.isFilter)
+        tickets = this.props.store.getter('getCpmFilteredTickets');
+    else
+        tickets = this.props.store.getter('getCpmTickets');
     let params = this.props.store.state.cpm.ticketTableParams;
+
+    let showAll = this.props.store.state.cpm.isFilter ? [{
+        tagName: 'div',
+        classList: ['cpm-table__title-all'],
+        textContent: 'Show all',
+        events: {
+            onclick: this.methods.clearFilters
+        }
+    }] : [];
+
     return {
         tagName: 'div',
         classList: ['cpm-table',  'card'],
         children: [
             {
-                tagName: 'h2',
+                tagName: 'div',
                 classList: ['cpm-table__title'],
-                textContent: 'List of tickets'
+                children: [
+                    {
+                        tagName: 'h2',
+                        classList: ['cpm-table__title-name'],
+                        textContent: 'List of tickets',
+                    },
+                    ...showAll
+                ]
             },
             {
                 tagName: 'div',

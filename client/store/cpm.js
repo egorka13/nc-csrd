@@ -1,6 +1,8 @@
 export const cpmStore = {
     state: {
         tickets: [],
+        isFilter: false,
+        filterParams: {},
         ticketTableParams: {
             comment: 'Comment',
             type: 'Type',
@@ -119,7 +121,13 @@ export const cpmStore = {
             console.log('GETTER RETURNS')
             console.log(context.state.cpm.tickets)
             return context.state.cpm.tickets;
-        }
+        },
+        getCpmFilteredTickets(context, payload){
+            console.log(context.state.cpm.filterParams.key);
+            console.log(context.state.cpm.filterParams.value);
+            return context.state.cpm.tickets
+                .filter(ticket => ticket[context.state.cpm.filterParams.key] === context.state.cpm.filterParams.value);
+        },
     },
     actions: {
         async loadCpmTickets(context, payload){
@@ -150,6 +158,12 @@ export const cpmStore = {
         },
         changeCpmTicket(context, payload){
             context.commit('changeCpmTicket', payload);
+        },
+        filterCpmTickets(context, payload){
+            context.commit('filterCpmTickets', payload);
+        },
+        clearCpmFilters(context, payload){
+            context.commit('clearCpmFilters', payload);
         }
     },
     mutations: {
@@ -177,6 +191,16 @@ export const cpmStore = {
         },
         changeCpmTicket(state, payload){
             state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
+            return state;
+        },
+        filterCpmTickets(state, payload){
+            state.cpm.isFilter = true;
+            state.cpm.filterParams = payload;
+            return state;
+        },
+        clearCpmFilters(state, payload){
+            state.cpm.isFilter = false;
+            state.cpm.filterParams = {};
             return state;
         }
     },
