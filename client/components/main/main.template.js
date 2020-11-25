@@ -1,7 +1,7 @@
 import Sidebar from "./sidebar/sidebar.component";
 
 export const template = function(){
-    let currentPage = this.props.page;
+    let currentPage = this.props.data.page;
     return {
         tagName: 'div',
         classList: ['main'],

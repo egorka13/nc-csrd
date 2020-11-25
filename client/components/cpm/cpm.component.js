@@ -12,8 +12,6 @@ export default class CPM extends Component {
     render() {
         this.compile(template.call(this));
 
-        let table = this.element.querySelector('.cpm-table');
-
         return this.element;
     }
 }

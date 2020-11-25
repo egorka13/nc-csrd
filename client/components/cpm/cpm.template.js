@@ -5,6 +5,8 @@ import CustomerInfo from "./customerInfo/customerInfo.component";
 
 export const template = function(){
 
+
+
     return {
         tagName: 'div',
         classList: ['cpm'],

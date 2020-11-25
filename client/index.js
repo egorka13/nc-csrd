@@ -37,6 +37,7 @@ router
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
+    .use('/cpm/customer', Main, {page: 'cpm', isCustomer: true})
     .start();
 
 

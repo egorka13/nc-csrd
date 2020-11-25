@@ -10,7 +10,7 @@ export default class App extends Component {
     constructor(data) {
         super({
             store,
-            ...data
+            data
         });
         this.pagesComponents = {
             cpm: CPM,
