@@ -26,8 +26,9 @@ export default class Router {
 
     redirect(path){
 
-        if(document.location.pathname !== path)
+        if(document.location.pathname !== path) {
             history.pushState(null, null, path);
+        }
 
         this.currentRoute = this.routes.find(route => route.path === path ||
             route.path.slice(0, route.path.lastIndexOf('/')) === path.slice(0, path.lastIndexOf('/'))
