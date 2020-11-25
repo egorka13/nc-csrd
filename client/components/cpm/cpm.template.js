@@ -1,11 +1,10 @@
-import CpmForm from "./cpm-form/form.component.js";
 import CpmTable from "./cpm-table/table.component.js";
 import ProblemInfo from "./problemInfo/problemInfo.component";
 import CustomerInfo from "./customerInfo/customerInfo.component";
+import SelectForm from "./selectForm/selectForm.component";
+import CreateForm from "./createForm/createForm.component";
 
 export const template = function(){
-
-
 
     return {
         tagName: 'div',
@@ -27,7 +26,20 @@ export const template = function(){
                             {
                                 tagName: 'div',
                                 classList: ['cpm__title-new'],
-                                textContent: 'New session',
+                                textContent: !this.props.data.isCustomer ?
+                                                'New session' :
+                                                'All tickets',
+                                events: {
+                                    onclick: !this.props.data.isCustomer ?
+                                        () => {
+                                            window.router.redirect('/cpm/customer')
+                                        } :
+                                        () => {
+                                            this.props.store.state.cpm.currentCustomer = null;
+                                            window.router.redirect('/cpm')
+                                        }
+
+                                }
                             },
                         ]
                     },
@@ -40,17 +52,19 @@ export const template = function(){
                     {
                         tagName: 'div',
                         classList: ['cpm__info'],
-                        children: [
-                            // new CpmForm().render
+                        children: !this.props.data.isCustomer ? [
                             new ProblemInfo().render(),
                             new CustomerInfo().render(),
+                        ] : [
+                            new SelectForm().render(),
+                            new CreateForm().render()
                         ]
                     },
                     {
                         tagName: 'div',
                         classList: ['cpm__table'],
                         children: [
-                            new CpmTable().render()
+                            new CpmTable({isCustomer: this.props.data.isCustomer}).render()
                         ]
                     },
                 ]

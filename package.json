@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "browser-sync": "^2.26.13",
     "express": "^4.17.1",
     "firebase": "^8.1.1",

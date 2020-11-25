@@ -11,7 +11,7 @@ export const template = function(){
                 tagName: 'div',
                 classList: ['main__page'],
                 children: [
-                    new this.pagesComponents[currentPage]().render(),
+                    new this.pagesComponents[currentPage](this.props.data).render(),
                 ]
             }
         ]

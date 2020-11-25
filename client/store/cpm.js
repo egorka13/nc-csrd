@@ -114,6 +114,9 @@ export const cpmStore = {
         getCurrentTicket(context, payload){
             return context.state.cpm.currentTicket;
         },
+        getCurrentCustomer(context, payload){
+            return context.state.cpm.currentCustomer;
+        },
         getCpmTickets(context, payload){
             if(!context.state.cpm.tickets.length)
                 context.dispatch('loadCpmTickets');
@@ -121,6 +124,13 @@ export const cpmStore = {
             console.log('GETTER RETURNS')
             console.log(context.state.cpm.tickets)
             return context.state.cpm.tickets;
+        },
+        getCpmTicketsByUser(context, payload){
+            if(!context.state.cpm.tickets.length)
+                context.dispatch('loadCpmTickets');
+
+            return context.state.cpm.tickets.filter(ticket =>
+                ticket.customerId === context.state.cpm.currentCustomer.id);
         },
         getCpmFilteredTickets(context, payload){
             console.log(context.state.cpm.filterParams.key);
@@ -164,6 +174,9 @@ export const cpmStore = {
         },
         clearCpmFilters(context, payload){
             context.commit('clearCpmFilters', payload);
+        },
+        setCpmCurrentCustomer(context, payload){
+            context.commit('setCpmCurrentCustomer', payload);
         }
     },
     mutations: {
@@ -191,16 +204,24 @@ export const cpmStore = {
         },
         changeCpmTicket(state, payload){
             state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
+
             return state;
         },
         filterCpmTickets(state, payload){
             state.cpm.isFilter = true;
             state.cpm.filterParams = payload;
+
             return state;
         },
         clearCpmFilters(state, payload){
             state.cpm.isFilter = false;
             state.cpm.filterParams = {};
+
+            return state;
+        },
+        setCpmCurrentCustomer(state, payload){
+            state.cpm.currentCustomer = payload;
+
             return state;
         }
     },
@@ -214,6 +235,7 @@ async function getCpmTickets(){
     return Object.entries(data).map(ticketArray => {
         let ticket = ticketArray[1];
         ticket['id'] = ticketArray[0];
+
         return ticket;
     });
 }
@@ -225,5 +247,6 @@ async function postCpmTicket(payload){
         body: JSON.stringify(payload)
     });
     console.log(response);
+
     return response;
 }

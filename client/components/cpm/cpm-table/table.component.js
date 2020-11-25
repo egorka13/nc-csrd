@@ -3,9 +3,10 @@ import store from '../../../store/index.js';
 import {template} from "./table.template.js";
 
 export default class CpmTable extends Component {
-    constructor() {
+    constructor(data) {
         super({
-            store
+            store,
+            data
         });
         this.isSort = false;
         this.methods = {
@@ -22,6 +23,7 @@ export default class CpmTable extends Component {
         store.events.subscribe('loadCpmTickets', this.reload.bind(this));
         store.events.subscribe('filterCpmTickets', this.reload.bind(this));
         store.events.subscribe('clearCpmFilters', this.reload.bind(this));
+        store.events.subscribe('setCpmCurrentCustomer', this.reload.bind(this));
     }
 
     render() {

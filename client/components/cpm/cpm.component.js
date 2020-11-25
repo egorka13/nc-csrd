@@ -3,10 +3,12 @@ import store from '../../store/index.js';
 import {template} from "./cpm.template.js";
 
 export default class CPM extends Component {
-    constructor() {
+    constructor(data) {
         super({
-            store
+            store,
+            data
         });
+
     }
 
     render() {

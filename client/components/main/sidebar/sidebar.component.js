@@ -14,8 +14,8 @@ export default class Sidebar extends Component {
         this.methods = {
             goToOtherPage(event){
                 let item = event.target.closest('.sidebar__menu-item');
-                // window.router.redirect('/' + item.dataset.name)
-                store.dispatch('goToOtherPage', item.dataset.name);
+                window.router.redirect('/' + item.dataset.name)
+                // store.dispatch('goToOtherPage', item.dataset.name);
             }
         }
     }
