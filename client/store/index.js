@@ -60,16 +60,20 @@ export default new Store({
         ...counterStore.mutations,
         goToOtherPage(state, payload){
             let activePage = state.pages.find(page => page.active);
-            if(activePage)
+            if(activePage) {
                 activePage.active = false;
-            else
+            }
+            else {
                 console.log('Attention: Incorrect payload');
+            }
 
             let newPage = state.pages.find(page => page.minName === payload);
-            if(newPage)
+            if(newPage) {
                 newPage.active = true;
-            else
+            }
+            else {
                 console.log('Attention x2: Incorrect payload')
+            }
 
             return state;
         }
