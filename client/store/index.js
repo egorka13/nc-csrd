@@ -12,13 +12,13 @@ const state = {
             minName: 'cim',
             name: 'Customer Info',
             fullName: 'Customer Information Management',
-            active: false
+            active: true
         },
         {
             minName: 'cpm',
             name: 'Customer Problem',
             fullName: 'Customer Problem Management',
-            active: true
+            active: false
         },
         {
             minName: 'roe',
@@ -48,6 +48,8 @@ export default new Store({
             let newListItem = document
                 .querySelector(`.sidebar__menu-item[data-name=${payload}]`);
             newListItem.classList.toggle('_active');
+
+            history.pushState(null, null, '/' + payload);
 
             context.commit('goToOtherPage', payload);
         }
