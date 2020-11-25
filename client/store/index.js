@@ -12,13 +12,13 @@ const state = {
             minName: 'cim',
             name: 'Customer Info',
             fullName: 'Customer Information Management',
-            active: false
+            active: true
         },
         {
             minName: 'cpm',
             name: 'Customer Problem',
             fullName: 'Customer Problem Management',
-            active: true
+            active: false
         },
         {
             minName: 'roe',
@@ -49,6 +49,8 @@ export default new Store({
                 .querySelector(`.sidebar__menu-item[data-name=${payload}]`);
             newListItem.classList.toggle('_active');
 
+            history.pushState(null, null, '/' + payload);
+
             context.commit('goToOtherPage', payload);
         }
     },
@@ -57,9 +59,18 @@ export default new Store({
         ...cpmStore.mutations,
         ...counterStore.mutations,
         goToOtherPage(state, payload){
-            state.pages.find(page => page.active).active = false;
-            state.pages.find(page => page.minName === payload).active = true;
-            console.log(state);
+            let activePage = state.pages.find(page => page.active);
+            if(activePage)
+                activePage.active = false;
+            else
+                console.log('Attention: Incorrect payload');
+
+            let newPage = state.pages.find(page => page.minName === payload);
+            if(newPage)
+                newPage.active = true;
+            else
+                console.log('Attention x2: Incorrect payload')
+
             return state;
         }
     },

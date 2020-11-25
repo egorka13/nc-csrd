@@ -27,8 +27,11 @@ window.router = router;
 window.store = store;
 
 router
-    .use('/', Main, { page: 'cpm'})
+    .use('/', Main, { page: 'cim'})
     .use('/cpm', Main, { page: 'cpm'})
+    .use('/cim', Main, { page: 'cim'})
+    .use('/bim', Main, { page: 'bim'})
+    .use('/roe', Main, { page: 'roe'})
     .use('/example', Example)
     .use('/todo', Todo)
     .use('/counter', Counter)
