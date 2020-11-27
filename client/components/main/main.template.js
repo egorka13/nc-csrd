@@ -1,17 +1,19 @@
-import CustomerInfo from "./CustomerInfo/CustomerInfo.component";
-import Location from "./location/location.component";
+import Sidebar from "./sidebar/sidebar.component";
 
-export const template = function () {
+export const template = function(){
+    let currentPage = this.props.page;
     return {
         tagName: 'div',
         classList: ['main'],
-        attributes: {
-            style: ''
-        },
-        textContent: '',
         children: [
-            new CustomerInfo().render(),
-            new Location().render()
+            new Sidebar(currentPage).render(),
+            {
+                tagName: 'div',
+                classList: ['main__page'],
+                children: [
+                    new this.pagesComponents[currentPage]().render(),
+                ]
+            }
         ]
     }
 }

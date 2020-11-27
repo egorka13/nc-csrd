@@ -1,0 +1,69 @@
+.sidebar{
+  position: fixed;
+  z-index: 10;
+  font-family: @font-noto-sans;
+  width: 255px;
+  height: 100vh;
+  background: linear-gradient(360deg, #5768F3 37.87%, #1C45EF 100%);
+  color: white;
+  .flex(column, flex-start);
+  &__title{
+    margin-left: 20px;
+    margin-top: 30px;
+    .flex(row, flex-start, center);
+  }
+  &__title-name{
+    font-size: 20px;
+  }
+  &__logo{
+    margin-right: 10px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 8px solid white;
+  }
+  &__menu{
+    margin-top: 32px;
+    width: 100%;
+  }
+  &__menu-item{
+    transition: .3s;
+    width: 100%;
+    .flex(row, flex-start, center);
+    font-size: 15px;
+    height: 55px;
+    cursor: pointer;
+    & *{
+      transition: .3s;
+    }
+    &:hover{
+      background: #1c32e9;
+      //font-weight: 600;
+      & *{
+        transform: translateX(10px);
+      }
+    }
+    &._active{
+      background: @csrd-dark-blue;
+    }
+  }
+  &__menu-icon{
+    margin-left: 23px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  &__menu-title{
+    margin-left: 10px;
+  }
+}
+.main{
+  &__page{
+    width: calc(100% - 255px);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: @csrd-background;
+  }
+}
