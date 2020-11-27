@@ -1,52 +1,17 @@
-import CPM from "../cpm/cpm.component.js";
+import CustomerInfo from "./CustomerInfo/CustomerInfo.component";
+import Location from "./location/location.component";
 
-export const template = function(){
+export const template = function () {
     return {
         tagName: 'div',
         classList: ['main'],
+        attributes: {
+            style: ''
+        },
+        textContent: '',
         children: [
-            {
-                tagName: 'nav',
-                classList: ['navbar'],
-                children: [
-                    {
-                        tagName: 'div',
-                        classList: ['navbar__title'],
-                        children: [
-                            {
-                                tagName: 'div',
-                                classList: ['navbar__logo'],
-                            },
-                            {
-                                tagName: 'div',
-                                classList: ['navbar__title-name'],
-                                textContent: 'NC :: CSRDesktop'
-                            },
-                        ]
-                    },
-                    {
-                        tagName: 'div',
-                        classList: ['navbar__user'],
-                        children: [
-                            {
-                                tagName: 'div',
-                                classList: ['navbar__username']
-                            },
-                            {
-                                tagName: 'div',
-                                classList: ['navbar__avatar']
-                            },
-                        ]
-                    }
-                ]
-            },
-            {
-                tagName: 'div',
-                classList: ['page'],
-                children: [
-                    new CPM().render(),
-                ]
-            }
+            new CustomerInfo().render(),
+            new Location().render()
         ]
     }
 }

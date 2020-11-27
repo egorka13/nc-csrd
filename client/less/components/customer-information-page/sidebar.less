@@ -1,0 +1,51 @@
+@import "../../common/fonts";
+
+.sidebar {
+  vertical-align: top;
+  width: 14%;
+  min-height: 100vh;
+  background: linear-gradient(360deg, #5768F3 37.87%, #1C45EF 100%);
+  display: inline-block;
+  font-family: @mulish;
+}
+
+.component {
+  &__top {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    top: 52px;
+    left: 62px;
+    font-size: 20px;
+  }
+
+  &__ci {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    width: 14%;
+    top: 138px;
+    height: 55px;
+    background: #0F24D4;
+  }
+}
+
+.ci {
+  &__circle {
+    width: 8px;
+    height: 8px;
+    margin-left: 41px;
+    border-width: 2px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+  }
+
+  &__text {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}

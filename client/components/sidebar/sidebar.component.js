@@ -1,8 +1,8 @@
 import Component from '../../modules/component/component.js';
 import store from '../../store/index.js';
-import {template} from "./main.template.js";
+import {template} from "./sidebar.template.js";
 
-export default class Main extends Component {
+export default class SideBar extends Component {
     constructor() {
         super({
             store
