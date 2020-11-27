@@ -31,76 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="818535e9-6432-4b12-bd8b-964c02167069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/CIP.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/CustomerInfo.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/CustomerInfo.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/fullname.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/fullname.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/name/name.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/name/name.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/text/text.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/fullname/text/text.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/info.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/info.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/property/property.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/property/property.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/value/value.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/info/value/value.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/title/title.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/CustomerInfo/title/title.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/location/location.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/location/location.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/location/map/map.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/location/map/map.template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/common/fonts.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/components/customer-information-page/customer-info.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/components/customer-information-page/fullname.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/components/customer-information-page/info.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/components/customer-information-page/location.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/components/customer-information-page/main.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/fonts/Mulish-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/less/fonts/Mulish-VariableFont_wght.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-form/form.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-table/table.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm-table/table.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/cpm/cpm.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/example/example.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/example/example.temlate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/main/main.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/main/main.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/notFound/notFound.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/notFound/notFound.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/header/header.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/header/header.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/item/item.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/item/item.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/list/list.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/list/list.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/todo.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/todo/todo.template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/color.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/common.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/font-vars.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/font.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/normalize.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/reset.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/vars.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/common/z-indexes-registry.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/CIP.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/components.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/components/components.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/cpm/cpm.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/cpm/form.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/cpm/page.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/cpm/table.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/components/main.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/less/main.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/less/main.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +118,7 @@
       <workItem from="1606227317367" duration="19476000" />
       <workItem from="1606252629922" duration="3551000" />
       <workItem from="1606320350927" duration="2852000" />
-      <workItem from="1606479866400" duration="91000" />
+      <workItem from="1606479866400" duration="1518000" />
     </task>
     <servers />
   </component>
