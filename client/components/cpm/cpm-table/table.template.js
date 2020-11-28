@@ -2,14 +2,11 @@ import Ticket from "../ticket/ticket.component";
 
 export const template = function(){
     let tickets = [];
-    if(this.props.store.state.cpm.currentCustomer)
+
+    if(!this.props.data.isCustomer)
+        tickets = this.props.store.getter('getCpmTickets');
+    else if (this.props.store.state.cpm.isCustomerSelected)
         tickets = this.props.store.getter('getCpmTicketsByUser');
-    else if (!this.props.data.isCustomer){
-        if(this.props.store.state.cpm.isFilter)
-            tickets = this.props.store.getter('getCpmFilteredTickets');
-        else
-            tickets = this.props.store.getter('getCpmTickets');
-    }
 
     let params = this.props.store.state.cpm.ticketTableParams;
 

@@ -16,9 +16,9 @@ export default class Search extends Component {
                 let self = this;
                 const url = 'https://nc-csrd.firebaseio.com/customers.json';
                 console.log('FETCH ' + url);
-                let button = document.querySelector('.search .input__button');
-                let loader = document.querySelector('.search .input__loader');
-                let closer = document.querySelector('.search .input__closer');
+                let button = document.querySelector('.search .input__button'),
+                    loader = document.querySelector('.search .input__loader'),
+                    closer = document.querySelector('.search .input__closer');
                 button.style.display = 'none';
                 loader.style.display = 'block';
                 fetch(url)
@@ -43,12 +43,18 @@ export default class Search extends Component {
                             loader.style.display = 'none';
                         });
                     });
+
             },
             setCustomer: (event) => {
                 let id = event.target
                     .closest('.input__item')
                     .dataset.id;
                 let customer = this.customers.find(customer => customer.id === id);
+
+                if(!store.state.cpm.isCustomerSelected) {
+                    store.state.cpm.isCustomerSelected = true;
+                }
+
                 store.dispatch('setCpmCurrentCustomer', customer);
                 this.methods.closeDropdown();
             },

@@ -16,7 +16,7 @@ export const template = function () {
                     {
                         tagName: 'div',
                         classList: ['cpm-table__ticket-text'],
-                        textContent: ticket.comment,
+                        textContent: ticket.comment ? ticket.comment : '---',
                     }
                 ]
             },
@@ -28,12 +28,12 @@ export const template = function () {
                         tagName: 'span',
                         classList: ['cpm-table__ticket-text', '_type'],
                         attributes: {
-                            style: `background: ${types[ticket.type].color}`
+                            style: `background: ${this.methods.getTypeColor(ticket.type)}`
                         },
                         events: {
                             onclick: this.methods.filterByType.bind(this)
                         },
-                        textContent: ticket.type,
+                        textContent: ticket.type ? ticket.type : '---',
                     }
                 ]
             },
@@ -44,7 +44,7 @@ export const template = function () {
                     {
                         tagName: 'div',
                         classList: ['cpm-table__ticket-text'],
-                        textContent: ticket.dateOfCreation,
+                        textContent: ticket.dateOfCreation ? ticket.dateOfCreation : '---',
                     }
                 ]
             },
@@ -55,7 +55,7 @@ export const template = function () {
                     {
                         tagName: 'div',
                         classList: ['cpm-table__ticket-text'],
-                        textContent: ticket.closingDate !== '' ? ticket.closingDate : '---',
+                        textContent: ticket.closingDate ? ticket.closingDate : '---',
                     }
                 ]
             },
@@ -67,19 +67,15 @@ export const template = function () {
                         tagName: 'span',
                         classList: ['cpm-table__ticket-text', '_status'],
                         attributes: {
-                            style: `background: ${statuses[ticket.status].color}`
+                            style: `background: ${this.methods.getStatusColor(ticket.status)}`
                         },
                         events: {
                             onclick: this.methods.filterByStatus.bind(this)
                         },
-                        textContent: ticket.status,
+                        textContent: ticket.status ? ticket.status : '---',
                     }
                 ]
             },
         ]
     }
-}
-
-function chooseStatusColor(status){
-
 }

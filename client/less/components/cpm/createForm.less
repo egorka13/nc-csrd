@@ -1,11 +1,38 @@
 .create-form{
   margin-top: 15px;
+  position: relative;
+
+  &._modal{
+    top: 196px;
+  }
+
+  &__title{
+    .flex(row, flex-start, center);
+  }
+
+  &__new{
+    margin-left: 10px;
+    font-family: @font-roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #001737;
+
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover{
+      color: @csrd-text-gray
+    }
+  }
+
   &__form{
     width: calc(80% - 30px);
     padding: 15px;
   }
   &__input{
-    margin-top: 25px;
+    margin-top: 10px;
   }
   &__button{
     margin-top: 40px;

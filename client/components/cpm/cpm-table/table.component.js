@@ -15,14 +15,13 @@ export default class CpmTable extends Component {
                 store.dispatch('changeCpmTicket', ticket.dataset.ticket);
             },
             clearFilters(event){
-                store.dispatch('clearCpmFilters');
+                store.dispatch('loadCpmTickets');
             }
 
         };
         store.events.subscribe('addCpmTicket', this.reload.bind(this));
         store.events.subscribe('loadCpmTickets', this.reload.bind(this));
         store.events.subscribe('filterCpmTickets', this.reload.bind(this));
-        store.events.subscribe('clearCpmFilters', this.reload.bind(this));
         store.events.subscribe('setCpmCurrentCustomer', this.reload.bind(this));
     }
 

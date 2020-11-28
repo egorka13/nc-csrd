@@ -23,6 +23,25 @@
     border-top: 1px solid @csrd-divider-gray;
     margin: 0 15px;
     .flex(row, space-between, center);
+    position: relative;
+
+    animation: show 1s ease;
+
+    @keyframes show {
+      0%{
+        opacity: 0;
+        left: -10px;
+      }
+      100%{
+        opacity: 1;
+        left: 0;
+      }
+    }
+
+    &__comment{
+      height: auto;
+      min-height: 40px;
+    }
   }
   &__key{
     font-style: normal;

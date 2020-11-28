@@ -81,7 +81,7 @@ export const template = function () {
                     },
                     {
                         tagName: 'div',
-                        classList: ['info__point'],
+                        classList: ['info__point', '_comment'],
                         children: [
                             {
                                 tagName: 'div',

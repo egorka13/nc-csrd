@@ -3,6 +3,7 @@ export const cpmStore = {
         tickets: [],
         isFilter: false,
         filterParams: {},
+        isCustomerSelected: false,
         ticketTableParams: {
             comment: 'Comment',
             type: 'Type',
@@ -132,12 +133,10 @@ export const cpmStore = {
             return context.state.cpm.tickets.filter(ticket =>
                 ticket.customerId === context.state.cpm.currentCustomer.id);
         },
-        getCpmFilteredTickets(context, payload){
-            console.log(context.state.cpm.filterParams.key);
-            console.log(context.state.cpm.filterParams.value);
-            return context.state.cpm.tickets
-                .filter(ticket => ticket[context.state.cpm.filterParams.key] === context.state.cpm.filterParams.value);
-        },
+        // getCpmFilteredTickets(context, payload){
+        //     return context.state.cpm.tickets
+        //         .filter(ticket => ticket[context.state.cpm.filterParams.key] === context.state.cpm.filterParams.value);
+        // },
     },
     actions: {
         async loadCpmTickets(context, payload){
@@ -163,6 +162,21 @@ export const cpmStore = {
             console.groupEnd();
             context.commit('loadCpmTickets', tickets);
         },
+        async updateCpmTicket(context, payload) {
+            console.groupCollapsed('FETCH PUT /problems.json');
+
+            let response = await putCpmTicket(payload)
+
+            if (!response.ok) {
+                console.log('FAILED');
+                return;
+            }
+
+            let tickets = await getCpmTickets();
+
+            console.groupEnd();
+            context.commit('loadCpmTickets', tickets);
+        },
         clearCpmTicket(context, payload) {
             context.commit('clearCpmTicket', payload);
         },
@@ -172,12 +186,9 @@ export const cpmStore = {
         filterCpmTickets(context, payload){
             context.commit('filterCpmTickets', payload);
         },
-        clearCpmFilters(context, payload){
-            context.commit('clearCpmFilters', payload);
-        },
         setCpmCurrentCustomer(context, payload){
             context.commit('setCpmCurrentCustomer', payload);
-        }
+        },
     },
     mutations: {
         setCurrentTicket(state, payload){
@@ -188,12 +199,17 @@ export const cpmStore = {
         },
         loadCpmTickets(state, payload){
             state.cpm.tickets = payload;
+            state.cpm.isFilter = false;
 
             return state;
         },
         addCpmTicket(state, payload) {
-            payload.id = state.todo.items.length + 1;
             state.cpm.tickets.push(payload);
+
+            return state;
+        },
+        updateCpmTicket(state, payload) {
+            state.cpm.tickets = [];
 
             return state;
         },
@@ -203,19 +219,16 @@ export const cpmStore = {
             return state;
         },
         changeCpmTicket(state, payload){
+            console.log(payload);
             state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
-
+            console.log(state.cpm.currentTicket)
             return state;
         },
         filterCpmTickets(state, payload){
             state.cpm.isFilter = true;
-            state.cpm.filterParams = payload;
 
-            return state;
-        },
-        clearCpmFilters(state, payload){
-            state.cpm.isFilter = false;
-            state.cpm.filterParams = {};
+            state.cpm.tickets = state.cpm.tickets
+                .filter(ticket => ticket[payload.key] === payload.value);
 
             return state;
         },
@@ -244,6 +257,18 @@ async function postCpmTicket(payload){
     const url = 'https://nc-csrd.firebaseio.com/problems.json';
     let response = await fetch(url, {
         method: 'POST',
+        body: JSON.stringify(payload)
+    });
+    console.log(response);
+
+    return response;
+}
+
+async function putCpmTicket(payload){
+    console.log(payload)
+    const url = `https://nc-csrd.firebaseio.com/problems/${payload.id}.json`;
+    let response = await fetch(url, {
+        method: 'PUT',
         body: JSON.stringify(payload)
     });
     console.log(response);

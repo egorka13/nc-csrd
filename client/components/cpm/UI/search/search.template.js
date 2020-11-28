@@ -30,7 +30,10 @@ export const template = function () {
                 children: [
                     {
                         tagName: 'i',
-                        classList: ['fas', 'fa-input', 'input__icon'],
+                        events: {
+                            onclick: this.methods.getCustomers
+                        },
+                        classList: ['fas', 'fa-search', 'input__icon'],
                     },
                 ]
             },

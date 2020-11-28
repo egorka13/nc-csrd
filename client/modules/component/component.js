@@ -10,6 +10,7 @@ export default class Component {
     }
 
     reload(){
+        console.log('RELOAD')
         if(this.element && this.element.parentElement){
             let temp = document.createElement('h1');
             temp.textContent = String(new Date());

@@ -30,6 +30,26 @@ export default class Ticket extends Component {
                     key: 'type',
                     value: value
                 });
+            },
+            getTypeColor(type){
+                let types = store.state.cpm.ticketTypes;
+
+                if(types[type]) {
+
+                    return types[type].color
+                }
+
+                return '#999999';
+            },
+            getStatusColor(status){
+                let statuses = store.state.cpm.ticketStatuses;
+
+                if(statuses[status]) {
+
+                    return statuses[status].color
+                }
+
+                return '#999999';
             }
         };
     }
