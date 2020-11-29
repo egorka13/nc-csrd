@@ -1,5 +1,3 @@
-import Store from '../store/store.js';
-
 export default class Component {
     constructor(props = {}) {
         this.render = this.render || function() {};
@@ -10,6 +8,9 @@ export default class Component {
     }
 
     reload(){
+        console.groupCollapsed('RELOAD');
+        console.log(this);
+        console.groupEnd();
         if(this.element && this.element.parentElement){
             let temp = document.createElement('h1');
             temp.textContent = String(new Date());
@@ -23,7 +24,6 @@ export default class Component {
         else {
             this.render();
         }
-
     }
 
     compile(template){
@@ -38,7 +38,7 @@ export default class Component {
         if(template.hasOwnProperty('attributes'))
             for(let attrName in template.attributes)
                 element.setAttribute(attrName, template.attributes[attrName]);
-            //change CamelCase
+        //change CamelCase
         if(template.hasOwnProperty('events'))
             for(let eventName in template.events){
                 if(eventName in element) {
