@@ -1,21 +1,26 @@
-.info{
+.info {
   width: 100%;
   font-family: @font-roboto;
   padding: 15px 0;
-  &._problem{
+
+  &._problem {
   }
-  &._customer{
+
+  &._customer {
     margin-top: 15px;
   }
-  &__title{
+
+  &__title {
     .font(15px, bold);
     line-height: 18px;
     margin-left: 15px;
   }
-  &__list{
+
+  &__list {
     margin-top: 15px;
   }
-  &__point{
+
+  &__point {
     height: 40px;
     width: calc(100% - 30px);
     border-top: 1px solid @csrd-divider-gray;
@@ -26,26 +31,28 @@
     animation: show 1s ease;
 
     @keyframes show {
-      0%{
+      0% {
         opacity: 0;
         left: -10px;
       }
-      100%{
+      100% {
         opacity: 1;
         left: 0;
       }
     }
 
-    &__comment{
+    &__comment {
       height: auto;
       min-height: 40px;
     }
   }
-  &__key{
+
+  &__key {
     .font(14px, 500);
     line-height: 18px;
   }
-  &__value{
+
+  &__value {
     .font();
     line-height: 16px;
     text-align: right;

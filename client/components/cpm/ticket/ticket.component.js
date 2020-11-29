@@ -14,41 +14,39 @@ export default class Ticket extends Component {
 
         // variables that we can use in the template
         this.data = () => {
-            return {
-
-            }
+            return {}
         };
 
         // methods that we can call or pass in the template
         this.methods = {
-            filterByStatus(event){
+            filterByStatus(event) {
                 event.stopPropagation();
                 let value = event.target.textContent;
                 store.dispatch('filterCpmTickets', {
                     status: value
                 });
             },
-            filterByType(event){
+            filterByType(event) {
                 event.stopPropagation();
                 let value = event.target.textContent;
                 store.dispatch('filterCpmTickets', {
                     type: value
                 });
             },
-            getTypeColor(type){
+            getTypeColor(type) {
                 let types = store.state.cpm.ticketTypes;
 
-                if(types[type]) {
+                if (types[type]) {
 
                     return types[type].color
                 }
 
                 return '#999999';
             },
-            getStatusColor(status){
+            getStatusColor(status) {
                 let statuses = store.state.cpm.ticketStatuses;
 
-                if(statuses[status]) {
+                if (statuses[status]) {
 
                     return statuses[status].color
                 }

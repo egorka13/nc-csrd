@@ -1,40 +1,46 @@
-.cpm{
+.cpm {
   width: 100%;
   height: 100%;
   max-height: 1000px;
   //overflow-y: scroll;
-  &__content{
+  &__content {
     .flex();
     width: 100%;
     height: calc(100% - 50px);
   }
-  &__info{
+
+  &__info {
     width: calc(35% - 25px);
     height: calc(100% - 30px);
     padding: 15px 10px 15px 15px;
   }
-  &__table{
+
+  &__table {
     padding: 15px 15px 15px 10px;
     width: calc(65% - 25px);
     height: calc(100% - 30px);
   }
-  &__header{
+
+  &__header {
     width: calc(100% - 30px);
     height: 50px;
     border-bottom: 1px solid @csrd-divider-gray;
     .flex(row, space-between, flex-end);
     margin: 0 15px;
   }
-  &__title{
+
+  &__title {
     .flex(row, center);
   }
-  &__title-name{
+
+  &__title-name {
     font-family: @font-roboto;
     .font(20px, 500);
     line-height: 22px;
     margin-bottom: 8px;
   }
-  &__title-new{
+
+  &__title-new {
     font-family: @font-roboto;
     .font();
     line-height: 24px;
@@ -44,7 +50,7 @@
     transition: .3s;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       color: @csrd-text-gray
     }
   }

@@ -1,4 +1,4 @@
-export const template = function(){
+export const template = function () {
     return {
         tagName: 'div',
         classList: ['cpm'],

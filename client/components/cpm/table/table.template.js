@@ -1,7 +1,7 @@
-export const template = function(){
+export const template = function () {
     return {
         tagName: 'div',
-        classList: ['cpm-table',  'card'],
+        classList: ['cpm-table', 'card'],
         children: [
             {
                 tagName: 'div',
@@ -29,11 +29,13 @@ export const template = function(){
                         tagName: 'div',
                         classList: ['cpm-table__ticket_header'],
                         children: [
-                            ...Object.values(this.data().params).map(value => { return {
-                                tagName: 'div',
-                                classList: ['cpm-table__ticket-col', 'cpm-table__ticket-col_header'],
-                                textContent: value
-                            }})
+                            ...Object.values(this.data().params).map(value => {
+                                return {
+                                    tagName: 'div',
+                                    classList: ['cpm-table__ticket-col', 'cpm-table__ticket-col_header'],
+                                    textContent: value
+                                }
+                            })
                         ]
                     },
                 ]
@@ -42,7 +44,7 @@ export const template = function(){
     }
 }
 
-export const templateTitleAll = function(){
+export const templateTitleAll = function () {
 
     return {
         tagName: 'div',

@@ -159,8 +159,8 @@ export const cpmStore = {
         },
     },
     getters: {
-        getCpmTickets(context){
-            if(Object.keys(context.state.cpm.ticketFilters).length !== 0){
+        getCpmTickets(context) {
+            if (Object.keys(context.state.cpm.ticketFilters).length !== 0) {
                 return context.state.cpm.tickets.filter(ticket => {
                     return Object
                         .entries(context.state.cpm.ticketFilters)
@@ -174,7 +174,7 @@ export const cpmStore = {
 
             return context.state.cpm.tickets;
         },
-        getCurrentTicket(context){
+        getCurrentTicket(context) {
 
             return context.state.cpm.currentTicket;
         },
@@ -183,32 +183,31 @@ export const cpmStore = {
         clearCpmTicket(context, payload) {
             context.commit('clearCpmTicket', payload);
         },
-        filterCpmTickets(context, payload){
+        filterCpmTickets(context, payload) {
             context.commit('filterCpmTickets', payload);
         },
-        clearCpmTicketsFilters(context){
+        clearCpmTicketsFilters(context) {
             context.commit('clearCpmTicketsFilters');
         },
-        setCurrentCpmTicket(context, payload){
+        setCurrentCpmTicket(context, payload) {
             context.commit('setCurrentCpmTicket', payload);
         },
     },
     mutations: {
-        loadCpmTickets(state, payload){
+        loadCpmTickets(state, payload) {
             state.cpm.tickets = payload;
 
             return state;
         },
-        setCurrentTicket(state){
+        setCurrentTicket(state) {
             state.cpm.currentTicket = state.cpm.tickets[state.cpm.tickets.length - 1];
 
             return state;
         },
-        filterCpmTickets(state, payload){
-            if(Object.keys(state.cpm.ticketFilters).length === 0) {
+        filterCpmTickets(state, payload) {
+            if (Object.keys(state.cpm.ticketFilters).length === 0) {
                 state.cpm.ticketFilters = payload;
-            }
-            else{
+            } else {
                 Object.entries(payload).forEach(([param, value]) => {
                     state.cpm.ticketFilters[param] = value;
                 })
@@ -216,12 +215,12 @@ export const cpmStore = {
 
             return state;
         },
-        clearCpmTicketsFilters(state){
+        clearCpmTicketsFilters(state) {
             state.cpm.ticketFilters = {};
 
             return state;
         },
-        setCurrentCpmTicket(state, payload){
+        setCurrentCpmTicket(state, payload) {
             state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
 
             return state;
