@@ -39,13 +39,14 @@ export default class Table extends Component {
 
         // methods that we can call or pass in the template
         this.methods = {
-            changeCpmTicket(event) {
+            changeCpmTicket: (event) => {
                 let ticket = event.target.closest('.cpm-table__ticket');
                 store.dispatch('setCurrentCpmTicket', ticket.dataset.ticket);
 
-                console.log(this.element);
                 const btn = this.element.querySelector('.cpm-table__button');
-                btn.classList.remove('_hide');
+                if(btn.classList.contains('_hide')) {
+                    btn.classList.remove('_hide');
+                }
             },
             clearFilters() {
                 store.dispatch('clearCpmTicketsFilters');
