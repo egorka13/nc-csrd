@@ -20,6 +20,8 @@ export default class Component {
             let newElement = this.render();
 
             oldElement.parentElement.replaceChild(newElement, oldElement);
+
+            this.element = newElement;
         }
         else {
             this.render();
@@ -33,32 +35,46 @@ export default class Component {
     }
 
     generate(element, template){
-        if(template.hasOwnProperty('classList'))
-            template.classList.forEach(className => element.classList.add(className));
-        if(template.hasOwnProperty('attributes'))
-            for(let attrName in template.attributes)
-                element.setAttribute(attrName, template.attributes[attrName]);
-        //change CamelCase
-        if(template.hasOwnProperty('events'))
-            for(let eventName in template.events){
-                if(eventName in element) {
-                    element[eventName] = template.events[eventName];
-                    window[template.events[eventName].name] = template.events[eventName];
+        if(template !== null){
+            if(template.hasOwnProperty('classList')) {
+                template.classList.forEach(className => element.classList.add(className));
+            }
+
+            if(template.hasOwnProperty('attributes')) {
+                for(let attrName in template.attributes) {
+                    element.setAttribute(attrName, template.attributes[attrName]);
                 }
             }
 
-        if(template.hasOwnProperty('textContent'))
-            element.textContent = template.textContent;
-        if(template.hasOwnProperty('children'))
-            template.children.forEach(child => {
-                if(child instanceof HTMLElement)
-                    element.append(child);
-                else{
-                    let childElement = document.createElement(child.tagName || 'div');
-                    element.append(this.generate(childElement, child));
+            if(template.hasOwnProperty('events')) {
+                for(let eventName in template.events){
+                    if(eventName in element) {
+                        element[eventName] = template.events[eventName];
+                        window[template.events[eventName].name] = template.events[eventName];
+                    }
                 }
-            })
-        return element;
+            }
+
+            if(template.hasOwnProperty('textContent')) {
+                element.textContent = template.textContent;
+            }
+
+            if(template.hasOwnProperty('children')) {
+                template.children.forEach(child => {
+                    if(child instanceof HTMLElement) {
+                        element.append(child);
+                    }
+                    else{
+                        if(child){
+                            let childElement = document.createElement(child.tagName || 'div');
+                            element.append(this.generate(childElement, child));
+                        }
+                    }
+                })
+            }
+
+            return element;
+        }
     }
 
     hide(){

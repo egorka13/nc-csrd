@@ -37,7 +37,7 @@ export default class Info extends Component {
 
         // subscribing some events that trigger some action with our component
         store.events.subscribe('setCurrentCpmTicket', this.reload.bind(this));
-        store.events.subscribe('setCurrentTicket', this.reload.bind(this));
+        store.events.subscribe('setInitialCpmCurrentTicket', this.reload.bind(this));
     }
 
     render() {

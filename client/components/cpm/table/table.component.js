@@ -23,6 +23,7 @@ export default class Table extends Component {
             return {
                 tickets: store.getter('getCpmTickets'),
                 params: store.state.cpm.ticketTableParams,
+                status: store.state.cpm.status
             }
         };
 
@@ -41,6 +42,10 @@ export default class Table extends Component {
             changeCpmTicket(event) {
                 let ticket = event.target.closest('.cpm-table__ticket');
                 store.dispatch('setCurrentCpmTicket', ticket.dataset.ticket);
+
+                console.log(this.element);
+                const btn = this.element.querySelector('.cpm-table__button');
+                btn.classList.remove('_hide');
             },
             clearFilters() {
                 store.dispatch('clearCpmTicketsFilters');
@@ -62,9 +67,15 @@ export default class Table extends Component {
                 console.log(tickets);
 
                 store.commit('loadCpmTickets', tickets);
-                store.commit('setCurrentTicket', tickets[tickets.length - 1]);
+                store.commit('setInitialCpmCurrentTicket', tickets[tickets.length - 1]);
                 console.groupEnd();
-            }
+            },
+            openCreateForm: () => {
+                store.dispatch('openCreateForm');
+
+                const btn = this.element.querySelector('.cpm-table__button');
+                btn.classList.add('_hide');
+            },
 
         };
 

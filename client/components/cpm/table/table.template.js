@@ -12,7 +12,16 @@ export const template = function () {
                         classList: ['cpm-table__title-name'],
                         textContent: 'List of tickets',
                     },
-                    ...this.computed.showAll()
+                    this.data().status === 'show' ? {
+                        tagName: 'button',
+                        classList: ['cpm-table__button', 'button'],
+                        textContent: 'Add new ticket',
+                        events: {
+                            onclick: this.methods.openCreateForm
+                        }
+                    } : null,
+
+                    ...this.computed.showAll(),
                 ]
             },
             {

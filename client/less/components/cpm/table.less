@@ -14,6 +14,18 @@
     left: -50px;
   }
 
+  &__button{
+    width: 120px!important;
+    margin-left: 15px;
+    transition: .3s;
+    opacity: 1;
+
+    &._hide{
+      opacity: 0;
+      width: 0!important;
+    }
+  }
+
   &__list {
     .flex(column-reverse);
   }

@@ -1,33 +1,52 @@
-.cpm-form {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  padding: 10px;
-  overflow-y: scroll;
+.form{
+  padding-top: 15px;
+  position: relative;
   font-family: @font-roboto;
 
-  &__input-container {
-    margin-top: 10px;
+  &._modal{
+    top: 196px;
   }
 
-  &__text-input {
-    display: block;
+  &__title{
+    .flex(row, flex-start, center);
+  }
 
-    &:not(textarea) {
-      width: 335px;
-      height: 25px;
+  &__title-text{
+    .font(15px, bold);
+    margin-left: 15px;
+  }
+
+  &__new{
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #001737;
+
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover{
+      color: @csrd-text-gray
     }
-
-    //textarea&{
-    //  width: 400px;
-    //  height: 150px;
-    //}
   }
 
-  &__button {
+  &__form{
+    width: calc(80% - 30px);
+    padding: 15px;
+  }
+  &__input{
     margin-top: 10px;
   }
-
-  &__label {
-
+  &__button{
+    margin-top: 15px;
+    background: @csrd-blue;
+    color: white;
+    border: 0;
+    width: 100px;
+    height: 25px;
+    border-radius: 6px;
+    cursor: pointer;
   }
 }

@@ -1,5 +1,6 @@
 export const cpmStore = {
     state: {
+        status: 'show',
         tickets: [],
         ticketFilters: {},
         ticketTableParams: {
@@ -46,7 +47,7 @@ export const cpmStore = {
                 },
                 availableParameters: {
                     id: 'Ticket id',
-                    customerId: 'Customer account id',
+                    customerId: 'Customer account Id',
                     email: 'Customer email',
                     comment: 'User comment',
                     dateOfCreation: 'Current date',
@@ -192,6 +193,9 @@ export const cpmStore = {
         setCurrentCpmTicket(context, payload) {
             context.commit('setCurrentCpmTicket', payload);
         },
+        openCreateForm(context, payload) {
+            context.commit('openCreateForm', payload);
+        },
     },
     mutations: {
         loadCpmTickets(state, payload) {
@@ -199,7 +203,7 @@ export const cpmStore = {
 
             return state;
         },
-        setCurrentTicket(state) {
+        setInitialCpmCurrentTicket(state) {
             state.cpm.currentTicket = state.cpm.tickets[state.cpm.tickets.length - 1];
 
             return state;
@@ -221,9 +225,15 @@ export const cpmStore = {
             return state;
         },
         setCurrentCpmTicket(state, payload) {
+            state.cpm.status = 'show';
             state.cpm.currentTicket = state.cpm.tickets.find(ticket => ticket.id === payload);
 
             return state;
-        }
+        },
+        openCreateForm(state){
+            state.cpm.status = 'create';
+
+            return state;
+        },
     },
 }
