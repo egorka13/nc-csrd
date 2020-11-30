@@ -6,7 +6,7 @@
     flex-wrap: @fw;
 }
 
-.font(@name, @url, @local, @weight, @style) {
+.font-face(@name, @url, @local, @weight, @style) {
     @font-face {
         font-family: @name;
         src: url('@{url}@{local}.eot');
@@ -18,4 +18,10 @@
         font-weight: @weight;
         font-style: @style;
     }
+}
+
+.font(@size: 14px, @weight: normal, @style: normal){
+    font-size: @size;
+    font-weight: @weight;
+    font-style: @style;
 }
