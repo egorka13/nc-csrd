@@ -8,18 +8,36 @@ export const template = function () {
                 classList: ['input__label'],
                 textContent: this.props.paramName,
                 children: [
+                    this.props.param === 'comment' ?
                     {
-                        tagName: this.props.param === 'comment' ? 'textarea' : 'input',
-                        classList: this.props.param === 'comment' ? ['input__textarea'] : ['input__input'],
+                        tagName: 'textarea',
+                        classList: ['input__textarea'],
+                        attributes: {
+                            name: 'input-' + this.props.param,
+                        },
+                        events: {
+                            onclick: this.props.items ?
+                                this.methods.openDropdown : () => {}
+                        },
+                        textContent: this.props.textContent
+                    } :
+                    {
+                        tagName: 'input',
+                        classList: ['input__input'],
+                        events: {
+                            onclick: this.props.items ?
+                                this.methods.openDropdown : () => {}
+                        },
                         attributes: {
                             name: 'input-' + this.props.param,
                             type: 'text',
+                            value: this.props.textContent,
+                            disabled: this.props.disabled
                         },
-                        textContent: this.props.textContent
-                    },
+                    }
                 ]
             },
-            {
+            ...this.props.items ? [{
                 tagName: 'button',
                 classList: ['input__button'],
                 events: {
@@ -49,17 +67,18 @@ export const template = function () {
             {
                 tagName: 'div',
                 classList: ['input__dropdown', '_hidden'],
-                children: this.props.item ?
+                children: this.props.items ?
                     Object.entries(this.props.items).map(([key, value]) => {
                         console.log(key + value)
                         return {
                             tagName: 'div',
                             classList: ['input__item', '_small'],
                             attributes: {
-                                'data-name': key
+                                'data-name': key,
+                                'data-param': this.props.param
                             },
                             events: {
-                                // onclick: this.methods.setTypeValue
+                                onclick: this.methods.setValue
                             },
                             children: [
                                 {
@@ -71,6 +90,7 @@ export const template = function () {
                         }
                     }) : []
             }
+            ] : []
         ]
     }
 }

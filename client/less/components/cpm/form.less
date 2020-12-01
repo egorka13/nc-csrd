@@ -36,11 +36,18 @@
     width: calc(80% - 30px);
     padding: 15px;
   }
+
   &__input{
     margin-top: 10px;
+
   }
+
+  &__footer{
+    .flex(row, flex-start, center);
+    padding-top: 15px;
+  }
+
   &__button{
-    margin-top: 15px;
     background: @csrd-blue;
     color: white;
     border: 0;
@@ -48,5 +55,17 @@
     height: 25px;
     border-radius: 6px;
     cursor: pointer;
+    transition: .3s;
+
+  }
+
+  &__loader{
+    display: none;
+    margin-left: 15px;
+    margin-top: -3px;
+
+    &._show{
+      display: block;
+    }
   }
 }

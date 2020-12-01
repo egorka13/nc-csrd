@@ -8,4 +8,21 @@
   border-radius: 6px;
   cursor: pointer;
   outline: none;
+  transition: .3s;
+  .flex(row, center, center);
+
+
+  &:hover{
+    background: @csrd-dark-blue;
+  }
+  &:active{
+    background: @csrd-very-dark-blue;
+  }
+
+  &._icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+  }
 }

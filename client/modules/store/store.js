@@ -2,7 +2,6 @@ import PubSub from '../pubsub/pubsub.js';
 
 export default class Store {
     constructor(params) {
-        console.log('STORE constructor')
 
         this.actions = {};
         this.mutations = {};
@@ -47,13 +46,7 @@ export default class Store {
             return false;
         }
 
-        console.groupCollapsed(`GETTER: ${getterKey}`);
-
         let data = this.getters[getterKey](this, payload);
-
-        console.log(data);
-
-        console.groupEnd();
 
         return data;
     }

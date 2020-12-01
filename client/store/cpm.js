@@ -3,6 +3,31 @@ export const cpmStore = {
         status: 'show',
         tickets: [],
         ticketFilters: {},
+        ticketToCreate: {},
+        currentCustomer: {
+            id: '-MMPZB2uLXAubVr8QqdA',
+            billingId: '-MMPf-qcONEQ8b02mtqd',
+            address: "Moscow, Kosmodemyanova st. 144",
+            dateOfBirth: "11.11.1980",
+            contacts: [
+                {
+                    type: 'email',
+                    value: 'example@mail.ru'
+                },
+                {
+                    type: 'email',
+                    value: 'kek@lol.ua'
+                },
+                {
+                    type: 'email',
+                    value: 'hm@puk.com'
+                },
+            ],
+            name: "Demyan",
+            patronymic: "Frolovich",
+            phone: "88005553535",
+            surname: "Prokhorov"
+        },
         ticketTableParams: {
             comment: 'Comment',
             type: 'Type',
@@ -173,7 +198,8 @@ export const cpmStore = {
                 })
             }
 
-            return context.state.cpm.tickets;
+            return context.state.cpm.tickets
+                .filter(ticket => ticket.customerId === context.state.cpm.currentCustomer.id);
         },
         getCurrentTicket(context) {
 
@@ -196,6 +222,15 @@ export const cpmStore = {
         openCreateForm(context, payload) {
             context.commit('openCreateForm', payload);
         },
+        openModifyForm(context, payload) {
+            context.commit('openModifyForm', payload);
+        },
+        setTicketToCreate(context, payload) {
+            context.commit('setTicketToCreate', payload);
+        },
+        addCpmTicket(context, payload) {
+            context.commit('addCpmTicket', payload);
+        }
     },
     mutations: {
         loadCpmTickets(state, payload) {
@@ -232,6 +267,28 @@ export const cpmStore = {
         },
         openCreateForm(state){
             state.cpm.status = 'create';
+
+            return state;
+        },
+        openModifyForm(state){
+            state.cpm.status = 'modify';
+
+            return state;
+        },
+        setTicketToCreate(state, payload) {
+            if (Object.keys(state.cpm.ticketToCreate).length === 0) {
+                state.cpm.ticketToCreate = payload;
+            } else {
+                Object.entries(payload).forEach(([param, value]) => {
+                    state.cpm.ticketToCreate[param] = value;
+                })
+            }
+
+            return state;
+        },
+        addCpmTicket(state, payload){
+            state.cpm.tickets = [];
+            state.cpm.ticketToCreate = {};
 
             return state;
         },

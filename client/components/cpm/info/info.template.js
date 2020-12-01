@@ -6,8 +6,26 @@ export const template = function () {
             {
                 tagName: 'div',
                 classList: ['info__title'],
-                textContent: 'Problem Info',
-                children: []
+                children: [
+                    {
+                        tagName: 'div',
+                        classList: ['info__title-text'],
+                        textContent: 'Problem Info',
+                    },
+                    {
+                        tagName: 'button',
+                        classList: ['info__button', 'button', '_icon'],
+                        events: {
+                            onclick: this.methods.openModifyForm
+                        },
+                        children: [
+                            {
+                                tagName: 'i',
+                                classList: ['fas', 'fa-edit'],
+                            },
+                        ]
+                    },
+                ]
             },
             {
                 tagName: 'div',

@@ -42,7 +42,12 @@ export default class Component {
 
             if(template.hasOwnProperty('attributes')) {
                 for(let attrName in template.attributes) {
-                    element.setAttribute(attrName, template.attributes[attrName]);
+                    if(attrName in element){
+                        element[attrName] = template.attributes[attrName];
+                    }
+                    else{
+                        element.setAttribute(attrName, template.attributes[attrName]);
+                    }
                 }
             }
 
@@ -76,6 +81,18 @@ export default class Component {
             return element;
         }
     }
+
+    if(condition, component){
+        if (condition) {
+            return component;
+        }
+        if (Array.isArray(component)) {
+            return []
+        }
+        return null;
+    }
+
+
 
     hide(){
         this.display = this.element.style.display;

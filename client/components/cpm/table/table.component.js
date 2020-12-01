@@ -72,7 +72,7 @@ export default class Table extends Component {
                 console.groupEnd();
             },
             openCreateForm: () => {
-                store.dispatch('openCreateForm');
+                store.commit('openCreateForm');
 
                 const btn = this.element.querySelector('.cpm-table__button');
                 btn.classList.add('_hide');
@@ -83,6 +83,8 @@ export default class Table extends Component {
         // subscribing some events that trigger some action with our component
         store.events.subscribe('clearCpmTicketsFilters', this.reload.bind(this));
         store.events.subscribe('filterCpmTickets', this.reload.bind(this));
+        store.events.subscribe('addCpmTicket', this.reload.bind(this));
+
     }
 
     render() {

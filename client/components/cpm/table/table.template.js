@@ -12,14 +12,14 @@ export const template = function () {
                         classList: ['cpm-table__title-name'],
                         textContent: 'List of tickets',
                     },
-                    this.data().status === 'show' ? {
+                    {
                         tagName: 'button',
-                        classList: ['cpm-table__button', 'button'],
+                        classList: ['cpm-table__button', 'button', this.data().status !== 'show' ? '_hide' : '_'],
                         textContent: 'Add new ticket',
                         events: {
                             onclick: this.methods.openCreateForm
                         }
-                    } : null,
+                    },
 
                     ...this.computed.showAll(),
                 ]

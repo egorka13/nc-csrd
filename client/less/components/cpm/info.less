@@ -10,7 +10,21 @@
     margin-top: 15px;
   }
 
-  &__title {
+  &__title{
+    .flex(row, space-between, center);
+  }
+
+  &__button{
+    margin-right: 15px;
+
+    & i{
+      position: relative;
+      top: -1px;
+      right: -2px;
+    }
+  }
+
+  &__title-text {
     .font(15px, bold);
     line-height: 18px;
     margin-left: 15px;

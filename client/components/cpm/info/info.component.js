@@ -33,7 +33,11 @@ export default class Info extends Component {
         }
 
         // methods that we can call or pass in the template
-        this.methods = {};
+        this.methods = {
+            openModifyForm: () => {
+                store.dispatch('openModifyForm');
+            }
+        };
 
         // subscribing some events that trigger some action with our component
         store.events.subscribe('setCurrentCpmTicket', this.reload.bind(this));

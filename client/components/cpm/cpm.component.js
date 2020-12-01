@@ -47,6 +47,7 @@ export default class CPM extends Component {
         };
 
         store.events.subscribe('openCreateForm', this.methods.openCreateForm.bind(this));
+        store.events.subscribe('openModifyForm', this.methods.openCreateForm.bind(this));
         store.events.subscribe('setCurrentCpmTicket', this.methods.openInfo.bind(this));
     }
 

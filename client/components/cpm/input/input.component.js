@@ -6,13 +6,14 @@ import store from '../../../store/index.js';
 import {template} from "./input.template.js";
 
 export default class Input extends Component {
-    constructor(param, paramName, textContent, items) {
+    constructor(param, paramName, textContent, items, disabled) {
         super({
             store,
             param,
             paramName,
             textContent,
-            items
+            items,
+            disabled
         });
 
         // components that we use as children of our component
@@ -40,12 +41,17 @@ export default class Input extends Component {
             },
 
             setValue: (event) => {
-                let item = event.target.closest('.input__item');
-                let name = item.dataset.name;
-                let input = this.element.querySelector('input[name=input-type]');
+                const item = event.target.closest('.input__item');
+                const name = item.dataset.name;
+                const param = item.dataset.param;
+                const input = this.element.querySelector(`input[name=input-${param}]`);
                 input.value = this.props.items[name];
                 input.setAttribute('data-name', name);
                 this.methods.closeDropdown();
+                if(param === 'type') {
+                    store.dispatch('setTicketToCreate',
+                        Object.fromEntries([[param, name]]));
+                }
             },
 
             closeDropdown: () => {
@@ -63,7 +69,9 @@ export default class Input extends Component {
     }
 
     render() {
-
+        console.groupCollapsed('RENDER Input');
+        console.log(this.props.items)
+        console.groupEnd()
         //some actions that we call before rendering our template
 
         return this.compile(template.call(this));
