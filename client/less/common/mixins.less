@@ -1,21 +1,50 @@
 .flex(@fd: row, @jc: flex-start, @ai: flex-start, @fw: nowrap) {
-    display: flex;
-    flex-direction: @fd;
-    justify-content: @jc;
-    align-items: @ai;
-    flex-wrap: @fw;
+  display: flex;
+  flex-direction: @fd;
+  justify-content: @jc;
+  align-items: @ai;
+  flex-wrap: @fw;
 }
 
 .font(@name, @url, @local, @weight, @style) {
-    @font-face {
-        font-family: @name;
-        src: url('@{url}@{local}.eot');
-        src: local(@local),
-        url('@{url}@{local}.eot?#iefix') format('embedded-opentype'),
-        url('@{url}@{local}.woff2') format('woff2'),
-        url('@{url}@{local}.woff') format('woff'),
-        url('@{url}@{local}.ttf') format('truetype');
-        font-weight: @weight;
-        font-style: @style;
-    }
+  @font-face {
+    font-family: @name;
+    src: url('@{url}@{local}.eot');
+    src: local(@local),
+    url('@{url}@{local}.eot?#iefix') format('embedded-opentype'),
+    url('@{url}@{local}.woff2') format('woff2'),
+    url('@{url}@{local}.woff') format('woff'),
+    url('@{url}@{local}.ttf') format('truetype');
+    font-weight: @weight;
+    font-style: @style;
+  }
+}
+
+.hidden() {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+}
+
+.font(@font-family, @font-weight, @font-size, @font-style) {
+  font-family: @font-family;
+  font-weight: @font-weight;
+  font-size: @font-size;
+  font-style: @font-style;
+}
+
+.roe-card() {
+  border: solid 1px @csrd-light-stroke;
+  box-shadow: 0 0 3px @csrd-light-stroke;
+  border-radius: @border-radius;
+  padding: 1em;
+}
+
+.ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

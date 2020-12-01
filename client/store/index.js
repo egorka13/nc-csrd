@@ -2,11 +2,13 @@ import Store from '../modules/store/store.js';
 import {cpmStore} from "./cpm.js";
 import {todoStore} from "./todo.js";
 import {counterStore} from "./counter.js";
+import {roeStore} from "./roe.js";
 
 const state = {
     todo: todoStore.state,
     cpm: cpmStore.state,
     counter: counterStore.state,
+    roe: roeStore.state,
     pages: [
         {
             minName: 'cim',
@@ -41,6 +43,7 @@ export default new Store({
         ...todoStore.actions,
         ...cpmStore.actions,
         ...counterStore.actions,
+        ...roeStore.actions,
         goToOtherPage(context, payload){
             let activeListItem = document
                 .querySelector('.sidebar__menu-item._active');
@@ -58,6 +61,7 @@ export default new Store({
         ...todoStore.mutations,
         ...cpmStore.mutations,
         ...counterStore.mutations,
+        ...roeStore.mutations,
         goToOtherPage(state, payload){
             let activePage = state.pages.find(page => page.active);
             if(activePage) {
@@ -82,5 +86,6 @@ export default new Store({
         ...todoStore.getters,
         ...cpmStore.getters,
         ...counterStore.getters,
+        ...roeStore.getters,
     }
 });

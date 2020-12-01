@@ -1,0 +1,48 @@
+.addon {
+  .roe-card();
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+
+  &__name {
+    color: @csrd-grey;
+    .font-regular-medium();
+  }
+
+  &__main {
+    .font-medium-large();
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &-type {
+      padding-right: 0.75em;
+    }
+    &-quantity{
+      white-space: nowrap;
+    }
+  }
+
+  &__price {
+    .font-regular-medium();
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    &-name {
+      text-align: start;
+    }
+    &-quantity {
+      text-align: end;
+    }
+  }
+
+  &__disconnection {
+    display: flex;
+    justify-content: space-between;
+    &-name {
+      text-align: start;
+    }
+    &-value {
+      text-align: end;
+    }
+  }
+}

@@ -42,7 +42,7 @@ export default class Store {
 
     getter(getterKey, payload){
         if(typeof this.getters[getterKey] !== 'function') {
-            console.error(`Action "${getterKey} doesn't exist.`);
+            console.error(`Getter "${getterKey} doesn't exist.`);
             return false;
         }
 
