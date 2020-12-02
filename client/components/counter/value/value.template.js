@@ -3,7 +3,7 @@ export const template = function () {
     return {
         tagName: 'h1',
         classList: ['counter__value'],
-        textContent: value,
+        textContent: value + '(' + this.props.num + ')',
         children: []
     }
 }
