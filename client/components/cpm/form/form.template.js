@@ -46,7 +46,7 @@ export const template = function () {
                             'status',
                             'Status',
                             this.data().currentTicket.status,
-                            this.computed.dropdownTypes(),
+                            this.computed.dropdownStatuses(),
                         ) : null,
                     ...this.data().type || this.data().status === 'modify' ?
                     [

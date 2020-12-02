@@ -48,7 +48,7 @@ export default class Form extends Component {
             },
             dropdownStatuses: () => {
                 return Object.fromEntries(
-                    Object.entries(this.data().types).map(([name, type]) => {
+                    Object.entries(this.data().statuses).map(([name, type]) => {
                         return [name, type.name]
                     })
                 )
@@ -117,6 +117,37 @@ export default class Form extends Component {
 
                 return ticket;
             },
+            generateModifyTicket: () => {
+                const params = Object.keys(this.data().types[this.data().currentTicket.type].availableParameters);
+                let ticket = {}
+
+                ticket.status = this.element
+                    .querySelector(`input[name=input-status]`).value;
+                ticket.type = this.data().currentTicket.type;
+                ticket.closingDate = '';
+
+                params.forEach(param => {
+                    switch(param) {
+                        case 'id':
+                            break;
+                        case 'customerId':
+                            ticket.customerId = this.data().customerId;
+                            break;
+                        case 'billingId':
+                            ticket.billingId = this.data().billingId;
+                            break;
+                        case 'comment':
+                            ticket[param] = this.element
+                                .querySelector(`textarea[name=input-${param}]`).value;
+                            break;
+                        default:
+                            ticket[param] = this.element
+                                .querySelector(`input[name=input-${param}]`).value;
+                    }
+                })
+
+                return ticket;
+            },
             createTicket: () => {
                 const ticket = this.methods.generateTicket();
 
@@ -142,11 +173,12 @@ export default class Form extends Component {
                 return false;
             },
             modifyTicket: () => {
-                const ticket = this.methods.generateTicket();
+                const ticket = this.methods.generateModifyTicket();
 
-                const url = 'https://nc-csrd.firebaseio.com/problems.json';
+
+                const url = `https://nc-csrd.firebaseio.com/problems/${this.data().currentTicket.id}.json`;
                 const config = {
-                    method: 'POST',
+                    method: 'PUT',
                     body: JSON.stringify(ticket)
                 };
 
