@@ -6,9 +6,10 @@ import store from '../../../store/index.js';
 import {template} from "./value.template.js";
 
 export default class Value extends Component {
-    constructor() {
+    constructor(num) {
         super({
-            store
+            store,
+            num
         });
         store.events.subscribe('incrementValue', this.reload.bind(this));
     }
