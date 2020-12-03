@@ -1,43 +1,16 @@
-//@font-yandex: 'YS Text Regular','Helvetica Neue',Arial,sans-serif;
-//@font-montserrat: 'Montserrat', sans-serif;
-//@font-roboto: 'Open Sans', sans-serif;
 @font-roboto: 'Roboto', sans-serif;
 @font-noto-sans: 'Noto Sans', sans-serif;
-//@font-roboto: 'Montserrat', sans-serif;
+@font-mulish: 'Mulish', sans-serif;
 
-@font-family: @font-roboto, @font-noto-sans;
-
-@font-regular-size: 14px;
+@font-light-weight: 300;
 @font-regular-weight: 400;
-@font-medium-size: 18px;
 @font-medium-weight: 500;
+@font-bold-weight: 700;
+
+@font-x-small-size: 11px;
+@font-small-size: 12px;
+@font-regular-size: 14px;
+@font-medium-size: 18px;
 @font-large-size: 22px;
+@font-x-large-size: 24px;
 
-// font-weight-size
-.font-regular() {
-  .font(@font-family, @font-regular-weight, @font-regular-size, normal);
-}
-
-.font-regular-medium() {
-  .font-regular();
-  font-size: @font-medium-size;
-}
-
-.font-regular-large() {
-  .font-regular();
-  font-size: @font-large-size;
-}
-
-.font-medium() {
-  .font(@font-family, @font-medium-weight, @font-medium-size, normal);
-}
-
-.font-medium-regular() {
-  .font-medium();
-  font-size: @font-regular-size;
-}
-
-.font-medium-large() {
-  .font-medium();
-  font-size: @font-large-size;
-}

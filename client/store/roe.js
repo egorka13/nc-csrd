@@ -1,5 +1,4 @@
-import TariffValue from '../components/roe/minor/TariffValue.js'
-import Tariff from '../components/roe/minor/Tariff.js'
+import Tariff from '../modules/roe-tools/Tariff.js'
 
 export const roeStore = {
     //TODO 'tariff-value class'
@@ -56,19 +55,19 @@ export const roeStore = {
             }
         ],
         
-        // availableTariffs: [
-        //     new Tariff('Adonis', 90, 860, 23, 67, 0, getDate()),
-        //     new Tariff('God', 60, 30, 24, 25, 3450, getDate()),
-        //     new Tariff('Lovecraft', 98, 820, 25, 75, 3460, getDate()),
-        //     new Tariff('Rick', 56, 20, 26, 644, 643, getDate()),
-        //     new Tariff('Brandt', 34, 380, 27, 69, 740, getDate()),
-        //     new Tariff('Priceless', 854, 82, 28, 75, 0, getDate()),
-        //     new Tariff('Demetr', 247, 74, 29, 25, 745, getDate()),
-        //     new Tariff('Acolite', 23, 20, 2, 65, 370, getDate()),
-        //     new Tariff('Cuclu', 9, 33, 7, 65, 25, getDate()),
-        //     new Tariff('Blabla', 70, 50, 213, 65, 830, getDate()),
-        //     new Tariff('Lorem', 8, 66, 34, 77, 20, getDate()),
-        // ]
+        availableTariffs: [
+            new Tariff('Adonis', 90, 860, 23, 67, 0, getDate()),
+            new Tariff('God', 60, 30, 24, 25, 3450, getDate()),
+            new Tariff('Lovecraft', 98, 820, 25, 75, 3460, getDate()),
+            new Tariff('Rick', 56, 20, 26, 644, 643, getDate()),
+            new Tariff('Brandt', 34, 380, 27, 69, 740, getDate()),
+            new Tariff('Priceless', 854, 82, 28, 75, 0, getDate()),
+            new Tariff('Demetr', 247, 74, 29, 25, 745, getDate()),
+            new Tariff('Acolite', 23, 20, 2, 65, 370, getDate()),
+            new Tariff('Cuclu', 9, 33, 7, 65, 25, getDate()),
+            new Tariff('Blabla', 70, 50, 213, 65, 830, getDate()),
+            new Tariff('Lorem', 8, 66, 34, 77, 20, getDate()),
+        ]
     },
 
     getters: {

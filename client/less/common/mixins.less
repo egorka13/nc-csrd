@@ -6,7 +6,22 @@
   flex-wrap: @fw;
 }
 
-.font(@name, @url, @local, @weight, @style) {
+.hidden() {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+}
+
+.ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.font-face(@name, @url, @local, @weight, @style) {
   @font-face {
     font-family: @name;
     src: url('@{url}@{local}.eot');
@@ -20,31 +35,101 @@
   }
 }
 
-.hidden() {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  clip: rect(0 0 0 0);
-}
-
-.font(@font-family, @font-weight, @font-size, @font-style) {
+// for custom font-style
+.font(@font-family: sans-serif, @font-weight: 400, @font-size: 14px, @font-style: normal) {
   font-family: @font-family;
   font-weight: @font-weight;
   font-size: @font-size;
   font-style: @font-style;
 }
 
+// simple text
+.font-regular() {
+  font-family: @font-mulish;
+  font-weight: @font-regular-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+.font-light() {
+  font-family: @font-mulish;
+  font-weight: @font-light-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+.font-medium() {
+  font-family: @font-mulish;
+  font-weight: @font-light-weight;
+  font-size: @font-medium-size;
+  font-style: normal;
+}
+
+// flags/buttons
+.font-button() {
+  font-family: @font-mulish;
+  font-weight: @font-bold-weight;
+  font-size: @font-x-small-size;
+}
+
+// module title
+.font-header1() {
+  font-family: @font-mulish;
+  font-weight: @font-bold-weight;
+  font-size: @font-x-large-size;
+  font-style: normal;
+}
+
+// sub-module (card) title
+.font-header2() {
+  font-family: @font-mulish;
+  font-weight: @font-bold-weight;
+  font-size: @font-large-size;
+  font-style: normal;
+}
+
+.font-header3() {
+  font-family: @font-mulish;
+  font-weight: @font-medium-weight;
+  font-size: @font-medium-size;
+  font-style: normal;
+}
+
+// text in table
+.font-table-regular() {
+  font-family: @font-roboto;
+  font-weight: @font-regular-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+.font-table-medium() {
+  font-family: @font-roboto;
+  font-weight: @font-medium-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+.font-table-light() {
+  font-family: @font-roboto;
+  font-weight: @font-light-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+.font-table-light-small() {
+  font-family: @font-roboto;
+  font-weight: @font-light-weight;
+  font-size: @font-small-size;
+  font-style: normal;
+}
+
+// text in sidebar
+.font-side-bar() {
+  font-family: @font-noto-sans;
+  font-weight: @font-medium-weight;
+  font-size: @font-regular-size;
+  font-style: normal;
+}
+
 .roe-card() {
   border: solid 1px @csrd-light-stroke;
   box-shadow: 0 0 3px @csrd-light-stroke;
-  border-radius: @border-radius;
+  border-radius: @card-border-radius;
   padding: 1em;
-}
-
-.ellipsis() {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

@@ -1,6 +1,5 @@
 .roe {
   .font-regular();
-  background: white;
   padding: 0 10px;
   height: 100vh;
   display: flex;
@@ -12,6 +11,7 @@
 
   &__connected {
     .roe-card();
+    background: white;
     max-width: 65%;
     margin: 15px 0;
     ::-webkit-scrollbar {
@@ -20,7 +20,7 @@
 
     &-header {
       margin: 0 0 10px 0;
-      .font-medium-large();
+      .font-header2()
     }
     &-tariff {
       display: flex;
@@ -42,9 +42,10 @@
   }
 
   &__available {
+    background: white;
     &-header {
       margin: 0 0 10px 0;
-      .font-medium-large();
+      .font-header1();
     }
     &-tariffs {
       display: flex;
