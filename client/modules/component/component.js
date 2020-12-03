@@ -1,8 +1,10 @@
 export default class Component {
-    constructor(props = {}) {
+    constructor(props = {}, components) {
         this.render = this.render || function() {};
 
         this.props = props;
+
+        this.components = components;
 
         this.name = this.name || '';
     }
@@ -20,8 +22,6 @@ export default class Component {
             let newElement = this.render();
 
             oldElement.parentElement.replaceChild(newElement, oldElement);
-
-            this.element = newElement;
         }
         else {
             this.render();
@@ -34,19 +34,49 @@ export default class Component {
         return this.element;
     }
 
-    generate(element, template){
+    generate(element, template, data){
         if(template !== null){
+
+            if(template.hasOwnProperty('for')  && Array.isArray(this.evalValue(template['for'], data))) {
+
+                return this.evalValue(template['for'], data).map((item) => {
+                    const newElement = document.createElement(template.tagName || 'div');
+                    const childTemplate = Object.assign(template);
+                    delete childTemplate.for;
+                    return this.generate(newElement, template, item);
+                });
+            }
+
+            if(template.hasOwnProperty('if') && !this.evalValue(template['if'], data)) {
+
+                return element;
+            }
+
+            if(template.hasOwnProperty('component')) {
+                if (template.hasOwnProperty('arguments')) {
+                    console.log(this.components[template.component](
+                        ...template.arguments.map(arg => this.evalValue(arg, data))))
+                    return this.components[template.component](
+                        ...template.arguments.map(arg => this.evalValue(arg, data)));
+                }
+                console.log(this.components[template.component]())
+                return this.components[template.component]();
+            }
+
             if(template.hasOwnProperty('classList')) {
-                template.classList.forEach(className => element.classList.add(className));
+                template.classList.forEach(className => {
+                    console.log(this.evalValue(className, data))
+                    element.classList.add(this.evalValue(className, data));
+                });
             }
 
             if(template.hasOwnProperty('attributes')) {
                 for(let attrName in template.attributes) {
                     if(attrName in element){
-                        element[attrName] = template.attributes[attrName];
+                        element[attrName] = this.evalValue(template.attributes[attrName], data);
                     }
                     else{
-                        element.setAttribute(attrName, template.attributes[attrName]);
+                        element.setAttribute(attrName, this.evalValue(template.attributes[attrName], data));
                     }
                 }
             }
@@ -54,14 +84,14 @@ export default class Component {
             if(template.hasOwnProperty('events')) {
                 for(let eventName in template.events){
                     if(eventName in element) {
-                        element[eventName] = template.events[eventName];
-                        window[template.events[eventName].name] = template.events[eventName];
+                        element[eventName] = this.evalValue(template.events[eventName], data);
+                        window[template.events[eventName].name] = this.evalValue(template.events[eventName], data);
                     }
                 }
             }
 
             if(template.hasOwnProperty('textContent')) {
-                element.textContent = template.textContent;
+                element.textContent = this.evalValue(template.textContent, data);
             }
 
             if(template.hasOwnProperty('children')) {
@@ -71,8 +101,13 @@ export default class Component {
                     }
                     else{
                         if(child){
-                            let childElement = document.createElement(child.tagName || 'div');
-                            element.append(this.generate(childElement, child));
+                            const childElement = document.createElement(child.tagName || 'div');
+                            const newElements = this.generate(childElement, child, data);
+                            if(Array.isArray(newElements)) {
+                                newElements.forEach(newElement => element.append(newElement));
+                            } else {
+                                element.append(newElements);
+                            }
                         }
                     }
                 })
@@ -82,17 +117,18 @@ export default class Component {
         }
     }
 
-    if(condition, component){
-        if (condition) {
-            return component;
-        }
-        if (Array.isArray(component)) {
-            return []
-        }
-        return null;
+    isStatement(str) {
+
+        return str.trim().slice(0, 2) === '{{' && str.trim().slice(-2) ==='}}';
     }
 
+    evalValue(value, item) {
+        if(!item || typeof value !== 'string' || !this.isStatement(value)) {
+            return value
+        }
 
+        return (new Function('item', 'return ' + value.trim().slice(2, -2)))(item);
+    }
 
     hide(){
         this.display = this.element.style.display;
