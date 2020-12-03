@@ -8,6 +8,7 @@ import Main from "./components/main/main.component.js";
 import store from "./store/index.js";
 import firebase from "firebase/app";
 import Counter from "./components/counter/counter.component.js";
+import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -37,6 +38,7 @@ router
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
+    .use('/demo', ConditionDemo)
     .start();
 
 

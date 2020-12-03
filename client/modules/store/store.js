@@ -31,7 +31,8 @@ export default class Store {
                 state[key] = value;
 
                 console.groupCollapsed(`STATE was changed`);
-                console.log(`${key}: ${JSON.stringify(value)}`);
+                console.log(key + ':');
+                console.log(value);
                 console.groupEnd();
                 this.status = 'resting';
 
@@ -82,6 +83,8 @@ export default class Store {
             return false;
         }
 
+        console.groupCollapsed(`MUTATION: ${mutationKey}`);
+
         this.status = 'mutation';
 
         let newState = this.mutations[mutationKey](this.state, payload);
@@ -91,7 +94,9 @@ export default class Store {
         this.events.publish(mutationKey, this.state);
 
         console.log('COMMIT this.events')
-        console.log(this.events);
+        console.log(this.events[mutationKey]);
+
+        console.groupEnd();
 
         return true;
     }
