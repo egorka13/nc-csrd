@@ -1,8 +1,7 @@
-import RoeConnectedTariff from './roe-connected/connected-tariff.component.js';
 import RoeConnectedAddons from './roe-connected/connected-add-on.component.js';
-//import RoeAvailableTariffs from './roe-available/available-tariffs.component.js';
+import RoeTariffs from './roe-tariffs/roe-tariffs.component.js';
 
-export const template = function(){
+export const template = function () {
     return {
         tagName: 'div',
         classList: ['roe'],
@@ -10,7 +9,7 @@ export const template = function(){
             {
                 tagName: 'h1',
                 classList: ['roe__header'],
-                textContent: 'Product Managment',
+                textContent: 'Product Management',
             },
             {
                 tagName: 'section',
@@ -19,42 +18,33 @@ export const template = function(){
                     {
                         tagName: 'h2',
                         classList: ['roe__connected-header'],
-                        textContent: 'Connected Services'
+                        textContent: 'Connected Offerings'
                     },
-                    {
-                        tagName: 'div',
-                        classList: ['roe__connected-tariff'],
-                        children: [
-                            new RoeConnectedTariff().render()
-                        ]
-                    },
-                    {
-                        tagName: 'div',
-                        classList: ['roe__connected-addons'],
-                        children: [
-                            new RoeConnectedAddons().render()
-                        ]
-                    }
+                    new RoeTariffs({
+                        addClassName: ['roe__connected-tariff'],
+                        tariffs: this.props.store.state.roe.connectedTariff
+                    }).render(),
+                    new RoeConnectedAddons({
+                        addClassName: ['roe__connected-addons', '_showFog']
+                    }).render(),
                 ]
             },
-            // {
-            //     tagName: 'section',
-            //     classList: ['roe__available'],
-            //     children: [
-            //         {
-            //             tagName: 'h2',
-            //             classList: ['roe__available-header'],
-            //             textContent: 'Available Services'
-            //         },
-            //         {
-            //             tagName: 'div',
-            //             classList: ['roe__available-tariffs'],
-            //             children: [
-            //                 new RoeAvailableTariffs().render()
-            //             ]
-            //         },
-            //     ]
-            // }
+            {
+                tagName: 'section',
+                classList: ['roe__available'],
+                children: [
+                    {
+                        tagName: 'h2',
+                        classList: ['roe__available-header'],
+                        textContent: 'Available Offerings'
+                    },
+                    new RoeTariffs(
+                        {
+                            addClassName: ['roe__available-tariffs'],
+                            tariffs: this.props.store.state.roe.availableTariffs
+                        }).render(),
+                ]
+            }
         ]
     }
 }

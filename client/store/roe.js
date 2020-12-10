@@ -8,13 +8,15 @@ export const roeStore = {
             name: 'Name',
             minutes: 'Voice line',
             sms: 'SMS',
-            gbInternet: 'Mobile traffic',
+            gbInternet: 'Mobile internet',
             gbCloud: 'Cloud storage',
             price: 'Price',
             nextPayDay: 'Next payment'
         },
 
-        connectedTariff: new Tariff('MEGA COOL', 800, 100, 20, 50, 2700, getDate()),
+        connectedTariff: [
+            new Tariff('MEGA COOL', 800, 100, 20, 50, 2700, getDate())]
+        ,
 
         connectedAddOns: [
             {
@@ -54,12 +56,12 @@ export const roeStore = {
                 dateOfDisconnection: getDate(new Date(2002, 7, 9))
             }
         ],
-        
+
         availableTariffs: [
             new Tariff('Adonis', 90, 860, 23, 67, 0, getDate()),
             new Tariff('God', 60, 30, 24, 25, 3450, getDate()),
             new Tariff('Lovecraft', 98, 820, 25, 75, 3460, getDate()),
-            new Tariff('Rick', 56, 20, 26, 644, 643, getDate()),
+            new Tariff("Lovecraft's cat", 56, 20, 26, 644, 643, getDate()),
             new Tariff('Brandt', 34, 380, 27, 69, 740, getDate()),
             new Tariff('Priceless', 854, 82, 28, 75, 0, getDate()),
             new Tariff('Demetr', 247, 74, 29, 25, 745, getDate()),
@@ -67,6 +69,8 @@ export const roeStore = {
             new Tariff('Cuclu', 9, 33, 7, 65, 25, getDate()),
             new Tariff('Blabla', 70, 50, 213, 65, 830, getDate()),
             new Tariff('Lorem', 8, 66, 34, 77, 20, getDate()),
+            new Tariff('Cratos', 800, 96, 4, 0, 20, getDate()),
+            new Tariff('Aphrodite', 4, 44, 444, 44, 4444, getDate()),
         ]
     },
 
