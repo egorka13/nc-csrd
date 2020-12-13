@@ -5,17 +5,17 @@ import Component from '../../../modules/component/component.js';
 import store from '../../../store/index.js';
 import {template} from "./form.template.js";
 import Input from "../input/input.component";
+import {getCurrentDateString} from "../../../modules/date/date";
+import Docs from "../docs/docs.component";
 
 export default class Form extends Component {
     constructor() {
         super({
             store
-        });
-
-        // components that we use as children of our component
-        this.components = {
+        }, {
             Input: (...args) => new Input(...args).render(),
-        }
+            Docs: (...args) => new Docs(...args).render(),
+        });
 
         // variables that we can use in the template
         this.data = () => {
@@ -47,11 +47,10 @@ export default class Form extends Component {
                 )
             },
             dropdownStatuses: () => {
-                return Object.fromEntries(
-                    Object.entries(this.data().statuses).map(([name, type]) => {
-                        return [name, type.name]
-                    })
-                )
+                return {
+                    active: 'active',
+                    canceled: 'canceled',
+                }
             },
             email: () => {
                 if(this.data().email)
@@ -66,23 +65,7 @@ export default class Form extends Component {
                             .map(email => [email.value, email.value])
                     );
             },
-            getCurrentDate: function(){
-                let now = new Date();
-
-                let dd = now.getDate();
-                if(dd < 10){
-                    dd = '0' + dd;
-                }
-
-                let mm = now.getMonth() + 1;
-                if(mm < 10){
-                    mm = '0' + mm;
-                }
-
-                let yy = now.getFullYear();
-
-                return `${dd}.${mm}.${yy}`
-            }
+            getCurrentDate: getCurrentDateString
         }
 
         // methods that we can call or pass in the template
@@ -114,6 +97,15 @@ export default class Form extends Component {
                                 .querySelector(`input[name=input-${param}]`).value;
                     }
                 })
+
+                const docs = this.element.querySelector('.docs__input')?.files;
+
+                if(docs && docs.length){
+                    ticket.docs = [];
+                    for(let i = 0; i < docs.length; i++){
+                        ticket.docs.push(docs[i].name);
+                    }
+                }
 
                 return ticket;
             },

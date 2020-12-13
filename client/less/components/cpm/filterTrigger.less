@@ -1,0 +1,25 @@
+.filter-trigger{
+  .flex(row, flex-start, center);
+
+  &__button{
+    margin-right: 15px;
+    .flex();
+    color: @csrd-text-gray;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+      color: @csrd-dark-blue;
+    }
+  }
+
+  &__icon{
+
+  }
+
+  &__title{
+    margin-left: 5px;
+    .font-button();
+    font-size: 14px;
+  }
+}

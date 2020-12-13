@@ -13,15 +13,49 @@ export const template = function () {
                         textContent: 'Problem Info',
                     },
                     {
-                        tagName: 'button',
-                        classList: ['info__button', 'button', '_icon'],
-                        events: {
-                            onclick: this.methods.openModifyForm
-                        },
+                        tagName: 'div',
+                        classList: ['info__button-container'],
                         children: [
                             {
-                                tagName: 'i',
-                                classList: ['fas', 'fa-edit'],
+                                if: this.data().currentTicket?.status === 'active',
+                                tagName: 'button',
+                                classList: ['info__button', 'button', '_icon'],
+                                events: {
+                                    onclick: this.methods.modifyTicket('canceled')
+                                },
+                                children: [
+                                    {
+                                        tagName: 'i',
+                                        classList: ['fas', 'fa-ban'],
+                                    },
+                                ]
+                            },
+                            {
+                                if: this.data().currentTicket?.status === 'canceled',
+                                tagName: 'button',
+                                classList: ['info__button', 'button', '_icon'],
+                                events: {
+                                    onclick: this.methods.modifyTicket('active')
+                                },
+                                children: [
+                                    {
+                                        tagName: 'i',
+                                        classList: ['fas', 'fa-sync-alt'],
+                                    },
+                                ]
+                            },
+                            {
+                                tagName: 'button',
+                                classList: ['info__button', 'button', '_icon'],
+                                events: {
+                                    onclick: this.methods.openModifyForm
+                                },
+                                children: [
+                                    {
+                                        tagName: 'i',
+                                        classList: ['fas', 'fa-edit'],
+                                    },
+                                ]
                             },
                         ]
                     },
@@ -30,25 +64,38 @@ export const template = function () {
             {
                 tagName: 'div',
                 classList: ['info__list'],
-                children: Object.entries(this.computed.params()).map(([param, paramName]) => {
-                    return {
-                        tagName: 'div',
-                        classList: ['info__point'],
+                children: [
+                    ...Object.entries(this.computed.params()).map(([param, paramName]) => {
+                        return {
+                            tagName: 'div',
+                            classList: ['info__point'],
+                            children: [
+                                {
+                                    tagName: 'div',
+                                    classList: ['info__key'],
+                                    textContent: paramName
+                                },
+                                {
+                                    tagName: 'div',
+                                    classList: ['info__value'],
+                                    textContent: this.data().currentTicket[param] ?
+                                        this.data().currentTicket[param] : '---'
+                                }
+                            ]
+                        }
+                    }),
+                    {
+                        classList: ['info__docs'],
                         children: [
                             {
-                                tagName: 'div',
-                                classList: ['info__key'],
-                                textContent: paramName
-                            },
-                            {
-                                tagName: 'div',
-                                classList: ['info__value'],
-                                textContent: this.data().currentTicket[param] ?
-                                    this.data().currentTicket[param] : '---'
+                                component: 'Docs',
+                                arguments: [
+                                    [], false
+                                ]
                             }
                         ]
                     }
-                })
+                ]
                 // [
                 //     {
                 //         tagName: 'div',

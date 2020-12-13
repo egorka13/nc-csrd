@@ -3,6 +3,11 @@
   font-family: @font-roboto;
   padding: 15px 0;
 
+  &__docs{
+    width: calc(100% - 30px);
+    padding: 0 15px;
+  }
+
   &._problem {
   }
 
@@ -17,15 +22,19 @@
   &__button{
     margin-right: 15px;
 
-    & i{
+    & i.fa-edit{
       position: relative;
       top: -1px;
       right: -2px;
     }
+
+    &-container{
+      .flex();
+    }
   }
 
   &__title-text {
-    .font(15px, bold);
+    .font-header-title;
     line-height: 18px;
     margin-left: 15px;
   }

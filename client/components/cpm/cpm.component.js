@@ -9,6 +9,10 @@ export default class CPM extends Component {
     constructor() {
         super({
             store
+        }, {
+            Table: (...args) => new Table().render(...args),
+            Info: (...args) => new Info().render(...args),
+            Form: (...args) => new Form().render(...args),
         });
 
         this.data = () => {
@@ -17,38 +21,15 @@ export default class CPM extends Component {
             }
         };
 
-        this.components = {
-            Table: (...args) => new Table().render(...args),
-            Info: (...args) => new Info().render(...args),
-            Form: (...args) => new Form().render(...args),
-        };
-
         this.methods = {
             openCreateForm: () => {
-                this.element
-                    .querySelector('.info')
-                    .remove();
-                this.element
-                    .querySelector('.cpm__info')
-                    .append(this.components.Form());
+                this.reloadElement(template.call(this), 'cpmInfo');
             },
-            openInfo: () => {
-                const info = this.element.querySelector('.info');
-
-                if(!info){
-                    this.element
-                        .querySelector('.form')
-                        .remove();
-                    this.element
-                        .querySelector('.cpm__info')
-                        .append(this.components.Info());
-                }
-            }
         };
 
         store.events.subscribe('openCreateForm', this.methods.openCreateForm.bind(this));
         store.events.subscribe('openModifyForm', this.methods.openCreateForm.bind(this));
-        store.events.subscribe('setCurrentCpmTicket', this.methods.openInfo.bind(this));
+        store.events.subscribe('setCurrentCpmTicket', this.methods.openCreateForm.bind(this));
     }
 
     render() {

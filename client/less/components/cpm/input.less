@@ -136,8 +136,14 @@
     &._small{
       height: 30px;
     }
-    &:hover{
+    &._large{
+      height: 70px;
+    }
+    &:hover:not(&._date){
       background: @csrd-light-blue;
+    }
+    &._date{
+      cursor: default;
     }
   }
   &__name{

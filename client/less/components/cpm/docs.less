@@ -1,0 +1,47 @@
+.docs{
+  width: 100%;
+  border-top: 1px solid @csrd-divider-gray;
+  margin-top: 15px;
+
+  &__header{
+    .flex(row, flex-start, center);
+    margin-top: 5px;
+  }
+
+  &__title{
+    .font-table-medium;
+  }
+
+  &__label{
+    margin-left: 10px;
+  }
+
+  &__list{
+    margin-top: 15px;
+    width: 100%;
+    .flex(row, flex-start, flex-start);
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  &__item{
+    .flex(column, flex-start, center);
+    margin-left: 20px;
+    cursor: pointer;
+    width: 80px;
+
+
+    &:first-child{
+      margin-left: 10px;
+    }
+
+    &-icon{
+      color: @csrd-blue;
+      font-size: 40px;
+    }
+
+    &-name{
+      .font-table-light;
+    }
+  }
+}

@@ -55,6 +55,17 @@ export const template = function () {
                             this.methods.generateModifyForm(),
                         {
                             tagName: 'div',
+                            classList: ['form__docs'],
+                            children: [
+                                {
+                                    if: this.data().currentTicket.docs,
+                                    component: 'Docs',
+                                    arguments: [this.data().currentTicket.docs]
+                                }
+                            ]
+                        },
+                        {
+                            tagName: 'div',
                             classList: ['form__footer'],
                             children: [
                                 {

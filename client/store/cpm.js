@@ -1,8 +1,30 @@
+import {stringToDate} from "../modules/date/date";
+
 export const cpmStore = {
     state: {
         status: 'show',
+        isFilterBar: false,
+        isSortBar: false,
         tickets: [],
-        ticketFilters: {},
+        ticketFilters: {
+            active: true,
+            type: new Set(),
+            status: new Set(),
+            datesOfCreation: {
+                active: true,
+                begin: new Date(2020, 10, 1),
+                end: new Date(),
+            },
+            closingDates: {
+                active: true,
+                begin: new Date(2020, 10, 1),
+                end: new Date(),
+            }
+        },
+        ticketSort: {
+            param: 'dateOfCreation',
+            asc: false
+        },
         ticketToCreate: {},
         currentCustomer: {
             id: '-MMPZB2uLXAubVr8QqdA',
@@ -186,20 +208,40 @@ export const cpmStore = {
     },
     getters: {
         getCpmTickets(context) {
-            if (Object.keys(context.state.cpm.ticketFilters).length !== 0) {
-                return context.state.cpm.tickets.filter(ticket => {
-                    return Object
-                        .entries(context.state.cpm.ticketFilters)
-                        .map(([param, value]) => {
-                            console.log(ticket[param] + ' === ' + value);
-                            return ticket[param] === value
-                        })
-                        .indexOf(false) === -1;
-                })
+            const filters = context.state.cpm.ticketFilters;
+            if (filters.active) {
+                return context.state.cpm.tickets
+                    .filter(ticket => {
+
+                        const dateOfCreation = stringToDate(ticket.dateOfCreation);
+                        const closingDate = stringToDate(ticket.closingDate);
+
+                        return (!filters.type.size || filters.type.has(ticket.type)) &&
+                            (!filters.status.size || filters.status.has(ticket.status)) &&
+                            (!filters.datesOfCreation.active || dateOfCreation >= filters.datesOfCreation.begin &&
+                            dateOfCreation <= filters.datesOfCreation.end) &&
+                            (!filters.closingDates.active || closingDate >= filters.closingDates.begin &&
+                            closingDate <= filters.closingDates.end);
+
+                    })
+                    .sort((a, b) => {
+                        return context.state.cpm.ticketSort.asc ?
+                            stringToDate(b[context.state.cpm.ticketSort.param]) -
+                            stringToDate(a[context.state.cpm.ticketSort.param]) :
+                            stringToDate(a[context.state.cpm.ticketSort.param]) -
+                            stringToDate(b[context.state.cpm.ticketSort.param])
+                    });
             }
 
             return context.state.cpm.tickets
-                .filter(ticket => ticket.customerId === context.state.cpm.currentCustomer.id);
+                .filter(ticket => ticket.customerId === context.state.cpm.currentCustomer.id)
+                .sort((a, b) => {
+                    return context.state.cpm.ticketSort.asc ?
+                        stringToDate(b[context.state.cpm.ticketSort.param]) -
+                        stringToDate(a[context.state.cpm.ticketSort.param]) :
+                        stringToDate(a[context.state.cpm.ticketSort.param]) -
+                        stringToDate(b[context.state.cpm.ticketSort.param])
+                });
         },
         getCurrentTicket(context) {
 
@@ -230,6 +272,18 @@ export const cpmStore = {
         },
         addCpmTicket(context, payload) {
             context.commit('addCpmTicket', payload);
+        },
+        toggleFilterBar(context, payload) {
+            context.commit('toggleFilterBar', payload);
+        },
+        toggleSortBar(context, payload) {
+            context.commit('toggleSortBar', payload);
+        },
+        setFilters(context, payload) {
+            context.commit('setFilters', payload);
+        },
+        changeSort(context, payload) {
+            context.commit('changeSort', payload);
         }
     },
     mutations: {
@@ -244,18 +298,37 @@ export const cpmStore = {
             return state;
         },
         filterCpmTickets(state, payload) {
-            if (Object.keys(state.cpm.ticketFilters).length === 0) {
-                state.cpm.ticketFilters = payload;
-            } else {
-                Object.entries(payload).forEach(([param, value]) => {
-                    state.cpm.ticketFilters[param] = value;
-                })
+            if(!state.cpm.ticketFilters.active) {
+                state.cpm.ticketFilters.active = true;
             }
+            console.log(payload);
+            Object.entries(payload).forEach(([param, value]) => {
+                console.log(param);
+                console.log(value);
+                switch (param) {
+                    default:
+                        state.cpm.ticketFilters[param] = new Set([value]);
+                }
+            });
 
             return state;
         },
         clearCpmTicketsFilters(state) {
-            state.cpm.ticketFilters = {};
+            state.cpm.isFilterBar = false;
+            state.cpm.isSortBar = false;
+            state.cpm.ticketFilters.active = false;
+            state.cpm.ticketFilters.type = new Set();
+            state.cpm.ticketFilters.status = new Set();
+            state.cpm.ticketFilters.datesOfCreation = {
+                begin: new Date(2020, 10, 1),
+                end: new Date(),
+                active: false
+            };
+            state.cpm.ticketFilters.closingDates = {
+                begin: new Date(2020, 10, 1),
+                end: new Date(),
+                active: false
+            };
 
             return state;
         },
@@ -292,5 +365,52 @@ export const cpmStore = {
 
             return state;
         },
+        toggleFilterBar(state, payload){
+            state.cpm.isSortBar = false;
+            state.cpm.isFilterBar = !state.cpm.isFilterBar;
+
+            return state;
+        },
+        toggleSortBar(state, payload){
+            state.cpm.isFilterBar = false;
+            state.cpm.isSortBar = !state.cpm.isSortBar;
+
+            return state;
+        },
+        setFilters(state, payload){
+            if(!state.cpm.ticketFilters.active) {
+                state.cpm.ticketFilters.active = true;
+            }
+            if(!state.cpm.ticketFilters.datesOfCreation.active) {
+                state.cpm.ticketFilters.datesOfCreation.active = true;
+            }
+            if(!state.cpm.ticketFilters.closingDates.active) {
+                state.cpm.ticketFilters.closingDates.active = true;
+            }
+            state.cpm.ticketFilters.type = new Set(payload.types);
+            state.cpm.ticketFilters.status = new Set(payload.statuses);
+            state.cpm.ticketFilters.datesOfCreation.begin = payload.datesOfCreation[0];
+            state.cpm.ticketFilters.datesOfCreation.end = payload.datesOfCreation[1];
+            state.cpm.ticketFilters.closingDates.begin = payload.closingDates[0];
+            state.cpm.ticketFilters.closingDates.end = payload.closingDates[1];
+
+            console.log(state.cpm.ticketFilters)
+
+            return state;
+        },
+        setSort(state, payload){
+
+            state.cpm.ticketSort = payload;
+
+            return state;
+        },
+        changeSort(state, payload){
+
+            state.cpm.ticketSort.asc = state.cpm.ticketSort.param === payload && !state.cpm.ticketSort.asc;
+
+            state.cpm.ticketSort.param = payload;
+
+            return state;
+        }
     },
 }

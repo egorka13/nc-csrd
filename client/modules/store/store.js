@@ -86,8 +86,6 @@ export default class Store {
 
         this.events.publish(mutationKey, this.state);
 
-        console.log('COMMIT this.events')
-        console.log(this.events[mutationKey]);
 
         console.groupEnd();
 

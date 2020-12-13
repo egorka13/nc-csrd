@@ -4,15 +4,16 @@
 import Component from '../../../modules/component/component.js';
 import store from '../../../store/index.js';
 import {template} from "./info.template.js";
+import Docs from "../docs/docs.component";
+import {getCurrentDateString} from "../../../modules/date/date";
 
 export default class Info extends Component {
     constructor() {
         super({
             store
+        }, {
+            Docs: (...args) => new Docs(...args).render(),
         });
-
-        // components that we use as children of our component
-        this.components = {}
 
         // variables that we can use in the template
         this.data = () => {
@@ -36,7 +37,39 @@ export default class Info extends Component {
         this.methods = {
             openModifyForm: () => {
                 store.dispatch('openModifyForm');
-            }
+            },
+            modifyTicket: (status) => {
+                return (event) => {
+                    event.stopPropagation();
+
+                    const ticket = this.data().currentTicket;
+                    ticket.status = status;
+                    if(status === 'canceled') {
+                        ticket.closingDate = getCurrentDateString();
+                    }
+                    if(status === 'active') {
+                        delete ticket.closingDate;
+                    }
+
+                    const url = `https://nc-csrd.firebaseio.com/problems/${ticket.id}.json`;
+                    const config = {
+                        method: 'PUT',
+                        body: JSON.stringify(ticket)
+                    };
+
+                    fetch(url, config)
+                        .then(function(response){
+                            if(response.ok){
+                                store.commit('addCpmTicket');
+                                response.json().then(function(data){
+                                    store.commit('setCurrentCpmTicket', ticket.id);
+                                })
+                            }
+                        });
+
+                    return false;
+                }
+            },
         };
 
         // subscribing some events that trigger some action with our component

@@ -6,10 +6,13 @@ import store from '../../../store/index.js';
 import {template} from "./ticket.template.js";
 
 export default class Ticket extends Component {
-    constructor(ticket) {
+    constructor(ticket, modifyHandler, reopenHandler, cancelHandler) {
         super({
             store,
-            ticket
+            ticket,
+            modifyHandler,
+            reopenHandler,
+            cancelHandler
         });
 
         // variables that we can use in the template
@@ -44,9 +47,11 @@ export default class Ticket extends Component {
                 return '#999999';
             },
             getStatusColor(status) {
+
                 let statuses = store.state.cpm.ticketStatuses;
 
                 if (statuses[status]) {
+
 
                     return statuses[status].color
                 }
@@ -57,7 +62,6 @@ export default class Ticket extends Component {
     }
 
     render() {
-
         return this.compile(template.call(this));
     }
 }
