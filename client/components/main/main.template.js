@@ -1,4 +1,5 @@
 import CPM from "../cpm/cpm.component.js";
+// import BIM from "../bim/bim.component.js";
 import Sidebar from "./sidebar/sidebar.component";
 
 export const template = function(){

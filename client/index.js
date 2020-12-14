@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import Router from './modules/router/router.js';
 import Todo from "./components/todo/todo.component.js";
+import bim from "./components/bim/bim.component.js";
 import Example from "./components/example/example.component.js";
 import Item from "./components/todo/item/item.component.js";
 import NotFound from "./components/notFound/notFound.component.js";
@@ -31,6 +32,7 @@ router
     .use('/cpm', Main, { page: 'cpm'})
     .use('/example', Example)
     .use('/todo', Todo)
+    .use('/bim', bim)
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
