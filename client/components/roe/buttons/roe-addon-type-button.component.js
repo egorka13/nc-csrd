@@ -2,7 +2,7 @@ import Component from '../../../modules/component/component.js';
 import store from '../../../store/index.js';
 import {template} from './roe-addon-type-button.template.js';
 
-export default class RoeAddonTypeButtonComponent extends Component {
+export default class RoeAddonTypeButton extends Component {
     constructor(data) {
         super({
             store,

@@ -1,10 +1,7 @@
 import RoeConnectedAddons from './roe-addon/roe-connected-addons.component.js';
-import RoeConnectedTariffs from './roe-tariffs/roe-connected-tariff.component.js';
-import RoeAddonTypeButtonComponent from "./buttons/roe-addon-type-button.component";
-import RoePhone from "./roe-available/roe-available-phone.component";
+import RoeAddonTypeButton from "./buttons/roe-addon-type-button.component";
+//import RoePhone from "./roe-available/roe-available-phone.component";
 import RoeSalesOrders from "./salesOrders/sales-orders.component";
-//import RoeAvailableAddons from "./roe-available/roe-available-addons.component";
-import RoeAvailableAddon from "./roe-addon/roe-available-addon.component";
 import RoeTariffTable from "./roe-tariffs/roe-tariff-table.component";
 import RoeAvailableAddons from "./roe-addon/roe-available-addons.component";
 
@@ -34,10 +31,6 @@ export const template = function () {
                         parameters: this.props.store.state.roe.connectedTariffParameters,
                         isConnected: true,
                     }).render(),
-                    // new RoeConnectedTariffs({
-                    //     addClassName: ['roe__connected-tariff'],
-                    //     tariffs: this.props.store.state.roe.connectedTariff
-                    // }).render(),
                     new RoeConnectedAddons({
                         addClassName: ['roe__connected-addons', '_showFog']
                     }).render(),
@@ -72,12 +65,12 @@ export const template = function () {
                     //     tagName: 'div',
                     //     classList: ['roe__available-packages', 'roe-available-packages'],
                     //     children: [
-                    //         new RoeAddonTypeButtonComponent(
+                    //         new RoeAddonTypeButton(
                     //             {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['sms', 'SMS'],
                     //             }).render(),
-                    //         new RoeAddonTypeButtonComponent(
+                    //         new RoeAddonTypeButton(
                     //             {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['gbInternet', 'Mobile Internet'],
@@ -87,7 +80,7 @@ export const template = function () {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['gbCloud', 'Cloud Storage'],
                     //             }).render(),
-                    //         new RoeAddonTypeButtonComponent(
+                    //         new RoeAddonTypeButton(
                     //             {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['minutes', 'Voice Line'],
