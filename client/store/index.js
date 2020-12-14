@@ -8,6 +8,15 @@ const state = {
     todo: todoStore.state,
     cpm: cpmStore.state,
     counter: counterStore.state,
+    confirm: {
+        text: 'R u sure?',
+        action: '',
+        isShow: false,
+        result: false
+    },
+    notification: {
+        isShow: false
+    },
     roe: roeStore.state,
     pages: [
         {
@@ -55,7 +64,12 @@ export default new Store({
             history.pushState(null, null, '/' + payload);
 
             context.commit('goToOtherPage', payload);
-        }
+        },
+        confirm(context, payload){
+
+            context.commit('openConfirm', payload);
+        },
+
     },
     mutations: {
         ...todoStore.mutations,
@@ -78,6 +92,13 @@ export default new Store({
             else {
                 console.log('Attention x2: Incorrect payload')
             }
+
+            return state;
+        },
+        openConfirm(state, payload) {
+            state.confirm.action = payload.action;
+            state.confirm.text = payload.text;
+            state.confirm.show = true;
 
             return state;
         }

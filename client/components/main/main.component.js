@@ -5,6 +5,7 @@ import CPM from "../cpm/cpm.component.js";
 import Example from "../example/example.component.js";
 import Counter from "../counter/counter.component.js";
 import Todo from "../todo/todo.component.js";
+import Confirm from "./confirm/confirm.component";
 import Roe from "../roe/roe.component";
 
 export default class App extends Component {
@@ -12,6 +13,8 @@ export default class App extends Component {
         super({
             store,
             ...data
+        }, {
+            Confirm: (...args) => new Confirm(...args).render(),
         });
         this.pagesComponents = {
             cpm: CPM,
