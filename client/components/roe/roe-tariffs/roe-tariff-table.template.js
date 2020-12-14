@@ -1,6 +1,10 @@
+import RoeConnectedTariff from "./roe-connected-tariff.component";
+import RoeAvailableTariff from "./roe-available-tariff.component";
+
 export const template = function () {
+    // [tariff] and tariff parameters in constructor
     let tariffs = this.props.tariffs;
-    let parameters = this.props.store.state.roe.tariffParameters;
+    let parameters = this.props.parameters;
     return {
         tagName: 'div',
         classList: ['roe-tariff-table', ...this.props.addClassName],
@@ -23,18 +27,16 @@ export const template = function () {
                 classList: ['roe-tariff-table__main'],
                 children: [
                     ...tariffs.map((tariff) => {
-                        return {
-                            tagName: 'div',
-                            classList: ['roe-tariff-table__main-item', 'roe-tariff'],
-                            children: [
-                                ...Object.keys(parameters).map(parameter => {
-                                    return {
-                                        tagName: 'span',
-                                        classList: ['roe-tariff__item'],
-                                        textContent: tariff[parameter].quantity + ' ' + tariff[parameter].dimension
-                                    }
-                                })
-                            ]
+                        if (this.props.isConnected) {
+                            return new RoeConnectedTariff({
+                                addClassName: ['roe-tariff-table__main-item'],
+                                tariff: tariff,
+                            }).render()
+                        } else {
+                            return new RoeAvailableTariff({
+                                addClassName: ['roe-tariff-table__main-item'],
+                                tariff: tariff,
+                            }).render()
                         }
                     })
                 ]

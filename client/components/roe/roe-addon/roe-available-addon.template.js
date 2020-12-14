@@ -2,12 +2,25 @@ export const template = function () {
     let addon = this.props.addon;
     return {
         tagName: 'div',
-        classList: ['addon', ...this.props.addClassName],
+        classList: ['addon', '_available', ...this.props.addClassName],
         children: [
             {
-                tagName: 'span',
-                classList: ['addon__name'],
-                textContent: addon.name
+                tagName: 'div',
+                classList: ['addon__header'],
+                children: [
+                    {
+                        tagName: 'span',
+                        classList: ['addon__header-name'],
+                        textContent: addon.name
+                    },
+                    //TODO button component
+                    {
+                        tagName: 'button',
+                        classList: ['addon__header-button', 'roe-button'],
+                        textContent: addon.button,
+                    },
+                ],
+
             },
             {
                 tagName: 'div',
@@ -17,11 +30,6 @@ export const template = function () {
                         tagName: 'span',
                         classList: ['addon__main-type'],
                         textContent: addon.type
-                    },
-                    {
-                        tagName: 'span',
-                        classList: ['addon__main-quantity-left'],
-                        textContent: addon.left
                     },
                     {
                         tagName: 'span',
@@ -49,22 +57,6 @@ export const template = function () {
                         tagName: 'span',
                         classList: ['addon__price-quantity'],
                         textContent: addon.price + ' ₽'
-                    }
-                ]
-            },
-            {
-                tagName: 'div',
-                classList: ['addon__disconnection'],
-                children: [
-                    {
-                        tagName: 'span',
-                        classList: ['addon__disconnection-name'],
-                        textContent: 'Disconnection:'
-                    },
-                    {
-                        tagName: 'span',
-                        classList: ['addon__disconnection-value'],
-                        textContent: addon.dateOfDisconnection
                     }
                 ]
             },

@@ -119,6 +119,21 @@
   border-radius: @card-border-radius;
   padding: 0.75em;
 }
+
+.roe-button() {
+  border-radius: @button-radius;
+  border: 0;
+  .font(@font-mulish, light, @font-small-size);
+  padding: 2px 0.5em;
+  background: @csrd-neon-green;
+  color: @csrd-white;
+  //margin: 0.5em 1em 0.5em 1em;
+}
+
+.roe-button-hover() {
+  background: @csrd-violet;
+  color: @csrd-white;
+}
     
 
 .font-face(@name, @url, @local, @weight, @style) {

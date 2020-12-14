@@ -1,6 +1,6 @@
 import Component from '../../../modules/component/component.js';
-import store from '../../../store/index.js';
-import {template} from './connected-add-on.template.js';
+import store from '../../../store';
+import {template} from './roe-connected-addons.template.js';
 
 export default class RoeConnectedAddons extends Component {
     constructor(data) {
@@ -20,7 +20,7 @@ export default class RoeConnectedAddons extends Component {
                 if (!elem.classList.contains('_showFog') && scrollRatio <= 0.9) {
                     elem.classList.add('_showFog');
                 }
-                console.dir(scrollRatio);
+                //console.dir(scrollRatio);
             }
         }
     }

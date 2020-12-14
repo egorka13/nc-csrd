@@ -1,8 +1,8 @@
 import Component from '../../../modules/component/component.js';
 import store from '../../../store/index.js';
-import {template} from './roe-tariffs.template.js';
+import {template} from "./roe-connected-addon.template.js";
 
-export default class RoeTariffs extends Component {
+export default class RoeConnectedAddon extends Component {
     constructor(data) {
         super({
             store,

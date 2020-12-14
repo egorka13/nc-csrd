@@ -1,7 +1,15 @@
-import RoeConnectedAddons from './roe-connected/connected-add-on.component.js';
-import RoeTariffs from './roe-tariffs/roe-tariffs.component.js';
+import RoeConnectedAddons from './roe-addon/roe-connected-addons.component.js';
+import RoeConnectedTariffs from './roe-tariffs/roe-connected-tariff.component.js';
+import RoeAddonTypeButtonComponent from "./buttons/roe-addon-type-button.component";
+import RoePhone from "./roe-available/roe-available-phone.component";
+import RoeSalesOrders from "./salesOrders/sales-orders.component";
+//import RoeAvailableAddons from "./roe-available/roe-available-addons.component";
+import RoeAvailableAddon from "./roe-addon/roe-available-addon.component";
+import RoeTariffTable from "./roe-tariffs/roe-tariff-table.component";
+import RoeAvailableAddons from "./roe-addon/roe-available-addons.component";
 
 export const template = function () {
+    let availablePhones = this.props.store.state.roe.availablePhones;
     return {
         tagName: 'div',
         classList: ['roe'],
@@ -20,31 +28,101 @@ export const template = function () {
                         classList: ['roe__connected-header'],
                         textContent: 'Connected Offerings'
                     },
-                    new RoeTariffs({
+                    new RoeTariffTable({
                         addClassName: ['roe__connected-tariff'],
-                        tariffs: this.props.store.state.roe.connectedTariff
+                        tariffs: this.props.store.state.roe.connectedTariff,
+                        parameters: this.props.store.state.roe.connectedTariffParameters,
+                        isConnected: true,
                     }).render(),
+                    // new RoeConnectedTariffs({
+                    //     addClassName: ['roe__connected-tariff'],
+                    //     tariffs: this.props.store.state.roe.connectedTariff
+                    // }).render(),
                     new RoeConnectedAddons({
                         addClassName: ['roe__connected-addons', '_showFog']
                     }).render(),
                 ]
             },
+
             {
                 tagName: 'section',
                 classList: ['roe__available'],
                 children: [
                     {
-                        tagName: 'h2',
-                        classList: ['roe__available-header'],
-                        textContent: 'Available Offerings'
+                        tagName: 'div',
+                        classList: ['roe__available-top', 'roe-available-header'],
+                        children: [
+                            {
+                                tagName: 'h2',
+                                classList: ['roe-available-header__title'],
+                                textContent: 'Available Offerings'
+                            },
+                            //TODO nav buttons
+                        ]
+
                     },
-                    new RoeTariffs(
-                        {
-                            addClassName: ['roe__available-tariffs'],
-                            tariffs: this.props.store.state.roe.availableTariffs
-                        }).render(),
+                    new RoeTariffTable({
+                        addClassName: ['roe__available-tariffs'],
+                        tariffs: this.props.store.state.roe.availableTariffs,
+                        parameters: this.props.store.state.roe.availableTariffParameters,
+                        isConnected: false,
+                    }).render(),
+                    // =================AVAILABLE=PACKAGES=================
+                    // {
+                    //     tagName: 'div',
+                    //     classList: ['roe__available-packages', 'roe-available-packages'],
+                    //     children: [
+                    //         new RoeAddonTypeButtonComponent(
+                    //             {
+                    //                 addClassName: ['roe-button', 'roe-available-packages__button'],
+                    //                 packageType: ['sms', 'SMS'],
+                    //             }).render(),
+                    //         new RoeAddonTypeButtonComponent(
+                    //             {
+                    //                 addClassName: ['roe-button', 'roe-available-packages__button'],
+                    //                 packageType: ['gbInternet', 'Mobile Internet'],
+                    //             }).render(),
+                    //         new RoeAddonTypeButtonComponent(
+                    //             {
+                    //                 addClassName: ['roe-button', 'roe-available-packages__button'],
+                    //                 packageType: ['gbCloud', 'Cloud Storage'],
+                    //             }).render(),
+                    //         new RoeAddonTypeButtonComponent(
+                    //             {
+                    //                 addClassName: ['roe-button', 'roe-available-packages__button'],
+                    //                 packageType: ['minutes', 'Voice Line'],
+                    //             }).render(),
+                    //         new RoeAvailableAddons({
+                    //             addClassName: ['roe-available-packages__addons']
+                    //         }).render(),
+                    //     ]
+                    // },
+                    //=================AVAILABLE=PACKAGES=END=============
+
+                    //=================AVAILABLE=PHONES==================
+                    // {
+                    //     tagName: 'div',
+                    //     classList: ['roe-available-phones'],
+                    //     children: [
+                    //         {
+                    //             tagName: 'div',
+                    //             classList: ['roe-available-phones__content'],
+                    //             children: [
+                    //                 ...availablePhones.map(phone => {
+                    //                     return new RoePhone({
+                    //                         addClassName: ['roe-available-phones__content-item'],
+                    //                         phone: phone,
+                    //                     }).render()
+                    //                 }),
+                    //             ]
+                    //         }
+                    //     ],
+                    // },
                 ]
-            }
+            },
+            new RoeSalesOrders({
+                addClassName: ['roe__sales']
+            }).render(),
         ]
     }
 }
