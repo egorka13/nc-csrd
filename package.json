@@ -23,6 +23,7 @@
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.40.3",
     "less": "^3.12.2"
   }
 }

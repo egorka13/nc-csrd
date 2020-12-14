@@ -1,0 +1,127 @@
+@import "../../common/common";
+.location {
+  vertical-align: top;
+  display: inline-block;
+  width: 65%;
+  height: 380px;
+  margin: 4% 0 1% 0;
+  background: #FFFFFF;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #dfe0eb;
+  border-width: 1px;
+  &__map {
+    margin: 13px 0 16px 16px;
+    display: inline-block;
+    height: 80%;
+    width: 30%;
+  }
+  &__default {
+    display: inline-flex;
+    vertical-align: top;
+    flex-direction: column;
+    margin: 13px 0 0 16px;
+    width: 60%;
+    justify-content: space-between;
+  }
+}
+
+.update {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  width: 25px;
+  background: #0F5BFF;
+  color: #fff;
+  padding: 4px 0 4px 0;
+  margin-right: 5px;
+}
+
+.delete {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  width: 25px;
+  background: #0F5BFF;
+  color: #fff;
+  padding: 4px 0 4px 0;
+}
+
+.default {
+  &__name, &__postcode, &__district, &__city, &__street, &__houseNumber {
+    color: #9FA2B4;
+    font-family: @font-roboto;
+    font-size: 14px;
+    width: 90px;
+    text-align: center;
+  }
+
+  &__postcode {
+    width: 10%;
+    text-align: center;
+  }
+
+  &__flatNumber {
+    color: #9FA2B4;
+    font-family: @font-roboto;
+    font-size: 14px;
+  }
+
+  &__name {
+    color: black;
+    font-family: @font-mulish;
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  &__flatNumber {
+    margin-right: 10px;
+  }
+
+  &__locs {
+    border-radius: 2px;
+    width: 105%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #dfe0eb;
+    align-items: center;
+    height: 40px;
+  }
+
+  &__locs:hover .update {
+    opacity: 1;
+  }
+
+  &__locs:hover .delete {
+    opacity: 1;
+  }
+
+  &__locs-update {
+    border-radius: 2px;
+    width: 105%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+  }
+}
+.update, .delete{
+  opacity: 0;
+}
+
+.locs-update {
+  &__name, &__postcode, &__region, &__city, &__street, &__house, &__flat{
+    appearance: none;
+    border-radius: 4px;
+    border: 2px solid #dfe0eb;
+  }
+  &__submit {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #0F5BFF;
+    color: #fff;
+    padding: 3px 4px 4px 4px;
+  }
+}

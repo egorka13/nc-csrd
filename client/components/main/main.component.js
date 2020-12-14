@@ -6,6 +6,7 @@ import Example from "../example/example.component.js";
 import Counter from "../counter/counter.component.js";
 import Todo from "../todo/todo.component.js";
 import Roe from "../roe/roe.component";
+import CIM from '../cim/main.component'
 
 export default class App extends Component {
     constructor(data) {
@@ -15,7 +16,7 @@ export default class App extends Component {
         });
         this.pagesComponents = {
             cpm: CPM,
-            cim: Example,
+            cim: CIM,
             roe: Roe,
             bim: Todo,
         };
