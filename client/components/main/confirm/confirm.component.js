@@ -22,12 +22,24 @@ export default class Confirm extends Component {
         // methods that we can call or pass in the template
         this.methods = {
             show: () => {
-                this.element.querySelector('.confirm__text').textContent = this.data.text();
-                this.element.classList.toggle('_show');
+                let element = this.element;
+                element.querySelector('.confirm__text').textContent = this.data.text();
+                element.classList.add('_show');
+                setTimeout(function(){
+                    element.classList.add('_visible');
+                }, 0)
+            },
+            hide: () => {
+                let element = this.element;
+                element.querySelector('.confirm__text').textContent = this.data.text();
+                element.classList.remove('_visible');
+                setTimeout(function(){
+                    element.classList.remove('_show');
+                }, 400)
             },
             confirm: (event) => {
-                store.events.publish(this.data.action(), event.target.dataset.value);
-                this.methods.show();
+                store.events.publish(this.data.action(), event.target.dataset.value === 'true');
+                this.methods.hide();
             },
         };
 

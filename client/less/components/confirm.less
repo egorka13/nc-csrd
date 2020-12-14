@@ -6,9 +6,15 @@
   top: 0;
   left: 0;
   .flex(row, center, center);
+  display: none;
   opacity: 0;
+  transition: .4s;
 
   &._show{
+    display: flex;
+  }
+
+  &._visible{
     opacity: 1;
   }
 
@@ -22,6 +28,7 @@
   }
 
   &__buttons{
+    margin-top: 15px;
     .flex(row-reverse, flex-start, center);
   }
 

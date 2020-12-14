@@ -1,11 +1,11 @@
 /**
  * Created by vlados on 14.12.2020
  */
-import Component from '../../../modules/component/component.js';
-import store from '../../../store/index.js';
+import Component from '../../modules/component/component.js';
+import store from '../../store/index.js';
 import {template} from "./confirmDemo.template.js";
 
-export default class confirmDemo extends Component {
+export default class ConfirmDemo extends Component {
     constructor() {
         super({
             store
@@ -25,6 +25,15 @@ export default class confirmDemo extends Component {
         this.methods = {};
 
         // subscribing some events that trigger some action with our component
+
+        store.events.subscribe('comingOut', (result) => {
+            let text = this.element.querySelector('.confirm-demo__congrats');
+            if (result) {
+                text.textContent = '🎉🎊🌈'
+            } else {
+                text.textContent = '😢😿😭';
+            }
+        })
 
     }
 
