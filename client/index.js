@@ -1,6 +1,5 @@
 import 'regenerator-runtime/runtime';
 import Router from './modules/router/router.js';
-import Todo from "./components/todo/todo.component.js";
 import Example from "./components/example/example.component.js";
 import Item from "./components/todo/item/item.component.js";
 import NotFound from "./components/notFound/notFound.component.js";
@@ -8,6 +7,7 @@ import Main from "./components/main/main.component.js";
 import store from "./store/index.js";
 import firebase from "firebase/app";
 import Counter from "./components/counter/counter.component.js";
+import BIM from "./components/bim/bim.component.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -30,7 +30,7 @@ router
     .use('/', Main, { page: 'cpm'})
     .use('/cpm', Main, { page: 'cpm'})
     .use('/example', Example)
-    .use('/todo', Todo)
+    .use('/BIM', BIM)
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
