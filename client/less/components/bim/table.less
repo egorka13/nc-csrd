@@ -1,0 +1,113 @@
+.table {
+  position: absolute;
+  margin-left: 32px;
+  top: 65px;
+  left: 480px;
+  background: #ffffff;
+  font-family: 'Roboto';
+  width: calc(100% - 550px);
+  height: 665px;
+  overflow-y: scroll;
+  padding-left: 10px;
+  border: 1px solid #dfe0eb;
+
+  &__header {
+    font-family: 'Roboto';
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    font-size: 12px;
+    color: rgba(167, 175, 183, 1);
+    text-align: center;
+    &-reset {
+      font-family: 'Mulish';
+      margin-left: 15px;
+      width: 70px;
+      height: 24px;
+      outline: #fa394e;
+      color: rgb(255, 255, 255);
+      background: #fa394e;
+      border-color: #fa394e;
+      border-radius: 9px;
+    }
+    &-empty {
+      visibility: hidden;
+    }
+    &-button {
+      margin-left: 15px;
+      border: 1px solid #a7afb7;
+      box-sizing: border-box;
+      border-radius: 3px;
+      font-family: "Mulish";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      background-color: white;
+      color: #6e7277;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__title {
+    margin: 10px 0px 10px 30px;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__button {
+    font-family: 'Mulish';
+    width: 45, 83px;
+    height: 22px;
+    color: white;
+    background: #47ddcc;
+    border-radius: 9px;
+    border-color: #47ddcc;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__list {
+    .flex(column-reverse);
+  }
+  &__item {
+    &:nth-child(2n-1) {
+      background-color: #edf2f7;
+    }
+    font-family: "Roboto";
+    padding-left: 20px;
+    padding-right: 20px;
+    width: calc(100% - 70px);
+    height: 45px;
+    background: white;
+    .flex(row, space-between, center);
+    border-bottom: 1px solid #d3e3f7;
+
+    &-col {
+      font-size: 12px;
+      font-family: 'Roboto';
+      text-align: center;
+      text-overflow: ellipsis;
+
+      &:nth-child(1),
+      &:nth-child(7) {
+        width: 14%;
+      }
+      &:nth-child(3) {
+        width: 5%;
+      }
+      &:nth-child(4) {
+        width: 15%;
+      }
+      &:nth-child(2) {
+        width: 30%;
+      }
+      &:nth-child(5),
+      &:nth-child(6) {
+        width: 11%;
+      }
+    }
+  }
+}

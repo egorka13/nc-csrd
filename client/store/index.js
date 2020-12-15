@@ -2,8 +2,10 @@ import Store from '../modules/store/store.js';
 import {cpmStore} from "./cpm.js";
 import {todoStore} from "./todo.js";
 import {counterStore} from "./counter.js";
+import {bimStore} from "./bim.js";
 
 const state = {
+    bim: bimStore.state,
     todo: todoStore.state,
     cpm: cpmStore.state,
     counter: counterStore.state,
@@ -30,7 +32,7 @@ const state = {
             minName: 'bim',
             name: 'Billing Info',
             fullName: 'Billing Information Management',
-            active: false
+            active: true
         },
     ]
 };
@@ -38,6 +40,7 @@ const state = {
 export default new Store({
     state,
     actions: {
+        // ...bimStore.actions,
         ...todoStore.actions,
         ...cpmStore.actions,
         ...counterStore.actions,
@@ -53,6 +56,7 @@ export default new Store({
         }
     },
     mutations: {
+        // ...bimStore.mutations,
         ...todoStore.mutations,
         ...cpmStore.mutations,
         ...counterStore.mutations,
@@ -64,6 +68,7 @@ export default new Store({
         }
     },
     getters: {
+        // ...bimStore.getters,
         ...todoStore.getters,
         ...cpmStore.getters,
         ...counterStore.getters,
