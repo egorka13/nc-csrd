@@ -11,6 +11,22 @@
   transition: .3s;
   .flex(row, center, center);
 
+  &._outline{
+    border: 1px solid @csrd-blue;
+    background: inherit;
+    color: @csrd-blue;
+    .font-button;
+    font-size: 13px;
+
+    &:hover{
+      background: @csrd-blue;
+      color: white;
+    }
+    &:active{
+      background: @csrd-blue;
+    }
+  }
+
 
   &:hover{
     background: @csrd-dark-blue;

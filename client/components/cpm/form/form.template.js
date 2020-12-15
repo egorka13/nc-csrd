@@ -56,12 +56,30 @@ export const template = function () {
                         {
                             tagName: 'div',
                             classList: ['form__docs'],
+                            attributes: {
+                                'data-name': 'docs'
+                            },
                             children: [
                                 {
-                                    if: this.data().currentTicket.docs,
+                                    if: this.data().status === 'modify',
                                     component: 'Docs',
-                                    arguments: [this.data().currentTicket.docs]
-                                }
+                                    arguments: [
+                                        this.docs,
+                                        true,
+                                        this.methods.addDoc.bind(this),
+                                        this.methods.removeDoc.bind(this),
+                                    ]
+                                },
+                                {
+                                    if: this.data().status === 'create',
+                                    component: 'Docs',
+                                    arguments: [
+                                        this.docs,
+                                        true,
+                                        this.methods.addDoc.bind(this),
+                                        this.methods.removeDoc.bind(this),
+                                    ]
+                                },
                             ]
                         },
                         {

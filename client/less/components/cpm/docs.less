@@ -14,6 +14,7 @@
 
   &__label{
     margin-left: 10px;
+    .flex(row, flex-start, center);
   }
 
   &__list{
@@ -22,6 +23,20 @@
     .flex(row, flex-start, flex-start);
     overflow-x: auto;
     padding-bottom: 10px;
+    position: relative;
+
+    animation: show .5s ease;
+
+    @keyframes show {
+      0%{
+        opacity: 0;
+        left: -10px;
+      }
+      100%{
+        opacity: 1;
+        left: 0;
+      }
+    }
   }
 
   &__item{
@@ -29,6 +44,7 @@
     margin-left: 20px;
     cursor: pointer;
     width: 80px;
+    position: relative;
 
 
     &:first-child{
@@ -38,10 +54,38 @@
     &-icon{
       color: @csrd-blue;
       font-size: 40px;
+      margin-top: 10px;
+    }
+
+    &-close{
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: @csrd-gray;
+      color: white;
+      .flex(row, center, center);
+      font-size: 12px;
+      position: absolute;
+      top: 3px;
+      right: 7px;
+
+      &:hover{
+        transform: scale(1.1);
+      }
     }
 
     &-name{
       .font-table-light;
+      width: 100%;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-height: 17px;
+      max-height: 34px;
+      word-wrap: break-word;
+      text-align: center;
     }
   }
 }

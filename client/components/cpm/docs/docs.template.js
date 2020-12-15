@@ -15,7 +15,7 @@ export const template = function () {
                         classList: ['docs__label'],
                         children: [
                             {
-                                classList: ['button'],
+                                classList: ['button', '_outline'],
                                 textContent: 'Select files...'
                             },
                             {
@@ -25,6 +25,9 @@ export const template = function () {
                                     type: 'file',
                                     style: 'display: none',
                                 },
+                                events: {
+                                    onchange: this.props.handler
+                                }
                             },
                         ]
 
@@ -49,83 +52,28 @@ export const template = function () {
                                 ]
                             },
                             {
+                                if: !!(this.props.isForm && this.props.closeHandler),
+                                classList: ['docs__item-close'],
+                                attributes: {
+                                    'data-name': '{{item}}'
+                                },
+                                events: {
+                                    onclick: this.props.closeHandler
+                                },
+                                children: [
+                                    {
+                                        tagName: 'i',
+                                        classList: ['fas', 'fa-times']
+                                    }
+                                ]
+                            },
+                            {
                                 classList: ['docs__item-name'],
                                 textContent: '{{item}}'
                             },
                         ]
                     },
-                    {
-                        classList: ['docs__item'],
-                        children: [
-                            {
-                                classList: ['docs__item-icon'],
-                                children: [
-                                    {
-                                        tagName: 'i',
-                                        classList: ['fas', 'fa-file-word']
-                                    }
-                                ]
-                            },
-                            {
-                                classList: ['docs__item-name'],
-                                textContent: 'file.docx'
-                            },
-                        ]
-                    },
-                    {
-                        classList: ['docs__item'],
-                        children: [
-                            {
-                                classList: ['docs__item-icon'],
-                                children: [
-                                    {
-                                        tagName: 'i',
-                                        classList: ['fas', 'fa-file-word']
-                                    }
-                                ]
-                            },
-                            {
-                                classList: ['docs__item-name'],
-                                textContent: 'file.docx'
-                            },
-                        ]
-                    },
-                    {
-                        classList: ['docs__item'],
-                        children: [
-                            {
-                                classList: ['docs__item-icon'],
-                                children: [
-                                    {
-                                        tagName: 'i',
-                                        classList: ['fas', 'fa-file-word']
-                                    }
-                                ]
-                            },
-                            {
-                                classList: ['docs__item-name'],
-                                textContent: 'file.docx'
-                            },
-                        ]
-                    },
-                    {
-                        classList: ['docs__item'],
-                        children: [
-                            {
-                                classList: ['docs__item-icon'],
-                                children: [
-                                    {
-                                        tagName: 'i',
-                                        classList: ['fas', 'fa-file-word']
-                                    }
-                                ]
-                            },
-                            {
-                                classList: ['docs__item-name'],
-                                textContent: 'file.docx'
-                            },
-                        ]
-                    },
+
                 ]
             }
         ]

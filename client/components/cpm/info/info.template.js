@@ -88,9 +88,10 @@ export const template = function () {
                         classList: ['info__docs'],
                         children: [
                             {
+                                if: this.data().currentTicket?.docs,
                                 component: 'Docs',
                                 arguments: [
-                                    [], false
+                                    this.data().currentTicket?.docs, false
                                 ]
                             }
                         ]

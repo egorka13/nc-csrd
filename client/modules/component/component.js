@@ -28,6 +28,7 @@ export default class Component {
     }
 
     reloadElement(template, elementName){
+        console.log(template);
         console.groupCollapsed('RELOAD ' + elementName);
         const oldElement = document.querySelector(`*[data-name=${elementName}]`);
         console.log(oldElement);
@@ -50,7 +51,7 @@ export default class Component {
 
         if(template.children) {
             for(let child of template.children){
-                if (!(child instanceof HTMLElement)){
+                if (!(child instanceof HTMLElement) && child){
                     if (this.searchElement(child, elementName))
                         return this.searchElement(child, elementName);
                 }

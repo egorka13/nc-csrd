@@ -35,6 +35,13 @@ export default class Form extends Component {
 
         // analogue of computed variables that we can use in the template
         this.computed = {
+            docs: () => {
+                if(this.data().status === 'create') {
+                    return store.state.cpm.ticketToCreate.docs || [];
+                } else {
+                    return this.data().currentTicket.docs || [];
+                }
+            },
             createTypeValue: () => {
                 return this.data().type ?
                     this.data().types[this.data().type].name : ''
@@ -70,6 +77,20 @@ export default class Form extends Component {
 
         // methods that we can call or pass in the template
         this.methods = {
+            addDoc: (event) => {
+                const file = event.target.files[0];
+                this.docs.push(file.name);
+                this.methods.reloadDocs();
+            },
+            removeDoc: (event) => {
+                const filename = event.target.closest('.docs__item-close').dataset.name;
+                this.docs.splice(this.docs.indexOf(filename), 1);
+                this.methods.reloadDocs();
+            },
+            reloadDocs: () => {
+                this.reloadElement(template.call(this), 'docs');
+                console.log(this.docs);
+            },
             generateTicket: () => {
                 const params = Object.keys(this.data().types[this.data().type].availableParameters);
                 let ticket = {}
@@ -98,13 +119,8 @@ export default class Form extends Component {
                     }
                 })
 
-                const docs = this.element.querySelector('.docs__input')?.files;
-
-                if(docs && docs.length){
-                    ticket.docs = [];
-                    for(let i = 0; i < docs.length; i++){
-                        ticket.docs.push(docs[i].name);
-                    }
+                if(this.docs?.length) {
+                    ticket.docs = this.docs;
                 }
 
                 return ticket;
@@ -137,6 +153,10 @@ export default class Form extends Component {
                                 .querySelector(`input[name=input-${param}]`).value;
                     }
                 })
+
+                if(this.docs?.length) {
+                    ticket.docs = this.docs;
+                }
 
                 return ticket;
             },
@@ -232,18 +252,21 @@ export default class Form extends Component {
                                 return this.components.Input(key, value, this.data().currentTicket[key])
                         }
                     })
+            },
+            reload: () => {
+                this.docs = this.computed.docs;
+                this.reload();
             }
         };
 
 
         // subscribing some events that trigger some action with our component
-        store.events.subscribe('setTicketToCreate', this.reload.bind(this));
+        store.events.subscribe('setTicketToCreate', this.methods.reload.bind(this));
         store.events.subscribe('addCpmTicket', this.reload.bind(this));
     }
 
     render() {
-
-        //some actions that we call before rendering our template
+        this.docs = this.computed.docs();
 
         console.groupCollapsed('RENDER FORM');
         console.log(this.data().type)

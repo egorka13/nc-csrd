@@ -6,11 +6,13 @@ import store from '../../../store/index.js';
 import {template} from "./docs.template.js";
 
 export default class Docs extends Component {
-    constructor(docs, isForm = true) {
+    constructor(docs, isForm = true, handler, closeHandler) {
         super({
             store,
             docs,
-            isForm
+            isForm,
+            handler,
+            closeHandler
         }, {
             // components that we use as children of our component
         });
