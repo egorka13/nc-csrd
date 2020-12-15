@@ -1,0 +1,26 @@
+.roe-tariff {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 2.5em;
+    border-radius: @card-border-radius;
+    &:nth-child(2n) {
+      background-color: @csrd-light-gray;
+    }
+
+    &__item {
+      .ellipsis();
+
+      &:nth-child(3), &:nth-child(6) {
+        width: 7%;
+      }
+
+      &:nth-child(1) {
+        width: 10%;
+      }
+
+      &:nth-child(4),&:nth-child(2), &:nth-child(5), &:nth-child(7), &:nth-child(1) {
+        width: 15%;
+      }
+    }
+}
