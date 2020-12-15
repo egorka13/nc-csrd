@@ -9,6 +9,7 @@ import store from "./store/index.js";
 import firebase from "firebase/app";
 import Counter from "./components/counter/counter.component.js";
 import BIM from "./components/bim/bim.component.js"
+import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -28,13 +29,17 @@ window.router = router;
 window.store = store;
 
 router
-    .use('/', Main, { page: 'cpm'})
+    .use('/', Main, { page: 'cim'})
     .use('/cpm', Main, { page: 'cpm'})
+    .use('/cim', Main, { page: 'cim'})
+    .use('/bim', Main, { page: 'bim'})
+    .use('/roe', Main, { page: 'roe'})
     .use('/example', Example)
     .use('/BIM', BIM)
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
+    .use('/demo', ConditionDemo)
     .start();
 
 

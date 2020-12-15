@@ -2,9 +2,8 @@ export const template = function () {
     let pages = this.props.store.state.pages;
 
     const listItems = Object.values(pages).map((page) => {
-        let classActive = page.minName === this.props.currentPage.minName
+        let classActive = page.minName === this.props.currentPage
                             ? ['_active'] : [];
-        console.log(classActive)
         return {
             tagName: 'div',
             classList: ['sidebar__menu-item', ...classActive],

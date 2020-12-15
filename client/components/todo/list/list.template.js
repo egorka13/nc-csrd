@@ -8,30 +8,29 @@ export const listTemplate = function(){
                 tagName: 'ul',
                 classList: ['list__content'],
                 children: [
-                    ...items.map(text => {
-                        return {
-                            tagName: 'li',
-                            classList: ['list__item'],
-                            attributes: {
-                                'data-key': text,
+                    {
+                        for: items,
+                        tagName: 'li',
+                        classList: ['list__item'],
+                        attributes: {
+                            'data-key': '{{item}}',
+                        },
+                        children: [
+                            {
+                                tagName: 'div',
+                                classList: ['list__text'],
+                                textContent: '{{item}}'
                             },
-                            children: [
-                                {
-                                    tagName: 'div',
-                                    classList: ['list__text'],
-                                    textContent: text
+                            {
+                                tagName: 'button',
+                                classList: ['list__delete-button'],
+                                events: {
+                                    onclick: this.methods.clearItem
                                 },
-                                {
-                                    tagName: 'button',
-                                    classList: ['list__delete-button'],
-                                    events: {
-                                        onclick: this.methods.clearItem
-                                    },
-                                    textContent: 'X'
-                                },
-                            ]
-                        }
-                    })
+                                textContent: 'X'
+                            },
+                        ]
+                    }
                 ]
             },
             {
