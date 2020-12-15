@@ -26,7 +26,7 @@
     &__list {
       .flex(column-reverse);
     }
-    &__ticket {
+    &__item {
         &:nth-child(2), &:nth-child(4) {
             background-color: #EDF2F7;
           }
@@ -38,7 +38,7 @@
       .flex(row, space-between, center);
       // box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.36);
       border-bottom: 1px solid #D3E3F7;
-      &__header {
+      &-header {
         font-family: 'Roboto';
         position: sticky;
         top: 0;
@@ -46,12 +46,10 @@
         font-size: 14px;
         color: rgba(167, 175, 183, 1);
         text-align: center;
-        // font-weight: bolder;
-        &-empty {
-            visibility: hidden;
-          }
       }
-      
+      &-empty {
+        visibility: hidden;
+      }
       &-col {
         font-size: 14px;
         font-family: 'Roboto';

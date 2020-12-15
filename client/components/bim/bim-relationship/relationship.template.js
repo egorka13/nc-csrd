@@ -12,22 +12,19 @@
             ...relationshipData.map((item) => {
               return {
                 tagName: "div",
-                classList: ["relationship-table__ticket"],
+                classList: ["relationship-table__item"],
                 children: [
                   
                   ...Object.keys(params).map((param) => {
                     return {
                       tagName: "div",
-                      classList: ["relationship-table__ticket-col"],
+                      classList: ["relationship-table__item-col"],
                       textContent: item[param],
                     };
                   }),
                   {
                     tagName: 'button',
                     textContent: 'edit',
-                    // events: {
-                    //     onclick: this.actions.loadBimInf
-                    // },
                     classList: ['relationship-table__button']
                 },
                 ],
@@ -35,22 +32,19 @@
             }),
             {
               tagName: "div",
-              classList: ["relationship-table__ticket", "relationship-table__ticket__header"],
+              classList: ["relationship-table__item", "relationship-table__item-header"],
               children: [
                 ...Object.values(params).map((value) => {
                   return {
                     tagName: "div",
-                    classList: ["relationship-table__ticket-col"],
+                    classList: ["relationship-table__item-col"],
                     textContent: value,
                   };
                 }),
                 {
                     tagName: 'div',
                     textContent: ' mmm ',
-                    // events: {
-                    //     onclick: this.methods.loadBimTransaction
-                    // },
-                    classList: ['relationship-table__ticket__header-empty']
+                    classList: ['relationship-table__item-empty']
                 }
               ],
             },
