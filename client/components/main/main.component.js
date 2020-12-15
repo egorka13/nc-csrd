@@ -5,6 +5,7 @@ import CPM from "../cpm/cpm.component.js";
 import Example from "../example/example.component.js";
 import Counter from "../counter/counter.component.js";
 import Todo from "../todo/todo.component.js";
+import BIM from "../bim/bim.component.js";
 import Roe from "../roe/roe.component";
 
 export default class App extends Component {
@@ -17,7 +18,7 @@ export default class App extends Component {
             cpm: CPM,
             cim: Example,
             roe: Roe,
-            bim: Todo,
+            bim: BIM,
         };
     }
 
