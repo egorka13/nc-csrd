@@ -1,11 +1,12 @@
 import Component from '../../../modules/component/component.js';
 import store from '../../../store/index.js';
-import {template} from './connected-add-on.template.js';
+import {template} from "./roe-connected-addon.template.js";
 
-export default class RoeConnectedAddons extends Component {
-    constructor() {
+export default class RoeConnectedAddon extends Component {
+    constructor(data) {
         super({
-            store
+            store,
+            ...data,
         });
     }
 

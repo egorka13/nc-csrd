@@ -24,8 +24,8 @@ const state = {
         },
         {
             minName: 'roe',
-            name: 'Order Entry',
-            fullName: 'Residential Order Entry',
+            name: 'Product Management',
+            fullName: 'Product Management',
             active: false
         },
         {
