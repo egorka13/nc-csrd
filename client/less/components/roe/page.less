@@ -1,0 +1,70 @@
+.roe {
+  .font-regular();
+  padding: 0 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    .font-header-module-title();
+    margin: 10px 0;
+  }
+
+  &__connected {
+    .roe-card();
+    background: white;
+    max-width: 65%;
+    margin: 15px 0;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-header {
+      margin: 0 0 10px 0;
+      .font-header-sub-module-title()
+    }
+    &-tariff {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    &-addons {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 1));
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__available {
+    background: white;
+    &-header {
+      margin: 0 0 10px 0;
+      .font-header-sub-module-title();
+    }
+    &-tariffs {
+      display: flex;
+      //height: .calc(100vh - );
+      overflow: scroll;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1));
+        pointer-events: none;
+      }
+    }
+    .roe-card();
+    max-width: 65%;
+  }
+}

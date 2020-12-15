@@ -25,6 +25,11 @@ export default class Router {
     }
 
     redirect(path){
+
+        if(document.location.pathname !== path) {
+            history.pushState(null, null, path);
+        }
+
         this.currentRoute = this.routes.find(route => route.path === path ||
             route.path.slice(0, route.path.lastIndexOf('/')) === path.slice(0, path.lastIndexOf('/'))
                 && route.path.indexOf(':') !== -1);
@@ -53,10 +58,10 @@ export default class Router {
     }
 
     back() {
-        this.history.back();
+        window.history.back();
     }
 
     forward() {
-        this.history.forward();
+        window.history.forward();
     }
 }
