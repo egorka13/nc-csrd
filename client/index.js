@@ -7,10 +7,8 @@ import NotFound from "./components/notFound/notFound.component.js";
 import Main from "./components/main/main.component.js";
 import store from "./store/index.js";
 import Counter from "./components/counter/counter.component.js";
-import BIM from "./components/bim/bim.component.js"
 import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
 import { Firebase } from "./modules/firebase";
-import CIM from "./components/cim/main.component"
 //import {Loader} from "@googlemaps/js-api-loader";
 
 const router = new Router('.app');
@@ -21,7 +19,6 @@ window.firebase = Firebase;
 
 //@googlemaps/js-api-loader
 
-
 router
     .use('/', Main, { page: 'cim'})
     .use('/cpm', Main, { page: 'cpm'})
@@ -30,7 +27,7 @@ router
     .use('/roe', Main, { page: 'roe'})
     .use('/confirm-demo', Main, { page: 'confirmDemo'})
     .use('/example', Example)
-    .use('/BIM', BIM)
+    .use('/todo', Todo)
     .use('/counter', Counter)
     .use('/item/:index', Item)
     .use('/404', NotFound)
