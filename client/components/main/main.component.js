@@ -5,6 +5,7 @@ import CPM from "../cpm/cpm.component.js";
 import Example from "../example/example.component.js";
 import Todo from "../todo/todo.component.js";
 import Roe from "../roe/roe.component";
+import CIM from '../cim/main.component'
 import ConfirmDemo from "../confirmDemo/confirmDemo.component";
 import Confirm from "./confirm/confirm.component";
 
@@ -18,7 +19,7 @@ export default class App extends Component {
         });
         this.pagesComponents = {
             cpm: CPM,
-            cim: Example,
+            cim: CIM,
             roe: Roe,
             bim: Todo,
             confirmDemo: ConfirmDemo,

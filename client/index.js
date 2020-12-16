@@ -9,6 +9,8 @@ import store from "./store/index.js";
 import firebase from "firebase/app";
 import Counter from "./components/counter/counter.component.js";
 import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
+import CIM from "./components/cim/main.component"
+//import {Loader} from "@googlemaps/js-api-loader";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -27,6 +29,9 @@ const router = new Router('.app');
 window.router = router;
 window.store = store;
 
+//@googlemaps/js-api-loader
+
+
 router
     .use('/', Main, { page: 'cim'})
     .use('/cpm', Main, { page: 'cpm'})
@@ -41,7 +46,3 @@ router
     .use('/404', NotFound)
     .use('/demo', ConditionDemo)
     .start();
-
-
-
-
