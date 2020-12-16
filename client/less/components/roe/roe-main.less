@@ -1,0 +1,25 @@
+.roe-main {
+    //width: calc(100vw - 210px);
+    //background: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    &:nth-child(1) {
+      //flex-grow: 6; не сработал почему-то
+      width: 70%;
+    }
+    &:nth-child(2) {
+      //flex-grow: 4; не сработал почему-то
+      margin-left: 10px;
+      width: 30%;
+    }
+
+    &-row {
+
+    }
+  }
+}

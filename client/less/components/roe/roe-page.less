@@ -10,77 +10,39 @@
     margin: 10px 0 0 10px;
   }
 
-  &__connected {
-    flex: 0 1 auto;
-    .roe-card();
-    background: white;
-    max-width: 65%;
-    margin: 10px 0;
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    &-header {
-      margin: 0;
-      .font-header-sub-module-title()
-    }
-
-    &-tariff {
-      //background: @csrd-light-gray;
-      border-radius: @card-border-radius;
-      display: flex;
-      margin: 0 0 10px 0;
-    }
-
-    &-addons {
-      position: relative;
-    }
-
-    &-addons._showFog {
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-        pointer-events: none;
-      }
-    }
+  &__main {
   }
 
-  &__available {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    height: 100px;
-    position: relative;
-    background: white;
-    margin-bottom: 10px;
-    //TODO adjust parameters width according to scrollbar
-    .roe-card();
-    max-width: 65%;
+  //&__available {
+  //  display: flex;
+  //  flex-direction: column;
+  //  flex: 1 1 auto;
+  //  height: 100px;
+  //  position: relative;
+  //  background: white;
+  //  margin-bottom: 10px;
+  //  //TODO adjust parameters width according to scrollbar
+  //  .roe-card();
+  //  max-width: 65%;
+  //
+  //  ::-webkit-scrollbar {
+  //    display: none;
+  //  }
+  //
+  //  &-content {
+  //    height: calc(100%);
+  //  }
+  //
+  //  &-phones {
+  //    height: calc(100% - 20px);
+  //  }
+  //}
 
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    &-content {
-      height: calc(100%);
-    }
-
-    &-phones {
-      height: calc(100% - 20px);
-    }
-  }
-
-  &__sales {
-    &-header {
-      margin: 0;
-      flex: 0 1 auto;
-      .font-header-sub-module-title();
-    }
-  }
+  //&__sales {
+  //  &-header {
+  //    margin: 0;
+  //    flex: 0 1 auto;
+  //    .font-header-sub-module-title();
+  //  }
+  //}
 }
