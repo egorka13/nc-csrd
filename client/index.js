@@ -9,6 +9,8 @@ import store from "./store/index.js";
 import Counter from "./components/counter/counter.component.js";
 import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
 import { Firebase } from "./modules/firebase";
+import CIM from "./components/cim/main.component"
+//import {Loader} from "@googlemaps/js-api-loader";
 
 const router = new Router('.app');
 
@@ -16,12 +18,16 @@ window.router = router;
 window.store = store;
 window.firebase = Firebase;
 
+//@googlemaps/js-api-loader
+
+
 router
     .use('/', Main, { page: 'cim'})
     .use('/cpm', Main, { page: 'cpm'})
     .use('/cim', Main, { page: 'cim'})
     .use('/bim', Main, { page: 'bim'})
     .use('/roe', Main, { page: 'roe'})
+    .use('/confirm-demo', Main, { page: 'confirmDemo'})
     .use('/example', Example)
     .use('/todo', Todo)
     .use('/counter', Counter)
@@ -29,7 +35,3 @@ router
     .use('/404', NotFound)
     .use('/demo', ConditionDemo)
     .start();
-
-
-
-

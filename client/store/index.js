@@ -3,12 +3,23 @@ import {cpmStore} from "./cpm.js";
 import {todoStore} from "./todo.js";
 import {counterStore} from "./counter.js";
 import {roeStore} from "./roe.js";
+import {customerInfoStore} from "./customer-info.js"
 
 const state = {
     todo: todoStore.state,
     cpm: cpmStore.state,
     counter: counterStore.state,
+    confirm: {
+        text: 'R u sure?',
+        action: '',
+        isShow: false,
+        result: false
+    },
+    notification: {
+        isShow: false
+    },
     roe: roeStore.state,
+    cim: customerInfoStore.state,
     pages: [
         {
             minName: 'cim',
@@ -44,6 +55,7 @@ export default new Store({
         ...cpmStore.actions,
         ...counterStore.actions,
         ...roeStore.actions,
+        ...customerInfoStore.actions,
         goToOtherPage(context, payload){
             let activeListItem = document
                 .querySelector('.sidebar__menu-item._active');
@@ -55,13 +67,19 @@ export default new Store({
             history.pushState(null, null, '/' + payload);
 
             context.commit('goToOtherPage', payload);
-        }
+        },
+        confirm(context, payload){
+
+            context.commit('openConfirm', payload);
+        },
+
     },
     mutations: {
         ...todoStore.mutations,
         ...cpmStore.mutations,
         ...counterStore.mutations,
         ...roeStore.mutations,
+        ...customerInfoStore.mutations,
         goToOtherPage(state, payload){
             let activePage = state.pages.find(page => page.active);
             if(activePage) {
@@ -80,6 +98,13 @@ export default new Store({
             }
 
             return state;
+        },
+        openConfirm(state, payload) {
+            state.confirm.action = payload.action;
+            state.confirm.text = payload.text;
+            state.confirm.show = true;
+
+            return state;
         }
     },
     getters: {
@@ -87,5 +112,6 @@ export default new Store({
         ...cpmStore.getters,
         ...counterStore.getters,
         ...roeStore.getters,
+        ...customerInfoStore.getters
     }
 });
