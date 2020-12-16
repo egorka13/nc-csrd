@@ -38,6 +38,7 @@ router
     .use('/cim', Main, { page: 'cim'})
     .use('/bim', Main, { page: 'bim'})
     .use('/roe', Main, { page: 'roe'})
+    .use('/confirm-demo', Main, { page: 'confirmDemo'})
     .use('/example', Example)
     .use('/todo', Todo)
     .use('/counter', Counter)

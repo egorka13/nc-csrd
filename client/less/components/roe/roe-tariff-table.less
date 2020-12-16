@@ -1,0 +1,44 @@
+.roe-tariff-table {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  .font-table-regular();
+
+  &__parameters {
+    position: sticky;
+    top: 0;
+    padding: 10px 0;
+    display: flex;
+    background: @csrd-white;
+    justify-content: space-around;
+    align-items: flex-end;
+    color: @csrd-grey;
+    border-bottom: solid 2px @csrd-divider-gray;
+
+    &-item {
+      &:nth-child(3), &:nth-child(6) {
+        width: 7%;
+      }
+
+      &:nth-child(1) {
+        width: 10%;
+      }
+
+      &:nth-child(4),&:nth-child(2), &:nth-child(5), &:nth-child(7), &:nth-child(1) {
+        width: 15%;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+}

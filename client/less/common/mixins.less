@@ -60,7 +60,7 @@
 .font-header-module-title() {
   font-family: @font-mulish;
   font-weight: @font-bold-weight;
-  font-size: @font-x-large-size;
+  font-size: @font-medium-size;
   font-style: normal;
 }
 
@@ -68,7 +68,7 @@
 .font-header-sub-module-title() {
   font-family: @font-mulish;
   font-weight: @font-bold-weight;
-  font-size: @font-large-size;
+  font-size: @font-regular-size;
   font-style: normal;
 }
 
@@ -117,7 +117,22 @@
   border: solid 1px @csrd-light-stroke;
   box-shadow: 0 0 3px @csrd-light-stroke;
   border-radius: @card-border-radius;
-  padding: 1em;
+  padding: 0.75em;
+}
+
+.roe-button() {
+  border-radius: @button-radius;
+  border: 0;
+  .font(@font-mulish, light, @font-small-size);
+  padding: 2px 0.5em;
+  background: @csrd-neon-green;
+  color: @csrd-white;
+  //margin: 0.5em 1em 0.5em 1em;
+}
+
+.roe-button-hover() {
+  background: @csrd-violet;
+  color: @csrd-white;
 }
     
 
