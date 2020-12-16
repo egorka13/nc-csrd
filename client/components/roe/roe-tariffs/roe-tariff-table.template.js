@@ -6,6 +6,7 @@ export const template = function () {
     let tariffs = this.props.tariffs;
     let parameters = this.props.parameters;
     return {
+        //if: store.getter('roeGetAvailableCurrentNavTab') === 'Tariffs',//this.props.store.state.roe.availableNav.currentTab === 'Tariffs',
         tagName: 'div',
         classList: ['roe-tariff-table', ...this.props.addClassName],
         children: [

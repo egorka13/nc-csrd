@@ -1,7 +1,7 @@
 import RoeConnectedAddon from "./roe-connected-addon.component.js";
 
 export const template = function () {
-    let connectedAddOns = this.props.store.state.roe.connectedAddOns;
+    let connectedAddOns = store.getter('roeGetConnectedPackages');//this.props.store.state.roe.connectedAddOns;
     return {
         tagName: 'div',
         classList: ['roe-addons', ...this.props.addClassName],

@@ -2,8 +2,6 @@ import Tariff from '../modules/roe-tools/Tariff.js'
 import AvailableTariff from "../modules/roe-tools/AvailableTariff";
 
 export const roeStore = {
-    //TODO 'tariff-value class'
-
     state: {
         connectedTariffParameters: {
             name: 'Name',
@@ -41,17 +39,7 @@ export const roeStore = {
                 button: 'Connect',
             },
             {
-                name: 'Plus Ultra',
-                type: 'Mobile internet',
-                dimension: 'GB',
-                quantity: 50,
-                left: 12,
-                price: 666,
-                dateOfDisconnection: getDate(new Date(2022, 5, 18)),
-                button: 'Connect',
-            },
-            {
-                name: 'Gobal',
+                name: 'Global',
                 type: 'Cloud storage',
                 dimension: 'GB',
                 quantity: 500,
@@ -69,7 +57,17 @@ export const roeStore = {
                 price: 6,
                 dateOfDisconnection: getDate(new Date(2002, 7, 9)),
                 button: 'Connect',
-            }
+            },
+            {
+                name: 'Plus Ultra',
+                type: 'Mobile internet',
+                dimension: 'GB',
+                quantity: 50,
+                left: 0,
+                price: 666,
+                dateOfDisconnection: getDate(new Date(2022, 5, 18)),
+                button: 'Connect',
+            },
         ],
 
         availableTariffs: [
@@ -110,15 +108,46 @@ export const roeStore = {
                 price: 0,
             },
         ],
+
+        availableNavStates: ['Tariffs', 'Packages', 'Cell Phones'],
+
+        availableNav: {
+            currentTab: 'Packages',
+        }
     },
 
     getters: {
-        getConnectedTariff(context, payload) {
+        roeGetConnectedTariff(context) {
             return context.state.roe.connectedTariff;
+        },
+
+        roeGetConnectedPackages(context) {
+            return context.state.roe.connectedAddOns;
+        },
+
+        roeGetAvailableTariffs(context) {
+            return context.state.roe.availableTariffs;
+        },
+
+        // roeGetAvailablePackages(context) {
+        //     return context.state.roe.availableAddons;
+        // }
+
+        roeGetAvailableCurrentNavTab(context) {
+            return context.state.roe.availableNav.currentTab;
         }
     },
-    actions: {},
-    mutations: {}
+    actions: {
+        roeSetNavTab(context, payload) {
+            context.commit('roeSetNavTab', payload);
+        },
+    },
+    mutations: {
+        roeSetNavTab(state, payload) {
+            state.roe.availableNav.currentTab = payload.newTab;
+            return state;
+        },
+    }
 }
 
 function getDate(date = new Date()) {

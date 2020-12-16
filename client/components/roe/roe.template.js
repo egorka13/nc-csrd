@@ -4,6 +4,9 @@ import RoeAddonTypeButton from "./buttons/roe-addon-type-button.component";
 import RoeSalesOrders from "./salesOrders/sales-orders.component";
 import RoeTariffTable from "./roe-tariffs/roe-tariff-table.component";
 import RoeAvailableAddons from "./roe-addon/roe-available-addons.component";
+import ConditionDemo from "../conditionDemo/conditionDemo.component";
+import RoeNav from "./buttons/roe-nav.component";
+import RoeAvailable from "./roe-available/roe-available.component";
 
 export const template = function () {
     let availablePhones = this.props.store.state.roe.availablePhones;
@@ -54,12 +57,15 @@ export const template = function () {
                         ]
 
                     },
-                    new RoeTariffTable({
-                        addClassName: ['roe__available-tariffs'],
-                        tariffs: this.props.store.state.roe.availableTariffs,
-                        parameters: this.props.store.state.roe.availableTariffParameters,
-                        isConnected: false,
+                    new RoeAvailable({
+                        addClassName: ['roe__available-content'],
                     }).render(),
+                    // new RoeTariffTable({
+                    //     addClassName: ['roe__available-tariffs'],
+                    //     tariffs: this.props.store.state.roe.availableTariffs,
+                    //     parameters: this.props.store.state.roe.availableTariffParameters,
+                    //     isConnected: false,
+                    // }).render(),
                     // =================AVAILABLE=PACKAGES=================
                     // {
                     //     tagName: 'div',
@@ -75,7 +81,7 @@ export const template = function () {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['gbInternet', 'Mobile Internet'],
                     //             }).render(),
-                    //         new RoeAddonTypeButtonComponent(
+                    //         new RoeAddonTypeButton(
                     //             {
                     //                 addClassName: ['roe-button', 'roe-available-packages__button'],
                     //                 packageType: ['gbCloud', 'Cloud Storage'],
