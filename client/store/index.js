@@ -2,10 +2,12 @@ import Store from '../modules/store/store.js';
 import {cpmStore} from "./cpm.js";
 import {todoStore} from "./todo.js";
 import {counterStore} from "./counter.js";
+import {bimStore} from "./bim.js";
 import {roeStore} from "./roe.js";
 import {customerInfoStore} from "./customer-info.js"
 
 const state = {
+    bim: bimStore.state,
     todo: todoStore.state,
     cpm: cpmStore.state,
     counter: counterStore.state,
@@ -43,7 +45,7 @@ const state = {
             minName: 'bim',
             name: 'Billing Info',
             fullName: 'Billing Information Management',
-            active: false
+            active: true
         },
     ]
 };
