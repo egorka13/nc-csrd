@@ -11,6 +11,9 @@ export const template = function(){
                 tagName: 'div',
                 classList: ['main__page'],
                 children: [
+                    {
+                        component: 'Confirm'
+                    },
                     new this.pagesComponents[currentPage]().render(),
                 ]
             }

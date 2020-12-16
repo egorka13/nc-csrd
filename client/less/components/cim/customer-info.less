@@ -1,0 +1,23 @@
+
+
+.customer-info {
+  &__title {
+    margin: 16px 0 0 16px;
+    font-family: 'Mulish';
+    font-size: 119%;
+    font-weight: bold;
+  }
+
+  &__info {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    width: 94%;
+    margin: 0 16px 0 16px;
+  }
+
+  &__info:not(:nth-last-child(1)) {
+    border-bottom: solid 1px #dfe0eb;
+  }
+}

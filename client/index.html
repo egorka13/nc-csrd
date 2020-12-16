@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
 <!--    <meta name="viewport"-->
 <!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDl-KJcJFBPfDE-Np8fIgKPH9b20myr90&callback=initMap&libraries=&v=weekly"
+            defer
+    ></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="less/main.less">
+    <script src="https://kit.fontawesome.com/7b42635023.js" crossorigin="anonymous"></script>
     <title>NC :: CSRD</title>
 </head>
 <body>
     <div class="app"></div>
 
     <script src="index.js"></script>
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementsByClassName("location__map")[0], {
+                center: { lat: 55.753960, lng: 37.620393 },
+                zoom: 9,
+            });
+        }
+
+    </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import {template} from "../../components/cpm/cpm.template";
+
 export default class Component {
     constructor(props = {}, components) {
         this.render = this.render || function() {};
@@ -14,9 +16,6 @@ export default class Component {
         console.log(this);
         console.groupEnd();
         if(this.element && this.element.parentElement){
-            let temp = document.createElement('h1');
-            temp.textContent = String(new Date());
-            this.element.prepend(temp);
 
             let oldElement = this.element;
             let newElement = this.render();
@@ -28,10 +27,48 @@ export default class Component {
         }
     }
 
+    reloadElement(template, elementName){
+        console.log(template);
+        console.groupCollapsed('RELOAD ' + elementName);
+        const oldElement = document.querySelector(`*[data-name=${elementName}]`);
+        console.log(oldElement);
+        const elementTemplate = this.searchElement(template, elementName);
+        console.log(elementTemplate);
+        if(oldElement && elementTemplate) {
+            const newElement = this.compileElement(elementTemplate);
+            console.log(newElement);
+            oldElement.parentElement.replaceChild(newElement, oldElement);
+        }
+        console.groupEnd();
+    }
+
+    searchElement(template, elementName){
+        if(template.attributes && template.attributes['data-name'] &&
+            template.attributes['data-name'] === elementName) {
+
+            return template;
+        }
+
+        if(template.children) {
+            for(let child of template.children){
+                if (!(child instanceof HTMLElement) && child){
+                    if (this.searchElement(child, elementName))
+                        return this.searchElement(child, elementName);
+                }
+            }
+        }
+    }
+
     compile(template){
         this.element = document.createElement(template.tagName || 'div');
         this.element = this.generate(this.element, template);
         return this.element;
+    }
+
+    compileElement(template){
+        let element = document.createElement(template.tagName || 'div');
+        element = this.generate(element, template);
+        return element;
     }
 
     generate(element, template, data){
@@ -48,24 +85,22 @@ export default class Component {
             }
 
             if(template.hasOwnProperty('if') && !this.evalValue(template['if'], data)) {
+                element.style.display = 'none';
 
                 return element;
             }
 
             if(template.hasOwnProperty('component')) {
                 if (template.hasOwnProperty('arguments')) {
-                    console.log(this.components[template.component](
-                        ...template.arguments.map(arg => this.evalValue(arg, data))))
+
                     return this.components[template.component](
                         ...template.arguments.map(arg => this.evalValue(arg, data)));
                 }
-                console.log(this.components[template.component]())
                 return this.components[template.component]();
             }
 
             if(template.hasOwnProperty('classList')) {
                 template.classList.forEach(className => {
-                    console.log(this.evalValue(className, data))
                     element.classList.add(this.evalValue(className, data));
                 });
             }
@@ -85,6 +120,7 @@ export default class Component {
                 for(let eventName in template.events){
                     if(eventName in element) {
                         element[eventName] = this.evalValue(template.events[eventName], data);
+
                         window[template.events[eventName].name] = this.evalValue(template.events[eventName], data);
                     }
                 }
