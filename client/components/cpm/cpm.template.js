@@ -27,8 +27,19 @@ export const template = function () {
                     {
                         tagName: 'div',
                         classList: ['cpm__info'],
+                        attributes: {
+                            'data-name': 'cpmInfo',
+                        },
                         children: [
-                            this.components.Info()
+                            {
+                                if: this.data().status === 'show',
+                                component: 'Info'
+                            },
+                            {
+                                if: this.data().status === 'create' ||
+                                    this.data().status === 'modify',
+                                component: 'Form'
+                            }
                         ]
                     },
                     {
