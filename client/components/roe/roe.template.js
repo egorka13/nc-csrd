@@ -85,7 +85,7 @@ export const template = function () {
             //                     classList: ['roe-available-header__title'],
             //                     textContent: 'Available Offerings'
             //                 },
-            //                 //TODO nav buttons
+            //                 //TODO nav roe-buttons
             //             ]
             //
             //         },

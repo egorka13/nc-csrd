@@ -71,19 +71,19 @@ export const roeStore = {
         ],
 
         availableTariffs: [
-            new AvailableTariff('Adonis', 90, 860, 23, 67, 0, 'Connect'),
-            new AvailableTariff('God', 60, 30, 24, 25, 3450, 'Connect'),
-            new AvailableTariff('Lovecraft', 98, 820, 25, 75, 3460, 'Connect'),
-            new AvailableTariff("Lovecraft's cat", 56, 20, 26, 644, 643, 'Connect'),
-            new AvailableTariff('Brandt', 34, 380, 27, 69, 740, 'Connect'),
-            new AvailableTariff('Priceless', 854, 82, 28, 75, 0, 'Connect'),
-            new AvailableTariff('Demetr', 247, 74, 29, 25, 745, 'Connect'),
-            new AvailableTariff('Acolite', 23, 20, 2, 65, 370, 'Connect'),
-            new AvailableTariff('Cuclu', 9, 33, 7, 65, 25, 'Connect'),
-            new AvailableTariff('Blabla', 70, 50, 213, 65, 830, 'Connect'),
-            new AvailableTariff('Lorem', 8, 66, 34, 77, 20, 'Connect'),
-            new AvailableTariff('Cratos', 800, 96, 4, 0, 20, 'Connect'),
-            new AvailableTariff('Aphrodite', 4, 44, 444, 44, 212, 'Connect'),
+            new AvailableTariff('Adonis', 900, 150, 50, 15, 800, 'Connect'),
+            new AvailableTariff('God', 600, 200, 10, 5, 300, 'Connect'),
+            new AvailableTariff('Lovecraft', 400, 820, 25, 75, 900, 'Connect'),
+            new AvailableTariff("Lovecraft's cat", 500, 50, 25, 60, 600, 'Connect'),
+            new AvailableTariff('Brandt', 34, 380, 25, 60, 7, 'Connect'),
+            new AvailableTariff('Priceless', 0, 0, 0, 0, 0, 'Connect'),
+            new AvailableTariff('Demetr', 500, 50, 50, 50, 1500, 'Connect'),
+            new AvailableTariff('Acolite', 300, 150, 5, 65, 370, 'Connect'),
+            new AvailableTariff('Cuclu', 100, 400, 15, 65, 25, 'Connect'),
+            new AvailableTariff('Blabla', 800, 50, 25, 65, 830, 'Connect'),
+            new AvailableTariff('Lorem', 200, 600, 30, 35, 20, 'Connect'),
+            new AvailableTariff('Cratos', 400, 300, 40, 0, 200, 'Connect'),
+            new AvailableTariff('Aphrodite', 400, 50, 0, 25, 200, 'Connect'),
         ],
 
         availablePhones: [
@@ -133,12 +133,15 @@ export const roeStore = {
             },
             {
                 ID: 'wrfl42374fuy',
-                Name: 'Global',
+                Name: "Lovecraft's cat",
                 Status: 'COMPLETE',
-                Type: 'Package, disconnect',
-                ['Cloud Storage']: '500 GB',
-                Price: '6686 ₽',
-                Created: getDate(new Date( 2020, 10, 9)),
+                Type: 'Tariff, disconnect',
+                ['Voice Line']: '500 min',
+                SMS: '50 texts',
+                ['Mobile Internet']: '25 GB',
+                ['Cloud Storage']: '60 GB',
+                Price: '600 ₽',
+                Created: getDate(new Date( 2020, 10, 10)),
             },
 
         ],
@@ -179,12 +182,21 @@ export const roeStore = {
         roeSetNavTab(context, payload) {
             context.commit('roeSetNavTab', payload);
         },
+
+        roeAddOrder(context, payload) {
+            context.commit('roeAddOrder', payload);
+        }
     },
     mutations: {
         roeSetNavTab(state, payload) {
             state.roe.availableNav.currentTab = payload.newTab;
             return state;
         },
+
+        roeAddOrder(state, payload) {
+            state.roe.orders.unshift(payload);
+            return state;
+        }
     }
 }
 

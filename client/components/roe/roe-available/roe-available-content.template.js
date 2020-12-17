@@ -1,4 +1,4 @@
-import RoeNav from "../buttons/roe-nav.component.js";
+import RoeNav from "../roe-buttons/roe-nav.component.js";
 import RoeAvailableAddons from "../roe-addon/roe-available-addons.component.js";
 import RoeTariffTable from "../roe-tariffs/roe-tariff-table.component";
 
