@@ -1,10 +1,11 @@
 import RoeAvailableAddon from "./roe-available-addon.component";
 
 export const template = function () {
-    let connectedAddOns = this.props.store.state.roe.connectedAddOns;
+    let connectedAddOns = store.getter('roeGetConnectedPackages');//this.props.store.state.roe.connectedAddOns;
     return {
+        //if: store.getter('roeGetAvailableCurrentNavTab'),//this.props.store.state.roe.availableNav.currentTab === 'Packages',
         tagName: 'div',
-        classList: ['roe-available-addons'],
+        classList: ['roe-available-addons', ...this.props.addClassName],
         children: [
             {
                 tagName: 'div',

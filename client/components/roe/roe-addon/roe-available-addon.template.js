@@ -18,6 +18,9 @@ export const template = function () {
                         tagName: 'button',
                         classList: ['addon__header-button', 'roe-button'],
                         textContent: addon.button,
+                        events: {
+                            onclick: this.methods.connectPackage.bind(this),
+                        }
                     },
                 ],
 

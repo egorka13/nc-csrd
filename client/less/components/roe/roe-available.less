@@ -1,0 +1,20 @@
+.roe-available {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100px;
+  position: relative;
+  background: white;
+  margin-bottom: 10px;
+  //TODO adjust parameters width according to scrollbar
+  .roe-card();
+  //max-width: 65%;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__content {
+    height: calc(100%);
+  }
+}
