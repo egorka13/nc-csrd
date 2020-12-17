@@ -1,0 +1,76 @@
+.addon {
+  .roe-card();
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    &-name {
+      color: @csrd-blue;
+      .font-header-title();
+      margin-bottom: 2px;
+    }
+
+    &-button {
+      align-self: center;
+      margin: 0 0 0 0.5em;
+    }
+  }
+  &__name {
+
+  }
+
+  &__main {
+    .font-header-title();
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+
+    &-type {
+      overflow-wrap: normal;
+      padding-right: 0.5em;
+    }
+
+    &-quantity-left {
+      color: @csrd-green;
+
+      &::after {
+        content: '\/';
+        width: 1em;
+        height: 1em;
+        color: black;
+      }
+    }
+
+    &-quantity-total {
+      margin-right: 3px;
+      //color: @csrd-red;
+    }
+  }
+
+  &__price {
+    .font-regular();
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__disconnection {
+    display: flex;
+    justify-content: space-between;
+
+    &-name {
+      text-align: start;
+    }
+
+    &-value {
+      text-align: end;
+    }
+  }
+
+  &._available {
+    //max-width: 30%;
+    //max-height: 5em;
+  }
+}
