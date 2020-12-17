@@ -68,11 +68,30 @@ export const customerInfoStore = {
         }
     },
     getters: {
-        getItems(context, payload){
+        async getItems(context, payload){
 
             // В будущем из внешней системы
 
-            return context.state.response;
+            const url = 'https://nc-csrd.firebaseio.com/customers.json';
+            const response = await fetch(url);
+            const data = await response.json();
+
+            console.groupCollapsed('fetch GET /customers.json');
+
+            const customers = Object
+                .entries(data)
+                .map(([id, customer]) => {
+                    customer.id = id;
+                    return customer;
+                });
+
+            console.log(customers);
+
+            // store.commit('loadCpmTickets', tickets);
+            // store.commit('setInitialCpmCurrentTicket', tickets[tickets.length - 1]);
+            console.groupEnd();
+
+            // return context.state.response;
         }
     },
     actions: {
