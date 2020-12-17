@@ -6,6 +6,7 @@ import Contacts from './contacts/contacts.component'
 import Status from "./status/status.component";
 
 export const template = function(){
+    this.props.store.getters.getItems();
     return {
         tagName: 'div',
         classList: ['cim'],

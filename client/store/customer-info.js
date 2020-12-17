@@ -14,7 +14,7 @@ export const customerInfoStore = {
             'telNumber': 'Tel. Number'
         },
         responseCI: {
-            '_id': '4238',
+            '_id': 'MMPZB2uLXAubVr8QqdA',
             'firstname': 'Artur',
             'secondname': 'Simonyan',
             'patronymic': 'Evgenievich',
@@ -24,10 +24,10 @@ export const customerInfoStore = {
         },
         responseCM: {
             response: [
-                ['E-Mail', 'qwerty@gmail.com', '1'],
+                ['E-Mail', 'simonyan@gmail.com', '1'],
                 ['Telephone', '89845674323', '1'],
-                ['VK', 'vk.com/customer', '1'],
-                ['E-Mail', 'ytrewq@gmail.com', '0'],
+                ['VK', 'vk.com/AS', '1'],
+                ['E-Mail', 'ArturS@gmail.com', '0'],
                 ['Telephone', '89845675698', '0'],
                 ['VK', 'vk.com/ordinary_man', '0'],
             ]
@@ -42,37 +42,56 @@ export const customerInfoStore = {
         },
         responseCD: {
             1: {
-                name: 'Billing',
-                status: 'Closed',
+                name: 'Personal Data Processing',
+                status: 'On processing',
                 lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                attachment: 'ij8avgh4.docx'
             },
             2: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Service agreement',
+                status: 'Verified',
+                lastUpd: '18.09.2019',
+                attachment: 'ikjfie8743.docx'
             },
             3: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Passport',
+                status: 'Verified',
+                lastUpd: '13.06.2020',
+                attachment: '994ti4t.docx'
             },
             4: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Secondname changing',
+                status: 'Verified',
+                lastUpd: '17.08.2020',
+                attachment: 'hyjf7754t.docx'
             }
         }
     },
     getters: {
-        getItems(context, payload){
+        async getItems(context, payload){
 
             // В будущем из внешней системы
 
-            return context.state.response;
+            const url = 'https://nc-csrd.firebaseio.com/customers.json';
+            const response = await fetch(url);
+            const data = await response.json();
+
+            console.groupCollapsed('fetch GET /customers.json');
+
+            const customers = Object
+                .entries(data)
+                .map(([id, customer]) => {
+                    customer.id = id;
+                    return customer;
+                });
+
+            console.log(customers);
+
+            // store.commit('loadCpmTickets', tickets);
+            // store.commit('setInitialCpmCurrentTicket', tickets[tickets.length - 1]);
+            console.groupEnd();
+
+            // return context.state.response;
         }
     },
     actions: {

@@ -8,7 +8,7 @@ export const template = function () {
 
     return {
         tagName: 'table',
-        classList: ['docs__table','table'],
+        classList: ['docs__table','docTable'],
         attributes: {
             style: ''
         },

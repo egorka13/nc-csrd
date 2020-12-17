@@ -29,7 +29,7 @@ export const template = function (row, flag) {
         // })
         //
         // table.appendChild(row);
-        let rowData = document.getElementsByClassName('table__rowData')[0];
+        let rowData = document.getElementsByClassName('docTable__rowData')[0];
         rowData.style.display = 'table-row';
     }
      if (flag !== 1)
@@ -50,7 +50,7 @@ export const template = function (row, flag) {
 
     return {
         tagName: 'tr',
-        classList: ['table__row','row'],
+        classList: ['docTable__row','row'],
         attributes: {
             style: ''
         },

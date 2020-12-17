@@ -9,16 +9,22 @@
   border-color: #dfe0eb;
   border-width: 1px;
 
+
+  .customer-info__title {
+    margin-bottom: 8px;
+  }
+
   &__info {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     height: 20px;
-    width: 88%;
+    width: calc(100% - 30px);
     margin: 0 16px 0 14px;
   }
 
   &__info:not(:nth-last-child(1)) {
     border-bottom: solid 1px #dfe0eb;
   }
+
 }

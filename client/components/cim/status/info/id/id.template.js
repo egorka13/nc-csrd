@@ -6,7 +6,7 @@ export const template = function () {
         attributes: {
             style: ''
         },
-        textContent: '123',
+        textContent: 'MMPZVqv6NqLZQRp7QxQ',
         children: [
 
         ]
