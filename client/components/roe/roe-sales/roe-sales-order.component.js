@@ -1,9 +1,10 @@
 import Component from '../../../modules/component/component.js';
-import store from '../../../store/index.js';
-import {template} from './sales-orders.template.js';
+import store from '../../../store';
+import {template} from './roe-sales-order.template.js';
 
-export default class RoeSalesOrders extends Component {
+export default class RoeSalesOrder extends Component {
     constructor(data) {
+        //Order is needed
         super({
             store,
             ...data,

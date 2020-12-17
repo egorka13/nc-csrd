@@ -1,4 +1,4 @@
-import RoeSalesOrders from "./salesOrders/sales-orders.component";
+import RoeSales from "./roe-sales/roe-sales.component";
 //import RoeAvailableContent from "./roe-available/roe-available-content.component";
 import RoeConnected from "./roe-connected/roe-connected.component";
 import RoeAvailable from "./roe-available/roe-available.component";
@@ -33,8 +33,8 @@ export const template = function () {
                       tagName: 'div',
                       classList: ['roe-main__column'],
                       children: [
-                          new RoeSalesOrders({
-                              addClassName: ['roe__sales', 'roe-main__column-row']
+                          new RoeSales({
+                              addClassName: ['roe-main__column-row'],
                           }).render(),
                       ]
                   }

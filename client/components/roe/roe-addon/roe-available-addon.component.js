@@ -8,6 +8,13 @@ export default class RoeAvailableAddon extends Component {
             store,
             ...data,
         });
+
+        this.methods = {
+            connectPackage: function (props) {
+                let example = document.getElementsByClassName('roe-sales-order')[0];
+                example.classList.toggle('_hidden');
+            }
+        }
     }
 
     render() {

@@ -24,8 +24,8 @@ export const roeStore = {
         },
 
         connectedTariff: [
-            new Tariff('MEGA COOL', 800, 100, 50, 20, 2700, 0, 50, 27, 99, getDate())]
-        ,
+            new Tariff('MEGA COOL', 800, 100, 50, 20, 2700, 0, 50, 27, 99, getDate(new Date(2011, 1, 2)))
+        ],
 
         connectedAddOns: [
             {
@@ -35,7 +35,7 @@ export const roeStore = {
                 quantity: 1200,
                 left: 1000,
                 price: 800,
-                dateOfDisconnection: getDate(new Date(2091, 12, 2)),
+                dateOfDisconnection: getDate(new Date(2021, 1, 2)),
                 button: 'Connect',
             },
             {
@@ -45,7 +45,7 @@ export const roeStore = {
                 quantity: 500,
                 left: 102,
                 price: 6686,
-                dateOfDisconnection: getDate(new Date(2072, 4, 2)),
+                dateOfDisconnection: getDate(new Date(2021, 1, 2)),
                 button: 'Connect',
             },
             {
@@ -55,7 +55,7 @@ export const roeStore = {
                 quantity: 10,
                 left: 10,
                 price: 6,
-                dateOfDisconnection: getDate(new Date(2002, 7, 9)),
+                dateOfDisconnection: getDate(new Date(2021, 1, 2)),
                 button: 'Connect',
             },
             {
@@ -65,7 +65,7 @@ export const roeStore = {
                 quantity: 50,
                 left: 0,
                 price: 666,
-                dateOfDisconnection: getDate(new Date(2022, 5, 18)),
+                dateOfDisconnection: getDate(new Date(2021, 1, 2)),
                 button: 'Connect',
             },
         ],
@@ -109,6 +109,40 @@ export const roeStore = {
             },
         ],
 
+        orders: [
+            {
+                ID: 'h49gok2kf',
+                Name: 'Plus Ultra',
+                Status: 'WAITING FOR PROVISIONING',
+                Type: 'Package, connect',
+                ['Mobile Internet']: '50 GB',
+                Price: '800 ₽',
+                Created: getDate(),
+            },
+            {
+                ID: 'jf92a32gid3',
+                Name: 'MEGA COOL',
+                Status: 'COMPLETE',
+                Type: 'Tariff, connect',
+                ['Voice Line']: '800 min',
+                SMS: '50 texts',
+                ['Mobile Internet']: '2700 GB',
+                ['Cloud Storage']: '50 GB',
+                Price: '99 ₽',
+                Created: getDate(new Date( 2020, 10, 10)),
+            },
+            {
+                ID: 'wrfl42374fuy',
+                Name: 'Global',
+                Status: 'COMPLETE',
+                Type: 'Package, disconnect',
+                ['Cloud Storage']: '500 GB',
+                Price: '6686 ₽',
+                Created: getDate(new Date( 2020, 10, 9)),
+            },
+
+        ],
+
         availableNavStates: ['Tariffs', 'Packages', 'Cell Phones'],
 
         availableNav: {
@@ -135,7 +169,11 @@ export const roeStore = {
 
         roeGetAvailableCurrentNavTab(context) {
             return context.state.roe.availableNav.currentTab;
-        }
+        },
+
+        roeGetOrders(context) {
+            return context.state.roe.orders;
+        },
     },
     actions: {
         roeSetNavTab(context, payload) {
