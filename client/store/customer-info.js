@@ -14,7 +14,7 @@ export const customerInfoStore = {
             'telNumber': 'Tel. Number'
         },
         responseCI: {
-            '_id': '4238',
+            '_id': 'MMPZB2uLXAubVr8QqdA',
             'firstname': 'Artur',
             'secondname': 'Simonyan',
             'patronymic': 'Evgenievich',
@@ -24,10 +24,10 @@ export const customerInfoStore = {
         },
         responseCM: {
             response: [
-                ['E-Mail', 'qwerty@gmail.com', '1'],
+                ['E-Mail', 'simonyan@gmail.com', '1'],
                 ['Telephone', '89845674323', '1'],
-                ['VK', 'vk.com/customer', '1'],
-                ['E-Mail', 'ytrewq@gmail.com', '0'],
+                ['VK', 'vk.com/AS', '1'],
+                ['E-Mail', 'ArturS@gmail.com', '0'],
                 ['Telephone', '89845675698', '0'],
                 ['VK', 'vk.com/ordinary_man', '0'],
             ]
