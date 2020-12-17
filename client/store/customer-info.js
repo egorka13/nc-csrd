@@ -42,28 +42,28 @@ export const customerInfoStore = {
         },
         responseCD: {
             1: {
-                name: 'Billing',
-                status: 'Closed',
+                name: 'Personal Data Processing',
+                status: 'On processing',
                 lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                attachment: 'ij8avgh4.docx'
             },
             2: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Service agreement',
+                status: 'Verified',
+                lastUpd: '18.09.2019',
+                attachment: 'ikjfie8743.docx'
             },
             3: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Passport',
+                status: 'Verified',
+                lastUpd: '13.06.2020',
+                attachment: '994ti4t.docx'
             },
             4: {
-                name: 'Billing',
-                status: 'Closed',
-                lastUpd: '24.10.2020',
-                attachment: 'ijirf4994ti4t.docx'
+                name: 'Secondname changing',
+                status: 'Verified',
+                lastUpd: '17.08.2020',
+                attachment: 'hyjf7754t.docx'
             }
         }
     },
