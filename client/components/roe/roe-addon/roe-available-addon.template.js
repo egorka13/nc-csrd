@@ -1,3 +1,5 @@
+import RoeConfirmConnection from "../roe-buttons/roe-confirm-connection.component";
+
 export const template = function () {
     let addon = this.props.addon;
     return {
@@ -13,15 +15,17 @@ export const template = function () {
                         classList: ['addon__header-name'],
                         textContent: addon.name
                     },
-                    //TODO button component
-                    {
-                        tagName: 'button',
-                        classList: ['addon__header-button', 'roe-button'],
-                        textContent: addon.button,
-                        events: {
-                            onclick: this.methods.connectPackage.bind(this),
-                        }
-                    },
+                    new RoeConfirmConnection({
+                        addClassName: ['addon__header-button'],
+                    }).render(),
+                    // {
+                    //     tagName: 'button',
+                    //     classList: ['addon__header-button', 'roe-button'],
+                    //     textContent: addon.button,
+                    //     events: {
+                    //         onclick: this.methods.connectPackage.bind(this),
+                    //     }
+                    // },
                 ],
 
             },

@@ -1,3 +1,5 @@
+import RoeConfirmConnection from "../roe-buttons/roe-confirm-connection.component";
+
 export const template = function () {
     let tariff = this.props.tariff;
     let parameters = this.props.store.state.roe.availableTariffParameters;
@@ -6,13 +8,11 @@ export const template = function () {
         classList: ['roe-tariff', ...this.props.addClassName],
         children: [
             ...Object.keys(parameters).map(parameter => {
-                if (parameter == 'button') {
-                    console.log('PARAMETER = ', parameter);
-                    return {
-                        tagName: 'button',
-                        classList: ['roe-tariff__item', 'roe-button'],
-                        textContent: tariff[parameter].quantity,
-                    }
+                if (parameter === 'button') {
+                    return new RoeConfirmConnection({
+                        addClassName: ['roe-tariff__item'],
+                        offering: tariff,
+                    }).render()
                 } else {
                     return {
                         tagName: 'span',
