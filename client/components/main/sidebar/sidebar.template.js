@@ -50,7 +50,7 @@ export const template = function () {
                     onclick: this.methods.goToOtherPage
                 },
                 children: listItems
-            },
+            }
 
         ]
     }

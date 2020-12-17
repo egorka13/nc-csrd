@@ -1,7 +1,12 @@
 .info {
   width: 100%;
   font-family: @font-roboto;
-  padding: 15px 0;
+  padding: 20px 0;
+
+  &__docs{
+    width: calc(100% - 30px);
+    padding: 0 15px;
+  }
 
   &._problem {
   }
@@ -10,8 +15,26 @@
     margin-top: 15px;
   }
 
-  &__title {
-    .font(15px, bold);
+  &__title{
+    .flex(row, space-between, center);
+  }
+
+  &__button{
+    margin-right: 15px;
+
+    & i.fa-edit{
+      position: relative;
+      top: -1px;
+      right: -2px;
+    }
+
+    &-container{
+      .flex();
+    }
+  }
+
+  &__title-text {
+    .font-header-title;
     line-height: 18px;
     margin-left: 15px;
   }

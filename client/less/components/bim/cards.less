@@ -1,0 +1,135 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 450px;
+  height: 238px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  margin-top: 490px;
+  margin-left: 32px;
+  background-color: white;
+  border: 1px solid #dfe0eb;
+
+  &__pic {
+    margin-top: 17px;
+    margin-left: 18px;
+    width: 47.17px;
+    height: 40.22px;
+    font-weight: 600;
+    background: linear-gradient(to right, #f5f0de, #b4b7bb);
+    border-radius: 10px;
+  }
+
+  &__title {
+    position: absolute;
+    top: 480px;
+    left: 60px;
+    font-family: "Mulish";
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__item {
+    position: relative;
+    margin: 45px 30px 0 10px;
+    border-radius: 15px;
+    background-color: #046af3;
+    width: 220px;
+    height: 150px;
+    flex: 0 0 auto;
+
+    &-text {
+      position: absolute;
+      top: 160px;
+      left: 5px;
+      border: none;
+      text-align: center;
+      letter-spacing: 0.5px;
+      width: 90.01px;
+      height: 15.72px;
+      padding-top: 8px;
+      font-size: 10px;
+      text-align: center;
+      color: white;
+      background-color: #2cd9c5;
+    }
+
+    &-preferable {
+      position: absolute;
+      top: 157px;
+      left: 60px;
+      width: 93.01px;
+      height: 25.72px;
+      color: white;
+    }
+
+    &-remove {
+      position: absolute;
+      top: 160px;
+      left: 150px;
+      border: none;
+      text-align: center;
+      letter-spacing: 0.5px;
+      width: 65.01px;
+      height: 25.72px;
+      font-size: 11px;
+      color: white;
+      background-color: #fa394e;
+      border-color: #fa394e;
+      outline: #fa394e;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-col {
+      color: #fff6f6;
+      font-weight: lighter;
+      font-size: 12px;
+
+      &:nth-child(1) {
+        word-spacing: 15px;
+        position: absolute;
+        left: 7.07%;
+        top: 53.8%;
+      }
+      &:nth-child(2) {
+        letter-spacing: 2px;
+        position: absolute;
+        left: 7.07%;
+        top: 82.8%;
+      }
+      &:nth-child(3) {
+        letter-spacing: 2px;
+        position: absolute;
+        left: 75.07%;
+        top: 82.8%;
+      }
+      &:nth-child(4) {
+        letter-spacing: 2px;
+        font-size: 6px;
+        position: absolute;
+        left: 7.07%;
+        top: 75.8%;
+      }
+      &:nth-child(5) {
+        letter-spacing: 2px;
+        font-size: 6px;
+        position: absolute;
+        left: 75.07%;
+        top: 75.8%;
+      }
+    }
+  }
+}
+
+.cards__item-preferable + .cards__item-remove {
+  display: block;
+}
+.cards__item-preferable:checked + .cards__item-remove {
+  display: none;
+}
