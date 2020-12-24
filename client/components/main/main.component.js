@@ -26,6 +26,12 @@ export default class App extends Component {
     }
 
     render() {
+        if(!localStorage.getItem('idToken')){
+            setTimeout(function(){
+                window.router.redirect('/login');
+            }, 0)
+        }
+
         return this.compile(template.call(this));
     }
 }

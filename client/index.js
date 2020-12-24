@@ -9,6 +9,7 @@ import store from "./store/index.js";
 import Counter from "./components/counter/counter.component.js";
 import ConditionDemo from "./components/conditionDemo/conditionDemo.component";
 import { Firebase } from "./modules/firebase";
+import Login from "./components/login/login.component";
 //import {Loader} from "@googlemaps/js-api-loader";
 
 const router = new Router('.app');
@@ -32,4 +33,5 @@ router
     .use('/item/:index', Item)
     .use('/404', NotFound)
     .use('/demo', ConditionDemo)
+    .use('/login', Login)
     .start();
