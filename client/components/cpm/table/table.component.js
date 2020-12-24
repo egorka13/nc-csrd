@@ -72,7 +72,7 @@ export default class Table extends Component {
                 store.dispatch('clearCpmTicketsFilters');
             },
             async getCpmTickets() {
-                const url = 'https://nc-csrd.firebaseio.com/problems.json';
+                const url = 'https://nc-csrd.firebaseio.com/problems.json?auth=' + localStorage.getItem('idToken');
                 const response = await fetch(url);
                 const data = await response.json();
 

@@ -1,4 +1,6 @@
 import firebase from "firebase/app";
+import "firebase/auth"
+import store from "../../store"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmQWUlaXrqQWOwy2Q0_qRtWFJQhlCGOg0",
@@ -13,5 +15,17 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const Firebase = firebase;
+
+export const signIn = function(email, password){
+    firebase.auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(function(userCredential) {
+            console.log(userCredential.user.getIdToken())
+            userCredential.user.getIdToken().then(function(token) {
+                localStorage.setItem('idToken', token);
+                window.history.back();
+            });
+        })
+}
 
 
